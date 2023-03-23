@@ -1,0 +1,509 @@
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+		<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+		<script src="/webdesk/vcXMLRPC.js"></script>
+
+		<script src="js/plugins/jquery.form-validator.min.js"></script>
+		<script src="js/plugins/moment/moment.js"></script>
+		<script src="js/plugins/jquery.maskMoney.min.js"></script>
+	</head>
+	<body>
+		<div class="fluig-style-guide">
+			<form name="form" role="form" class="col-lg-12">
+
+				<input type="radio" class="" name="sindico_aprova" id="sindico_aprova" style="display:none">
+				<input type="hidden" class="form-control" name="id_finalidade" id="id_finalidade">
+				<input type="hidden" class="form-control" name="descricao_finalidade" id="descricao_finalidade">
+				<input type="hidden" class="form-control" name="codusuario_rm" id="codusuario_rm">
+				<input type="hidden" class="form-control" name="codusuario_solicitante" id="codusuario_solicitante">
+				<input type="hidden" class="form-control" name="codcoligada" id="codcoligada">
+				<input type="hidden" class="form-control" name="numeromov" id="numeromov">
+				<input type="hidden" class="form-control" name="idmov" id="idmov">
+				<input type="hidden" class="form-control" name="favorecidoGestorUnidade" id="favorecidoGestorUnidade">
+				<input type="hidden" class="form-control" name="favorecidoGestorPortfolio" id="favorecidoGestorPortfolio">
+				<input type="hidden" class="form-control" name="favorecidoGestorDiretor" id="favorecidoGestorDiretor">
+				<input type="hidden" class="form-control" name="favorecidoGestorPresidente" id="favorecidoGestorPresidente">
+				<input type="hidden" class="form-control" name="codusuario_favorecido" id="codusuario_favorecido">
+				<input type="hidden" class="form-control" name="login_favorecido" id="login_favorecido">
+				<input type="hidden" class="form-control" name="login_solicitante" id="login_solicitante">
+				<input type="hidden" class="form-control" name="email_favorecido" id="email_favorecido">
+				<input type="hidden" class="form-control" name="codcfo_favorecido" id="codcfo_favorecido">
+				<input type="hidden" class="form-control" name="cgcfo_favorecido" id="cgcfo_favorecido">
+				<input type="hidden" class="form-control" name="restrito_favorecido" id="restrito_favorecido">
+				<!-- <input type="hidden" class="form-control" name="empresa_nome" id="empresa_nome"> -->
+				<!--<input type="hidden" class="form-control" name="nome_favorecido" id="nome_favorecido">
+				<input type="hidden" class="form-control" name="unidade_nome" id="unidade_nome">
+				<input type="hidden" class="form-control" name="ccusto_nome" id="ccusto_nome">-->
+				<textarea id="empresa_json" name="empresa_json" class="form-control fs-display-none"></textarea>
+				<textarea id="unidade_json" name="unidade_json" class="form-control fs-display-none"></textarea>
+				<textarea id="ccusto_json" name="ccusto_json" class="form-control fs-display-none"></textarea>
+				<textarea id="favorecido_json" name="favorecido_json" class="form-control fs-display-none"></textarea>
+				<input type="hidden" class="form-control" name="notificarValidacaoDocumento" id="notificarValidacaoDocumento">
+				<input type="hidden" class="form-control" name="validacaoDocumentoMsg" id="validacaoDocumentoMsg">
+				
+				<!-- Campos utilizados para Alçada de Aprovação -->
+				<input type="hidden" class="form-control" name="nivelAprovador" id="nivelAprovador">
+				<input type="hidden" class="form-control" name="loginAprovador" id="loginAprovador">
+				<input type="hidden" class="form-control" name="ultNivelAprovador" id="ultNivelAprovador">
+				<!-- FIM - Campos utilizados para Alçada de Aprovação -->
+
+				<div id="header_solicitacao" class="row">
+					<div class="col-md-6">
+						<h1>
+							<strong style="color: #7E3A7F">
+								<span class="fluigicon fluigicon-money-circle fluigicon-lg"></span> Prestação de Contas </strong>
+						</h1>
+					</div>
+					<div class="col-md-6 fs-margin-top">
+
+						<div id="DivImprimirRelatorio" class="pull-right" style="display: none;">
+							<button data-btn-imprimir id="btnImprimir" type="button" class="btn btn-primary" onclick="GerarRelatorioRM()">
+								<i class="fluigicon fluigicon-print icon-sm"></i>
+								Imprimir Relatório</button>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="panel panel-primary">
+					<div class="panel-heading fs-text-lg"><i class="fluigicon fluigicon-user-card icon-sm"></i> Identificação</div>
+					<div class="panel-body">
+						<div class="col-md-12 ">
+							<div class="row">
+
+								<div class="form-group col-sm-3 col-md-3 col-lg-2 fs-sm-space">
+									<label for="data_emissao">Emissão</label>
+									<input type="text" name="data_emissao" id="data_emissao" class="form-control" readonly placeholder="dd/mm/aaaa">
+								</div>
+								<div class="form-group col-sm-3 col-md-3 col-lg-2 fs-sm-space">
+									<label for="periodo_inicial">Período Inicial</label>
+									<input type="date" name="periodo_inicial" id="periodo_inicial" class="form-control" data-validation="required" data-validation-error-msg-container="#"
+										placeholder="dd/mm/aaaa">
+								</div>
+								<div class="form-group col-sm-3 col-md-3 col-lg-2 fs-sm-space">
+									<label for="periodo_final">Período Final</label>
+									<input type="date" name="periodo_final" id="periodo_final" class="form-control" data-validation="required" data-validation-error-msg-container="#"
+										placeholder="dd/mm/aaaa">
+								</div>
+
+
+								<div class="form-group col-sm-3 col-md-3 col-lg-2 fs-sm-space">
+									<label for="solicitante">Solicitante</label>
+									<input type="text" name="solicitante" id="solicitante" class="form-control" readonly placeholder="Nome Solicitante">
+								</div>
+								<div class="form-group col-sm-6 col-md-6 col-lg-2 fs-sm-space">
+									<label for="recurso">Recurso
+
+									</label>
+
+									<select data-recurso id="recurso" name="recurso" class="form-control" data-validation="required" data-validation-error-msg="Informe tipo do recurso.">
+										<option disabled selected value>Selecione</option>
+										<option value="recurso_proprio">Próprio</option>
+										<option value="recurso_cartao_corporativo">Cartão Corporativo</option>
+									</select>
+
+								</div>
+								<div class="form-group col-sm-6 col-md-6 col-lg-2 fs-sm-space">
+									<label for="status_relatorio">Status do Relatório
+										<span class="fluigicon fluigicon-info-sign fluigicon-xs" data-toggle="tooltip" data-placement="top"
+											title="Optando pelo status ABERTO, a solicitação não será enviada para aprovação, permitindo que você continue lançando despesas posteriormente até mudar o status para FECHADO."></span>
+									</label>
+
+									<select data-recurso id="status_relatorio" name="status_relatorio" class="form-control" data-validation="required"
+											data-validation-error-msg="Informe o Status do Relatório.">
+										<option disabled selected value>Selecione</option>
+										<option value="aberto">Aberto</option>
+										<option value="fechado" selected="selected">Fechado</option>
+									</select>
+
+
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-3" data-field-empresa>
+									<label for="empresa_codigo">Empresa</label>
+									<!-- 
+									<select name="empresa_codigo" id="empresa_codigo" class="form-control" data-validation="required" data-validation-error-msg="É necessário informar a empresa.">
+										<option disabled selected value>Selecione</option>
+									</select>
+									 -->
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="empresa_codigo" style="text-align:center; font-size: 11px;" name="empresa_codigo" size="1" class="fs-no-style-input" placeholder=""
+												data-validation="required" data-validation-error-msg="É necessário informar a empresa." readonly>
+										</span>
+										<input type="text" class="form-control" name="empresa_nome" id="empresa_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											data-validation-error-msg="É necessário informar a empresa." data-validation-error-msg-container="#" />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acEmpresa">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-4" data-field-unidade>
+									<label for="unidade_codigo">Unidade</label>
+									<!--<select name="unidade_codigo" id="unidade_codigo" class="form-control" data-validation="required" data-validation-error-msg="É necessário informar a unidade.">
+										<option disabled selected value>Selecione</option>
+									</select>-->
+
+									<!-- 
+									<input type="hidden" class="form-control"  name="unidade_codigo" id="unidade_codigo" data-validation="required" data-validation-error-msg="É necessário informar a unidade." >
+						
+									<input class="form-control" onblur="validateZoomField(this)"  type="zoom" id="unidade_nome" name="unidade_nome" data-validation="required" data-validation-error-msg="É necessário informar a unidade." data-zoom="{
+	                                        'displayKey':'NOME',
+	                                        'datasetId':'rm_consulta_usuario_unidade',
+	                                        'maximumSelectionLength':'1',
+	                                        'placeholder':'Selecione a Unidade',
+	                                        'fields':[
+	                                            {
+	                                               'field':'COD_UNIDADE',
+	                                               'label':'Código',
+	                                               'standard':'true'
+	                                            },
+	                                            {
+	                                               'field':'NOME',
+	                                               'label':'Nome'
+	                                            }
+	                                        ]
+	                                     }" />
+ 									-->
+
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="unidade_codigo" style="text-align:center; font-size: 11px;" name="unidade_codigo" size="4" class="fs-no-style-input" placeholder=""
+												data-validation="required" data-validation-error-msg="É necessário informar a unidade." data-validation-error-msg-container="#" readonly>
+										</span>
+										<input type="text" class="form-control" name="unidade_nome" id="unidade_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											data-validation-error-msg="É necessário informar a unidade." />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acUnidade">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-5" data-field-ccusto>
+									<label for="ccusto_codigo">Centro de Custo</label>
+									<!--<select name="ccusto_codigo" id="ccusto_codigo" class="form-control" data-validation="required" data-validation-error-msg="É necessário informar o centro de custo.">
+										<option disabled selected value>Selecione</option>
+									</select>-->
+									<!-- 
+									<input type="hidden" class="form-control" name="ccusto_codigo" id="ccusto_codigo" data-validation="required" data-validation-error-msg="É necessário informar o centro de custo.">
+									<input class="form-control" onblur="validateZoomField(this)"  type="zoom" id="ccusto_nome" name="ccusto_nome" data-validation="required" data-validation-error-msg="É necessário informar o centro de custo." data-zoom="{
+								                                        'displayKey':'NOME_CCUSTO',
+								                                        'datasetId':'rm_consulta_centro_custo_usuario',
+								                                        'maximumSelectionLength':'1',
+								                                        'placeholder':'Selecione o Centro de Custo',
+								                                        'fields':[
+								                                            {
+								                                               'field':'CODCCUSTO',
+								                                               'label':'Código',
+								                                               'standard':'true'
+								                                            },
+								                                            {
+								                                               'field':'NOME_CCUSTO',
+								                                               'label':'Nome'
+								                                            }
+								                                        ]
+								                                     }" />
+									 -->
+									
+									
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="ccusto_codigo" style="text-align:center ; font-size: 11px;" name="ccusto_codigo" size="18" class="fs-no-style-input" placeholder=""
+												data-validation="required" data-validation-error-msg="É necessário informar o centro de custo." readonly>
+										</span>
+										<input type="text" class="form-control" name="ccusto_nome" id="ccusto_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											data-validation-error-msg="É necessário informar o centro de custo." data-validation-error-msg-container="#" />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acCentroCusto">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+
+								<div class="form-group col-md-5" data-field-favorecido>
+									<label for="favorecido_codigo">Favorecido</label>
+									<!--<select name="favorecido_codigo" id="favorecido_codigo" class="form-control" data-validation="required" data-validation-error-msg="É necessário informar o Favorecido.">
+										<option disabled selected value>Selecione</option>
+									</select>-->
+									<!-- 
+									<input type="hidden" class="form-control" name="favorecido_codigo" id="favorecido_codigo" data-validation="required" data-validation-error-msg="É necessário informar o Favorecido.">
+									<input class="form-control" type="zoom" id="favorecido_nome" name="favorecido_nome" onblur="validateZoomField(this)"   data-validation="required" data-validation-error-msg="É necessário informar o Favorecido." data-zoom="{
+										'displayKey':'NOME',
+										'datasetId':'rm_consulta_favorecido',
+										'maximumSelectionLength':'1',
+										'placeholder':'Selecione o Favorecido',
+										'fields':[
+											{
+												'field':'CPF',
+												'label':'CPF',
+												'standard':'true'
+											},
+											{
+												'field':'NOME',
+												'label':'Nome'
+											}
+										]
+									}" />
+									 -->
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="favorecido_codigo" style="text-align:center ; font-size: 11px;" name="favorecido_codigo" size="18" class="fs-no-style-input" placeholder=""
+												data-validation="required" data-validation-error-msg="É necessário informar o favorecido." readonly>
+										</span>
+										<input type="text" class="form-control" name="favorecido_nome" id="favorecido_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											data-validation-error-msg="É necessário informar o favorecido." data-validation-error-msg-container="#" />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acFavorecido">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+
+								</div>
+
+								<div id="DivRecurso" class="form-group col-md-2">
+									<label for="digitos_cartao">Últimos 4 Digitos do Cartão</label>
+									<input type="text" size="4" name="digitos_cartao" id="digitos_cartao" class="form-control" data-validation="length" data-validation-length="4"
+										data-validation-error-msg="" data-validation-error-msg-container="#" placeholder="4 digitos finais do cartão">
+								</div>
+
+								<div class="form-group col-md-4">
+									<label for="finalidade">Finalidade</label>
+									<select data-finalidade data-validation="required" data-validation-error-msg="É necessário informar a finalidade." name="finalidade" id="finalidade"
+											class="form-control" dataset="rm_consulta_pcfinalidade" datasetkey="ID" datasetvalue="DESCRICAO" addBlankLine="true">
+										Selecione
+									</select>
+								</div>
+
+								<div class="form-group col-md-3">
+									<label for="valor_total_despesas">Total Despesas</label>
+									<input type="text" name="valor_total_despesas" id="valor_total_despesas" class="form-control" readonly>
+								</div>
+							</div>
+
+						</div>
+
+
+						<div class="col-md-12">
+
+							<div data-atributos-finalidade id="atributos_finalidade" class="row col-md-12">
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-primary fs-text-lg">
+					<div class="panel-heading fs-text-lg"><i class="fluigicon fluigicon-process-adhoc icon-sm"></i> Despesas</div>
+					<div class="panel-body">
+						<div class="col-md-12">
+							<button class="btn btn-default pull-right" onclick="addItem('tblItemDespesa')"><span style="display: inline"
+									class="fluigicon fluigicon-plus-circle fluigicon-sm fs-cursor-pointer"></span> Incluir Despesa</button>
+						</div>
+						<table tablename="tblItemDespesa" id="tblItemDespesa" nodeletebutton="true" noaddbutton="true" class="table table-condensed">
+							<thead>
+								<tr>
+									<th class="col-md-10 col-sm-12 col-xs-12"></th>
+									<th class="col-md-2 col-sm-12 col-xs-12"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div class="row fs-sm-margin">
+											<div class="col-md-3 fs-no-padding-left">
+												<div class="form-group col-md-2 fs-no-padding-left">
+													<label for="nome" class="fs-display-block">Seq</label>
+													<span class="text-info" style="font-size: 18px;">
+														<input type="text" class="fs-no-style-input" name="seq" id="seq" size="2" value="1"></span>
+												</div>
+
+												<div class="form-group col-md-10 fs-no-padding-left fs-no-padding-right">
+
+													<label for="data_despesa" class="fs-display-block">Data</label>
+
+													<input type="date" name="data_despesa" id="data_despesa" class="form-control " data-validation="required" data-validation-error-msg-container="#"></div>
+											</div>
+
+
+											<div class="form-group col-md-3 fs-no-padding-left">
+												<label for="tipo_despesa">Tipo Despesa</label>
+												<select data-despesa class="form-control" data-validation="required" data-validation-error-msg-container="#" name="tipo_despesa" id="tipo_despesa">
+													<option></option>
+												</select>
+
+											</div>
+
+											<div class="form-group col-md-2 fs-no-padding-left">
+												<label for="quantidade">Quantidade</label>
+												<input type="text" data-mask-value data-despesa-quantidade name="quantidade" id="quantidade" data-validation="required"
+													data-validation-error-msg-container="#" class="form-control" placeholder="0,00">
+											</div>
+											<div class="form-group col-md-2 fs-no-padding-left">
+												<label for="valor_unitario">Valor Unitário</label>
+												<input type="text" data-mask-money data-despesa-valor-unitario name="valor_unitario" id="valor_unitario" data-validation="required"
+													data-validation-error-msg-container="#" class="form-control" placeholder="R$ 0,00">
+											</div>
+											<div class="form-group col-md-2 fs-no-padding-left">
+												<label for="valor_despesa">Valor Despesa</label>
+												<input type="text" data-mask-money data-valorDespesaItem name="valor_despesa" id="valor_despesa" class="form-control" placeholder="R$ 0,00" readonly>
+											</div>
+											<div data-atributos id="atributos" class="row col-md-12">
+											</div>
+
+											<input type="hidden" class="form-control" name="despesa_uid" id="despesa_uid">
+											<input type="hidden" class="form-control" name="despesa_id" id="despesa_id">
+											<input type="hidden" class="form-control" name="despesa_codigo" id="despesa_codigo">
+											<input type="hidden" class="form-control" name="despesa_codigoprd" id="despesa_codigoprd">
+											<input type="hidden" class="form-control" name="despesa_descricao" id="despesa_descricao">
+											<input type="hidden" class="form-control" name="despesa_controle" id="despesa_controle">
+											<input type="hidden" class="form-control" name="despesa_WkSindico" id="despesa_WkSindico">
+											<input type="hidden" class="form-control" name="despesa_statusAprov" id="despesa_statusAprov">
+											<input type="hidden" class="form-control" name="despesa_idprd" id="despesa_idprd">
+											<input type="hidden" class="form-control" name="despesa_codund" id="despesa_codund">
+											<input type="hidden" class="form-control" name="despesa_codtborcamento" id="despesa_codtborcamento">
+											<input type="hidden" class="form-control" name="despesa_informadoc" id="despesa_informadoc">
+										</div>
+										<div class="row fs-sm-margin" data-divDocumento style="display:none">
+											<div class="form-group col-md-3 fs-no-padding-left">
+												<label for="doc_numero">Documento/Recibo</label>
+												<input type="number" class="form-control" data-validation="required" data-validation-error-msg="Informe o Número do Documento" name="doc_numero"
+													id="doc_numero" placeholder="0000000">
+											</div>
+											<div class="form-group col-md-3 fs-no-padding-left">
+												<label for="doc_cnpj">CNPJ</label>
+												<input type="text" mask="00.000.000/0000-00" data-validation="cnpj" data-validation-error-msg="Informe um CNPJ Válido." class="form-control" name="doc_cnpj"
+													id="doc_cnpj" placeholder="00.000.000-0000/00">
+											</div>
+										</div>
+
+									</td>
+									<td style="padding:28px">
+
+										<button type="button" class="btn btn-primary" id="btnAnexarItem" data-btn-anexar-item onclick="anexarComprovanteDespesa(this);" data-toggle="tooltip"
+												data-placement="bottom" title="Anexar">
+											<span style="display: inline" class="fluigicon fluigicon-paperclip fluigicon-sm fs-cursor-pointer"></span>
+										</button>
+										<button type="button" class="btn btn-danger" id="btnRemoveItem" data-btn-remove-item onclick="removeDespesa(this)" data-toggle="tooltip" data-placement="bottom"
+												title="Excluir">
+											<span style="display: inline" class="fluigicon fluigicon-trash fluigicon-sm fs-cursor-pointer"></span>
+										</button>
+										<button type="button" class="btn btn-primary" id="btnAddItem" data-btn-add-item onclick="addItem('tblItemDespesa')" data-toggle="tooltip" data-placement="bottom"
+												title="Incluir">
+											<span style="display: inline" class="fluigicon fluigicon-plus-circle fluigicon-sm fs-cursor-pointer"></span>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<table tablename="tblAtribItemDespesa" id="tblAtribItemDespesa" nodeletebutton="true" noaddbutton="true" class="table table-condensed" style="display:none;">
+							<thead>
+								<tr>
+									<th>despesa_uid_atrib</th>
+									<th>id_atributo</th>
+									<th>sequencia</th>
+									<th>atributo</th>
+									<th>tipo</th>
+									<th>tamanho</th>
+									<th>valor</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" class="form-control" name="despesa_uid_atrib" id="despesa_uid_atrib"></td>
+									<td><input type="text" class="form-control" name="id_atributoItemDespesa" id="id_atributoItemDespesa"></td>
+									<td><input type="text" class="form-control" name="seqAttr_atributoItemDespesa" id="seQAtributo_atributoItemDespesa"></td>
+									<td><input type="text" class="form-control" name="descricao_atributoItemDespesa" id="descricao_atributoItemDespesa"></td>
+									<td><input type="text" class="form-control" name="tipo_AtributoItemDespesa" id="tipo_AtributoItemDespesa"></td>
+									<td><input type="text" class="form-control" name="tamanho_AtributoItemDespesa" id="tamanho_AtributoItemDespesa"></td>
+									<td><input type="text" class="form-control" name="valor_AtributoItemDespesa" id="valor_AtributoItemDespesa"></td>
+								</tr>
+							</tbody>
+						</table>
+						<table tablename="tblAtribFinalidade" id="tblAtribFinalidade" nodeletebutton="true" noaddbutton="true" class="table table-condensed" style="display:none;">
+							<thead>
+								<tr>
+									<th>id</th>
+									<th>descricao</th>
+									<th>finalidade</th>
+									<th>id_atributo</th>
+									<th>id_finalidade</th>
+									<th>sequencia</th>
+									<th>tamanho</th>
+									<th>tipo_dato</th>
+									<th>valor</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" class="form-control" name="id_tblAtribFinalidade" id="id_tblAtribFinalidade"></td>
+									<td><input type="text" class="form-control" name="descricao_tblAtribFinalidade" id="descricao_tblAtribFinalidade"></td>
+									<td><input type="text" class="form-control" name="finalidade_tblAtribFinalidade" id="finalidade_tblAtribFinalidade"></td>
+									<td><input type="text" class="form-control" name="id_atributo_tblAtribFinalidade" id="id_atributo_tblAtribFinalidade"></td>
+									<td><input type="text" class="form-control" name="id_finalidade_tblAtribFin" id="id_finalidade_tblAtribFinalidade"></td>
+									<td><input type="text" class="form-control" name="sequencia_tblAtribFinalidade" id="sequencia_tblAtribFinalidade"></td>
+									<td><input type="text" class="form-control" name="tamanho_tblAtribFinalidade" id="tamanho_tblAtribFinalidade"></td>
+									<td><input type="text" class="form-control" name="tipo_dado_tblAtribFinalidade" id="tipo_dado_tblAtribFinalidade"></td>
+									<td><input type="text" class="form-control" name="valor_tblAtribFinalidade" id="valor_tblAtribFinalidade"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="panel panel-primary" id="divPainelParecer" style="display:none;">
+					<div class="panel-heading fs-text-lg"><i class="fluigicon fluigicon-community-edit icon-sm"></i> Parecer Aprovador</div>
+
+					<div class="panel-body">
+						<div id="divParecerAprovador" class="col-md-6" style="display:none;">
+
+
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label></label>
+									<textarea name="justificativa_aprovador" id="justificativa_aprovador" rows="5" class="form-control"
+											placeholder="Justifique o parecer sobre a aprovação da prestação de contas. Obrigatório em caso de reprovação."></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div id="divParecerContabil" class="col-md-6" style="display:none;">
+							<h3><strong>Parecer Contábil</strong></h3>
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label></label>
+									<textarea name="justificativa_contabil" id="justificativa_contabil" rows="5" class="form-control"
+											placeholder="Justifique o parecer sobre a aprovação da prestação de contas. Obrigatório em caso de reprovação."></textarea>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div id="divErroIntegracao" style="display:none;">
+					<h1>Erro de Integração <small>Verifique a inconsistência informada e se necessário edite o XML para nova tentativa de integração.</small></h1>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label for="integracao_xml">XML Integração</label>
+							<textarea class="form-control" id="integracao_xml" rows="15" name="integracao_xml"></textarea>
+						</div>
+					</div>
+				</div>
+				<textarea class="form-control col-md-12 fs-display-none" name="logForm" id="logForm" rows="10"></textarea>
+			</form>
+		</div>
+	</body>
+		<script type="text/javascript" src="relatorioRM.js"></script>
+		<script type="text/javascript" src="inicializadores.js"></script>
+		<script type="text/javascript" src="autocomplete.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="beforeSendValidate.js"></script>
+</html>

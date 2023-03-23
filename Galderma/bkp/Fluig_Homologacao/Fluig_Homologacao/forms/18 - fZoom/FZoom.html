@@ -1,0 +1,50 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script> 
+</head>
+<body>
+<div class="fluig-style-guide">
+	<form name="form" role="form">
+	
+	<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+    </div>
+	    <div class="panel-body">
+	        <input
+			    type="zoom"
+			    id = "codFor"
+			    name="codFor"
+			    data-zoom="{
+			        'displayKey':'Nome',
+			        'datasetId':'dsConsFornece',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Escolha o Fornecedor',
+			        'fields':[
+			            {
+			               'field':'Codigo',
+			               'label':'Codigo'
+			            },{
+			              'field':'Nome',
+			              'label':'Nome',
+			              'standard':'true'
+			            }
+			        ]
+			     }"
+			 />
+			<div class="form-group col-md-4">
+				<label for="nome">Nome</label>
+				<input type="text" name="nome" id="nome" class="form-control">
+			</div>
+	    </div>
+</div>
+	</form>
+<script type="text/javascript" src="itemZoom.js"</script> 
+</div>
+</body>
+</html>

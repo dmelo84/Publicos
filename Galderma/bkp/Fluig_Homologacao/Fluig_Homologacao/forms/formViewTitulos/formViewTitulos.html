@@ -1,0 +1,43 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+	    	<h3 class="panel-title">Panel title</h3>
+	    </div>
+	<div class="panel panel-default">
+		<input
+		    type="zoom"
+		    id = "nome"
+		    name="nome"
+		    data-zoom="{
+		        'displayKey':'Nome',
+		        'datasetId':'dsConsFornece',
+		        'maximumSelectionLength':'1',
+		        'placeholder':'Escolha o Fornecedor',
+		        'fields':[
+		            {
+		               'field':'Nome',
+		               'label':'Nome'
+		            },{
+		              'field':'Codigo',
+		              'label':'Codigo',
+		              'standard':'true'
+		            }
+		        ]
+		     }"
+		 />	
+	</div>
+</div>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+#INCLUDE "APWEBSRV.CH"
+#INCLUDE "PROTHEUS.CH"
+
+#DEFINE STR0001 "Integração do Fluig-Protheus do cadastro de SS da empresa Alliar"
+
+//--------------------------------------------------------------------
+/*/{Protheus.doc} WSNGALLIAR
+WebService de integração do Fluig com Protheus para a Alliar
+
+@author Larissa Thaís de Farias
+@since 24/11/2015
+@version 1.0 
+/*/
+//--------------------------------------------------------------------
+WsService WSMNTALLIAR Description STR0001 NameSpace "http://localhost/ws/WSMNTALLIAR.apw"
+
+	WsData   cMensagem   As String
+	WsData   cEquipment  As String
+	WsData   cRequester  As String
+	WsData   cService    As String
+	WsData   cExtension  As String
+	WsData   cIdFluig    As String
+	WsData   cBranch     As String
+	WsData   cCompany    As String
+	
+	WsMethod ServiceRequest  Description "Inclusão de nova Solicitação de Serviço"
+	
+EndWsService
+
+//--------------------------------------------------------------------
+/*/{Protheus.doc} ServiceRequest
+Inclusão de nova Solicitação de Serviço
+
+@author Larissa Thaís de Farias
+@since 24/11/2015
+@return cJson
+/*/
+//--------------------------------------------------------------------
+WsMethod ServiceRequest WsReceive cCompany, cBranch, cEquipment, cRequester, cService, cExtension, cIdFluig WsSend cMensagem WsService WSMNTALLIAR
+	
+	Local aUser	 := {}
+	
+	RpcClearEnv()
+	RPCSetType(3) //Nao utiliza licensa
+
+	//Abre empresa/filial/modulo/arquivos
+	RPCSetEnv(cCompany,cBranch,"","","MNT","")
+	
+	dbSelectArea("ST9")
+	dbSetOrder(1)
+	if MsSeek( xFilial("ST9", cBranch) + Upper(PADR(cEquipment, 16)) )
+	
+		lMSErroAuto := .F. // Caso a variavel torne-se .T. apos MsExecAuto, apresenta erro em tela
+		
+		MNT280CPO(1,3)     // Inicializa a280Choice e variaveis dos campos da tela (3-incluir) 
+		
+		aRotSetOpc("TQB",,3)
+		
+		aUser := getCodFunc(cRequester)
+		cRequester := aUser[1]
+		::cMensagem := cRequester 
+		
+		aSolic := { {"TQB_CODBEM", Upper( cEquipment ), Nil},;    //Código do bem
+					{"TQB_CDSOLI", Upper( cRequester ), NIL},;    //Codigo do Solicitante
+					{"TQB_USUARI", aUser[2]           , Nil},;    //Usuário
+					{"TQB_DESCSS", cService           , Nil},;    //Servico a ser executado
+					{"TQB_RAMAL" , Upper( cExtension ), Nil},;    //Ramal
+					{"TQB_ORIGEM", "ServiceRequest"   , Nil},;    //Origem
+					{"TQB_XIDFLG", cIdFluig           , Nil};
+				  };
+		
+		MSExecAuto( { |x| MNTA280( ,,x ) },aSolic,3 )    // Inclusão
+		
+		If lMsErroAuto
+			::cMensagem := AllTrim(Mostraerro())
+		else
+			
+			if !empty(TQB->TQB_SOLICI)
+				::cMensagem := TQB->TQB_SOLICI
+			else
+				::cMensagem := "Problema ao retornar número da SS."
+			endif
+			
+		endif
+	
+	else
+		::cMensagem := "Bem inválido."
+	endif
+	
+Return .T.
+
+Static Function getCodFunc( cEmail )
+	
+	Local cCode := ""
+	Local cName := ""
+	
+	//Fábio Consentino 06/01/17 - Troca da função AllUsers para um PswSeek por email para ganho de performace
+	PswOrder(4)
+  	If PswSeek(cEmail,.T.)
+     	cCode := PswID()
+     	cName := UsrRetName(cCode)
+  	EndIf
+	
+Return {cCode,cName}

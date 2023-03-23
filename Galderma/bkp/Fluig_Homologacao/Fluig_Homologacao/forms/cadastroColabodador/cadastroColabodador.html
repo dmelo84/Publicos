@@ -1,0 +1,331 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script> 
+</head>
+<body>
+<div class="fluig-style-guide">
+	<form name="form" role="form">
+		<ul class="nav nav-pills clearfix">
+		    <li class="active"><a href="#">Home</a></li>
+		    <li><a href="#">Profile</a></li>
+		    <li><a href="#">Messages</a></li>
+		</ul>
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	    <h3 class="panel-title">Cadastro Colaborador</h3>
+	</div>
+	    <div class="panel-body">
+	    	<div class="row">
+	    		<div class="form-group col-md-2">
+					<button type="button" id='preview' class="btn btn-primary">Pré-Visualizar Formulário</button>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="form-group col-md-6">
+					<label for="nome">Nome Completo</label>
+					<input type="text" name="nome" id="nome" class="form-control">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="emailNome">Nome Profissional</label>
+					<input type="email" name="emailNome" id="emailNome" class="form-control" placeholder="Nome e um sobrenome para criação do email.">
+				</div>
+			</div>
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="cep">Cep</label>
+						<input type="text" name="cep" id="cep" class="form-control" placeholder="00000000">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="endereco">Endereço</label>
+						<input type="text" name="endereco" id="endereco" class="form-control" pleceholder="">
+					</div>
+					<div class="form-group col-md-1">
+						<label for="numero">Número</label>
+						<input type="text" name="numero" id="numero" class="form-control" pleceholder="">
+					</div>
+				</div>
+				<!-- Separador -->
+				<div class="row">
+					<div class="form-group col-md-3">
+						<label for="bairro">Bairro</label>
+						<input type="text" name="bairro" id="bairro" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="municipio">Municipio</label>
+						<input type="text" name="municipio" id="municipio" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="estado">Estado</label>
+						<input type="text" name="estado" id="estado" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="complemento">Complemento</label>
+						<input type="text" name="complemento" id="complemento" class="form-control" placeholder="">
+					</div>
+				</div>
+				<!-- Separador -->
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="telResidencial">Telefone Residencial</label>
+						<input type="text" name="telResidencial" id="telResidencial" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-2">
+						<label for="celular">Celular</label>
+						<input type="text" name="celular" id="celular" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="emailPessoal">Email Pessoal</label>
+						<input type="text" name="emailPessoal" id="emailPessoal" class="form-control" placeholder="">
+					</div>
+				</div>
+				<!-- Separador -->
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="cpf">CPF</label>
+						<input type="text" name="cpf" id="cpf" class="form-control" placeholder="" required>
+					</div>
+					<div class="form-group col-md-2">
+						<label for="rg">RG/RNE</label>
+						<input type="text" name="rg" id="rg" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-2">
+						<label for="pis">PIS</label>
+						<input type="text" name="pis" id="pis" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-2">
+						<label for="tituloEleitor">Titulo de Eleitor</label>
+						<input type="text" name="tituloEleitor" id="tituloEleitor" class="form-control" placeholder="">
+					</div>
+				</div>
+				<!-- Separador -->
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="ctps">CTPS</label>
+						<input type="text" name="ctps" id="ctps" class="form-control" placeholder="Número de série">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="cnh">Carteira de Habilitação - CNH </label>
+						<input type="text" name="cnh" id="cnh" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="grauEnsino">Grau de Instrução</label>
+						<br>
+						<select name="grauEnsino" id="grauEnsino" dataset="grauEnsino" datasetkey="idGrauEnsino" datasetvalue="descricao" addBlankLine="true"></select>
+					</div>
+				</div>
+				<!-- Separador -->
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="banco">Banco</label>
+						<input type="text" name="banco" id="banco" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-2">
+						<label for="agencia">Agência</label>
+						<input type="text" name="agencia" id="agencia" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-2">
+						<label for="conta">Conta</label>
+						<input type="text" name="conta" id="conta" class="form-control" placeholder="">
+					</div>
+				</div>
+				<!-- Separador -->
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="cargo">Cargo</label>
+						<input type="text" name="cargo" id="cargo" class="form-control" placeholder="">
+					</div>
+					<!-- Separador -->
+					<div class="form-group col-md-2">
+						<label for="ddate">Data de Alteração</label>
+						<input type="date" name="ddate" id="ddate" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="ccusto">Departamento/Centro de Custo</label>
+						<input type="text" name="ccusto" id="ccusto" class="form-control" placeholder="">
+					</div>
+				</div>
+				<!-- Separador -->
+				<div class="row">
+					<div class="form-group col-md-2">
+						<label for="gestoRh">Gestor do ponto</label>
+						<input type="text" name="gestoRh" id="gestoRh" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-2">
+						<label for="supervisor">Supervisor(Mananger)</label>
+						<input type="text" name="supervisor" id="supervisor" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="clocal">Local</label>
+						<input type="text" name="clocal" id="clocal" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-3">
+						<label for="hora">Horário</label>
+						<input type="text" name="hora" id="hora" class="form-control" placeholder="">
+					</div>
+				</div>
+				<div class="row">
+				    <div class="col-md-4">
+				        <div class="card">
+				            <div class="card-body">
+				                <h5 class="card-title">Modelo de Contratação</h5>
+				               <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+				                <div class="custom-checkbox custom-checkbox-primary">
+						    		<input type="checkbox" id="chk1" name="clt">
+						    		<label for="chk1">CLT Galderma</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+						    		<input type="checkbox" id="chk2" name="terceiro">
+						    		<label for="chk2">Terceiro</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+						    		<input type="checkbox" id="chk3" name="prestServ">
+						    		<label for="chk3">Prestador de Serviços</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+						    		<input type="checkbox" id="chk4" name="temporario">
+						    		<label for="chk4">Temporário</label>
+								</div>
+				            </div>
+				        </div>
+				    </div>
+				    <!-- Separador -->
+				    <div class="col-md-4">
+				        <div class="card">
+				            <div class="card-body">
+				            <h5 class="card-title">Justificativa</h5>
+				                <div class="custom-checkbox custom-checkbox-primary">
+						    		<input type="checkbox" id="chk5" name="altCargo">
+						    		<label for="chk5">Alteração de Cargo</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+						    		<input type="checkbox" id="chk6" name="tranfArea">
+						    		<label for="chk6">Transferência de área</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+						    		<input type="checkbox" id="chk7" name="AumentoQuadro">
+						    		<label for="chk7">Aumento de Quadro</label>
+								</div>
+								<div class="custom-checkbox custom-checkbox-primary">
+						    		<input type="checkbox" id="chk8" name="efetivacao">
+						    		<label for="chk8">Efetivação</label>
+								</div>
+				            </div>
+				        </div>
+    				</div>
+				</div>
+			</div>
+			<!-- Painel Ti -->
+			<div class="panel panel-primary">
+			    <div class="panel-heading">
+			        <h3 class="panel-title">Acesso T.I</h3>
+			    </div>
+			    <div class="panel-body">
+			        <div class="row">
+					    <div class="col-md-3">
+					        <div class="card">
+					            <div class="card-body">
+					                <h5 class="card-title">Acesso Protheus</h5>
+					                <div class="custom-radio custom-radio-primary">
+										<input type="radio" name="acessProtheus" value="sim" id="radio1">
+										<label for="radio1">Sim</label>
+									</div>
+									<br>
+									<div class="custom-radio custom-radio-primary">
+										<input type="radio" name="acessProtheus" value="nao" id="radio2">
+										<label for="radio2">Não</label>
+									</div>
+					            </div>
+					        </div>
+					    </div>
+					    <div class="col-md-3">
+					        <div class="card">
+					            <div class="card-body">
+					                <h5 class="card-title">Pastas da Rede</h5>
+					                <div class="custom-checkbox custom-checkbox-primary">
+							    		<input type="checkbox" id="chk9" name="pastaRede">
+							    		<label for="chk9">Sim</label>
+									</div>
+									<br>
+									<br>
+									<br>
+					                <h5 class="card-title">Grupo de Email</h5>
+									<div class="custom-checkbox custom-checkbox-primary">
+							    		<input type="checkbox" id="chk10" name="grupoEmail">
+							    		<label for="chk10">Sim</label>
+									</div>
+									<br>
+					            </div>
+					        </div>
+					    </div>
+					    <div class="col-md-6">
+					        <div class="card">
+					            <div class="card-body">
+					            <!-- <h5 class="card-title">Outros acessos</h5> -->
+					            	<div class="form-group col-md-8">
+										<label for="acessoRede">Mesmo acesso de:</label>
+										<input type="text" name="acessoRede" id="acessoRede" class="form-control" placeholder="">
+									</div>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<div class="form-group col-md-8">
+										<label for="acessoEmail">Mesmo acesso de:</label>
+										<input type="text" name="acessoEmail" id="acessoEmail" class="form-control" placeholder="">
+									</div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+			    </div>
+			</div>	
+			<!-- Painel Outros -->
+			<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Informações Adicionais</h3>
+			</div>
+			    <div class="panel-body">
+	        		<div class="form-group col-md-4">
+						<label for="tpSangue">Tipo Sanguíneo</label>
+						<input type="text" name="tpSangue" id="tpSangue" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="remDoAlergia">Remédio, Doeças ou Alergias</label>
+						<input type="text" name="remDoAlergia" id="remDoAlergia" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="medico">Médico de Confiança</label>
+						<input type="text" name="medico" id="medico" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="telMedico">Telefone</label>
+						<input type="text" name="telMedico" id="telMedico" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="contEmergencia">Contato de Emergência</label>
+						<input type="text" name="contEmergencia" id="contEmergencia" class="form-control" placeholder="">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="telContEme">Telefone</label>
+						<input type="text" name="telContEme" id="telContEme" class="form-control" placeholder="">
+					</div>
+	    		</div>
+			</div>
+			<!-- Painel Outros -->
+	</div>		
+</div>				
+</div>
+</form>
+<!-- Carregar scripts -->
+<script type="text/javascript" src=cep.js </script>
+<!--  -->
+</div>
+</body>
+</html>

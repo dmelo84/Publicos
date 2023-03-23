@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css"	href="/portal/resources/style-guide/css/fluig-style-guide.min.css">
+<link rel="stylesheet" type="text/css"	href="/portal/resources/style-guide/css/fluig-style-guide-filter.min.css">
+<script src="/portal/resources/js/jquery/jquery.js"></script>
+<script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+<script src="/portal/resources/js/mustache/mustache-min.js"></script>
+<script src="/portal/resources/style-guide/js/fluig-style-guide.min.js"></script>
+<script	src="/portal/resources/style-guide/js/fluig-style-guide-filter.min.js"></script>
+<title>Requisição de Compras</title>
+</head>
+<body class="fluig-style-guide background">
+	<div class="page-header">
+		<h1>
+			<small>Requisição</small>
+		</h1>
+	</div>
+<form method="post">
+
+<!-- Collapse -->
+<div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion-variant-colors" href="#collapseOne-variant">
+                Requisição
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne-variant" class="panel-collapse collapse in">
+            <div class="panel-body">
+<!-- Collapse 1 -->
+<div class="panel panel-primary">
+	<div class="panel-heading">
+	    <h3 class="panel-title">Requisição</h3>
+	</div>
+	    <div class="panel-body">
+	    	<div class="row">
+				<div class="form-group col-md-3">
+					<label for="unidadeRequisitante">Unidade Requisitante</label>
+					<br>
+					<select name="unidadeRequisitante" id="unidadeRequisitante" dataset="unidadeRequisitante" datasetkey="unidadeRequisitante" datasetvalue="unidadeRequisitante" addBlankLine="true">
+					</select>
+				</div>
+				<label for="unidade">Unidade</label>
+				<br>
+				<select class="form-group" aria-owns="Default" name='entidade'>
+				  <option selected>GB-Galderma Brasil</option>
+				  <option value="2">GBD-Galderma Brasil Distribuidora</option>
+				</select>
+			</div>
+			<br>
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label for="nome">Nome</label>
+					<input type="text" name="nome" id="nome" class="form-control">
+				</div>
+				<div class="form-group col-md-3">
+					<label for="email">Email</label>
+					<input type="email" name="email" id="email" class="form-control">
+				</div>
+				<div class="form-group col-md-2">
+					<label for="email">Budget</label>
+					<input type="text" name="budget" id="budget" class="form-control" mask="#00.000.000.000.000,00">
+				</div>
+				<!-- -->
+				<div class="col-md-3">
+		        <div class="card">
+		            <div class="card-body">
+		                <h5 class="card-title">Tipos de Solicitação</h5>
+		                <div class="custom-checkbox custom-checkbox-primary">
+				    		<input type="checkbox" id="chk1" name="servicos">
+				    		<label for="chk1">Serviços</label>
+						</div>
+						<div class="custom-checkbox custom-checkbox-primary">
+				    		<input type="checkbox" id="chk2" name="materiais">
+				    		<label for="chk2">Materiais</label>
+						</div>
+						<div class="custom-checkbox custom-checkbox-primary">
+				    		<input type="checkbox" id="chk3" name="contratos">
+				    		<label for="chk3">Renovação de contrato</label>
+						</div>
+						<!-- Zoom -->
+						<div id=consultaFornecedor >
+							<input
+						    type="zoom"
+						    id = "dsForncecedor"
+						    name="dsForncecedor"
+						    data-zoom="{
+						        'displayKey':'Nome',
+						        'datasetId':'dsConsFornece',
+						        'maximumSelectionLength':'1',
+						        'placeholder':'Escolha o Fornecedor',
+						        'fields':[
+						            {
+						               'field':'Codigo',
+						               'label':'Codigo'
+						            },{
+						              'field':'Loja',
+						              'label':'Loja'						              
+						            },{
+						              'field':'Nome',
+						              'label':'Nome',
+						              'standard':'true'
+						            }
+						        ]
+						     }"
+						/>
+						</div>
+						<!-- -->
+		            </div>
+		        </div>
+		    	</div>
+				<!-- -->
+			</div>
+			<div class="row">
+				<div class="form-group col-md-4">
+					<label for="objContratacao">Objetivo da Contratação</label>
+					<textarea id="objContratacao" name="objContratacao" rows="4" cols="50">
+	 				</textarea>
+	 		    </div>
+	 		    <div class="form-group col-md-4">
+					<label for="espTecnica">Especificação Técnica</label>
+					<textarea id="espTecnica" name="espTecnica" rows="4" cols="50">
+	 				</textarea>
+	 		    </div>
+				<div class="form-group col-md-4">
+					<label for="tpServico">Indicação de Fornecedores</label>
+					<textarea id="fornecedores" name="fornecedores" rows="4" cols="50">
+	 				</textarea>
+	 		    </div>
+			</div>
+			<div class="row">
+			<div class="col-md-3">
+				<div class="card">
+			       <div class="card-body">
+			       <h5 class="card-title">Envolve Consumidor final?</h5>
+					<select class="form-group" aria-owns="Default" name='envConsFinal'>
+					  <option selected>      </option>
+					  <option value="1">Sim</option>
+					  <option value="2">Não</option>
+					</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card">
+			       <div class="card-body">
+			       <h5 class="card-title">Aquisição por licitação?</h5>
+					<select class="form-group" aria-owns="Default" name='licitacao'>
+					  <option selected>      </option>
+					  <option value="1">Sim</option>
+					  <option value="2">Não</option>
+					</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card">
+			       <div class="card-body">
+			       <h5 class="card-title">Pesquisa de Mercado?</h5>
+				<select class="form-group" aria-owns="Default" name='pesqMercado'>
+				  <option selected>      </option>
+				  <option value="1">Sim</option>
+				  <option value="2">Não</option>
+				</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="card">
+			       <div class="card-body">
+			       <h5 class="card-title">Envolve sistema externo?</h5>
+				<select class="form-group" aria-owns="Default" name='envSisExt'>
+				  <option selected>      </option>
+				  <option value="1">Sim</option>
+				  <option value="2">Não</option>
+				</select>
+				   </div>
+				</div>
+			</div>
+			</div>
+				<!-- Daqui pra cima está dentro do panel -->	
+			</div>		
+</div>
+<!-- Fim -->
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="collapse-icon" data-toggle="collapse" data-parent="#accordion-variant-colors" href="#collapseTwo-variant">
+                Status
+                </a>
+            </h4>
+        </div>
+        <div id="collapseTwo-variant" class="panel-collapse collapse">
+            <div class="panel-body">
+    		<!-- Collapse 2 -->
+			 <div class="row">
+				    <div class="col-md-8">
+						<div class="form-group">
+						<label for="requisitante">Requisitante</label> <input type="hidden"
+							name="hdnrespativ1" id="hdnrespativ1" /> <input type="zoom"
+							name="txtrespativ1"
+							data-zoom="{
+										'displayKey':'colleagueName',
+										'datasetId':'colleague',
+										'filterValues':'active,true',
+										'fields':[
+											{'field':'colleagueId', 'label':'ID'},
+											{'field':'colleagueName', 'label':'Nome', 'standard':'true'},
+											{'field':'login', 'label':'Login'}]
+										}" />
+						</div>	    
+				    </div>
+				    
+			    	<div class="col-md-12">
+						<div class="form-field table-responsive" data-type="tabledetail"
+							data-show-properties="" data-field-name="tabledetail">
+							<table class="table" cellspacing="0" tablename="ingre"
+								noaddbutton=true>
+								<thead>
+									<tr class="tableHeadRow">
+										<th class="tableColumn">Atividade</th>
+										<th class="tableColumn">Status</th>
+										<th class="tableColumn">Data</th>
+										<th class="tableColumn">Responsável</th>
+										<th class="tableColumn">Observação</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="col-md-2 col-sm-2">
+											<div class="form-group">
+												<input type="text" name="atividade" id="atividade" class="form-control" maxlength="200" />
+											</div>
+										</td>
+										<td class="col-md-2 col-sm-2">
+											<div class="form-group">
+												<input type="text" name="statusPxF" id=statusPxF class="form-control" maxlength="200" />
+											</div>
+										</td>
+										<td class="col-md-2 col-sm-2">
+											<div class="form-group fs-cursor-pointer">
+												<div class="input-group date">
+													<input type="text" class="form-control uppercase"
+														onkeyup="this.value=this.value.replace([^0-9]g,'');"
+														name="dataPxF" id="dataPxF" maxlength="999"/>
+												</div>
+											</div>
+										</td>
+										<td class="col-md-2 col-sm-2">
+											<div class="form-group">
+											<!-- <input type="hidden" name="campoInvisivel" id="campoInvisivel" /> -->
+												<input
+												type="zoom" name="dsResposavel" 
+												data-zoom="{
+															'displayKey':'colleagueName',
+															'datasetId':'colleague',
+															'maximumSelectionLength':'1',
+															'filterValues':'active,true',
+															'fields':[
+																{'field':'colleagueId', 'label':'ID'},
+																{'field':'colleagueName', 'label':'Nome', 'standard':'true'},
+																{'field':'login', 'label':'Login'}]
+															}" />
+											</div>
+										</td>
+										<td>
+										<div class="col-md-3 col-sm-3">
+											<div class="form-group">
+												<textarea class="form-control" name="observacao" rows="2" cols="50"></textarea>
+											</div>
+										</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-default" name="inputAdicionar"
+								id="inputAdicionar" onclick="wdkAddChild('ingre')">Adicionar</button>
+						</div>
+			    	</div>
+			</div>
+    		<!-- Fim -->
+            </div>
+        </div>
+    </div>
+<!-- Fim -->
+</form>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        body {
+            font-family: Geneva, Verdana, sans-serif;
+            font-size: 12px;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        th {
+            border: thin solid #5e5b5b;
+            text-align: left;
+            background-color: #5e5b5b;
+            padding: 8px !important;
+            color: rgb(236, 235, 234);
+        }
+
+        td {
+            border: thin solid #5e5b5b;
+            padding: 8px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div align="left">
+        <img src="https://conecta.vivante.com.br/globalmailsender/mailSenderHeader?tenantId=1">
+    </div>
+
+    <h2>Prestação de Contas</h2>
+  
+        <p> ${MSGINICIAL!''}</p>
+
+    <table style="width:100%;" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <th>Favorecido</th>
+                <th>Finalidade</th>
+                <th>Total (R$)</th>
+
+            </tr>
+            <tr>
+                <td>
+                    <strong>${nome_favorecido!''}</strong>
+                </td>
+                <td >
+                    <strong>${descricao_finalidade!''}</strong>
+                </td>
+                <td style="text-align:center">
+                    <strong>${valor_total_despesas!''}</strong>
+                </td>
+
+            </tr>
+            <tr>
+                <th>Emissão</th>
+                <th>Período</th>
+                <th>Solicitante</th>
+
+            </tr>
+            <tr>
+                <td>${data_emissao!''}</td>
+                <td>${periodo_inicial!''} - ${periodo_final!''}</td>
+                <td>${solicitante!''}</td>
+
+            </tr>
+
+            <tr>
+                <th>Empresa</th>
+                <th>Unidade</th>
+                <th>C.Custo</th>
+
+            </tr>
+            <tr>
+                <td>${empresa_nome!''}</td>
+                <td>${unidade_nome!''}</td>
+                <td>${ccusto_nome!''}</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+    <h2>Despesas</h2>
+
+    <table style="width:100%;" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <th>Seq</th>
+                <th>Data</th>
+                <th>Tipo</th>
+                <th>Qtde.</th>
+                <th>Vl. Unit.</th>
+                <th >Total</th>
+            </tr>
+            ${TBLDESPESAS!''}
+        </tbody>
+    </table>
+    <p> ${MSGFINAL!''}</p>
+</br>
+    <a href="https://conecta.vivante.com.br/portal/p/Vivante/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=${numProcesso!''}">Clique aqui para acessar esta solicitação.</a>
+
+</body>
+
+</html>

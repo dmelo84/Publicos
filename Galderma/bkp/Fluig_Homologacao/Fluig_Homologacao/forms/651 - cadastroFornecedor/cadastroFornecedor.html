@@ -1,0 +1,165 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="fluig-style-guide">
+	<form name="form" role="form">
+		<div class="container">
+  <h2>Cadastro de Fornecedor</h2>
+  
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#cadastrais">Cadastrais</a></li>
+    <li><a data-toggle="tab" href="#admFin">Adm/Fin</a></li>
+    <li><a data-toggle="tab" href="#fiscais">Fiscais</a></li>
+    <li><a data-toggle="tab" href="#compras">Compras</a></li>
+    <li><a data-toggle="tab" href="#autonomos">Autonomos</a></li>
+    <li><a data-toggle="tab" href="#resideEx">Residente Exterior</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="cadastrais" class="tab-pane fade in active">
+      <h3>Cadastrais</h3>
+       <!--  --> 
+     <div class="row">
+    <div class='form-group col-md-2'><label for='A2_COD'>Codigo      </label><input type='text' name='A2_COD'id='A2_COD' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_LOJA'>Loja        </label><input type='text' name='A2_LOJA'id='A2_LOJA' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_NOME'>Razao Social</label><input type='text' name='A2_NOME'id='A2_NOME' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_NREDUZ'>N Fantasia  </label><input type='text' name='A2_NREDUZ'id='A2_NREDUZ' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_END'>Endereco    </label><input type='text' name='A2_END'id='A2_END' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_BAIRRO'>Bairro      </label><input type='text' name='A2_BAIRRO'id='A2_BAIRRO' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_EST'>Estado      </label><input type='text' name='A2_EST'id='A2_EST' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_COD_MUN'>Cod. Municip</label><input type='text' name='A2_COD_MUN'id='A2_COD_MUN' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_MUN'>Municipio   </label><input type='text' name='A2_MUN'id='A2_MUN' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CEP'>CEP         </label><input type='text' name='A2_CEP'id='A2_CEP' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_TIPO'>Tipo        </label><input type='text' name='A2_TIPO'id='A2_TIPO' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CGC'>CNPJ/CPF    </label><input type='text' name='A2_CGC'id='A2_CGC' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_DDD'>DDD         </label><input type='text' name='A2_DDD'id='A2_DDD' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_TEL'>Telefone    </label><input type='text' name='A2_TEL'id='A2_TEL' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_INSCR'>Ins. Estad. </label><input type='text' name='A2_INSCR'id='A2_INSCR' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_PAIS'>Pais        </label><input type='text' name='A2_PAIS'id='A2_PAIS' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_PAISDES'>Descr. Pais </label><input type='text' name='A2_PAISDES'id='A2_PAISDES' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_EMAIL'>E-Mail      </label><input type='text' name='A2_EMAIL'id='A2_EMAIL' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_HPAGE'>Home-Page   </label><input type='text' name='A2_HPAGE'id='A2_HPAGE' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_MSBLQL'>Bloqueado   </label><input type='text' name='A2_MSBLQL'id='A2_MSBLQL' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_COMPLEM'>Complemento </label><input type='text' name='A2_COMPLEM'id='A2_COMPLEM' class='form-control'></div>
+	    
+     </div>	
+     <!--  -->
+    </div>
+    
+    <div id="admFin" class="tab-pane fade">
+     <div class="container">
+      <h3>Adm/Finaceiro</h3>
+      <!--  --> 
+      <div class="row">
+    <div class='form-group col-md-2'><label for='A2_BANCO'>Banco       </label><input type='text' name='A2_BANCO'id='A2_BANCO' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_AGENCIA'>Cod Agencia </label><input type='text' name='A2_AGENCIA'id='A2_AGENCIA' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_NUMCON'>Cta Corrente</label><input type='text' name='A2_NUMCON'id='A2_NUMCON' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_MCOMPRA'>Maior Compra</label><input type='text' name='A2_MCOMPRA'id='A2_MCOMPRA' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_METR'>Media Atraso</label><input type='text' name='A2_METR'id='A2_METR' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_MSALDO'>Maior Saldo </label><input type='text' name='A2_MSALDO'id='A2_MSALDO' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_NROCOM'>No Compras  </label><input type='text' name='A2_NROCOM'id='A2_NROCOM' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_SALDUP'>Sld Duplict </label><input type='text' name='A2_SALDUP'id='A2_SALDUP' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_SALDUPM'>Sld Moed.For</label><input type='text' name='A2_SALDUPM'id='A2_SALDUPM' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CONTA'>C Contabil  </label><input type='text' name='A2_CONTA'id='A2_CONTA' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CODADM'>Cód. Adm.   </label><input type='text' name='A2_CODADM'id='A2_CODADM' class='form-control'></div>
+	      
+      </div>
+      <!--  -->
+    </div>
+     
+    </div>
+    <div id="fiscais" class="tab-pane fade">
+      <h3>Fiscais</h3>
+     <!--  --> 
+  	<div class='form-group col-md-2'><label for='A2_TIPORUR'>Tp.Contr.Soc</label><input type='text' name='A2_TIPORUR'id='A2_TIPORUR' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_RECISS'>Recolhe ISS </label><input type='text' name='A2_RECISS'id='A2_RECISS' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CODMUN'>Cod. Mun. ZF</label><input type='text' name='A2_CODMUN'id='A2_CODMUN' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_RECINSS'>Calc. INSS  </label><input type='text' name='A2_RECINSS'id='A2_RECINSS' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CODPAIS'>País Bacen  </label><input type='text' name='A2_CODPAIS'id='A2_CODPAIS' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_TPISSRS'>Tipo de Escr</label><input type='text' name='A2_TPISSRS'id='A2_TPISSRS' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_GRPTRIB'>Grp. Tribut.</label><input type='text' name='A2_GRPTRIB'id='A2_GRPTRIB' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_RECPIS'>Rec. PIS    </label><input type='text' name='A2_RECPIS'id='A2_RECPIS' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_RECCOFI'>Rec.COFINS  </label><input type='text' name='A2_RECCOFI'id='A2_RECCOFI' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_RECCSLL'>Rec.CSLL    </label><input type='text' name='A2_RECCSLL'id='A2_RECCSLL' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CALCIRF'>Cálc. IRRF  </label><input type='text' name='A2_CALCIRF'id='A2_CALCIRF' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_VINCULO'>P. Vinculo  </label><input type='text' name='A2_VINCULO'id='A2_VINCULO' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_DTINIV'>Dt Ini Vincu</label><input type='text' name='A2_DTINIV'id='A2_DTINIV' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_DTFIMV'>Dt Fim Vincu</label><input type='text' name='A2_DTFIMV'id='A2_DTFIMV' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_RECFET'>Rec. FETHAB </label><input type='text' name='A2_RECFET'id='A2_RECFET' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CTARE'>Contr TARE ?</label><input type='text' name='A2_CTARE'id='A2_CTARE' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_FOMEZER'>Fome Zero   </label><input type='text' name='A2_FOMEZER'id='A2_FOMEZER' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_RFACS'>Rec. FACS   </label><input type='text' name='A2_RFACS'id='A2_RFACS' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_RFABOV'>Rec. FABOV  </label><input type='text' name='A2_RFABOV'id='A2_RFABOV' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_MINIRF'>Vlr. Min. IR</label><input type='text' name='A2_MINIRF'id='A2_MINIRF' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CPOMSP'>Reg. CPOM   </label><input type='text' name='A2_CPOMSP'id='A2_CPOMSP' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_TPLOGR'>Tp. Lograd  </label><input type='text' name='A2_TPLOGR'id='A2_TPLOGR' class='form-control'></div>
+     <!--  -->
+    </div>
+    <div id="compras" class="tab-pane fade">
+      <h3>Compras</h3>
+     <!--  --> 
+	<div class='form-group col-md-2'><label for='A2_CONTATO'>Contato     </label><input type='text' name='A2_CONTATO'id='A2_CONTATO' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_TRANSP'>Transp.     </label><input type='text' name='A2_TRANSP'id='A2_TRANSP' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_PRIOR'>Prioridade  </label><input type='text' name='A2_PRIOR'id='A2_PRIOR' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_RISCO'>Risco       </label><input type='text' name='A2_RISCO'id='A2_RISCO' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_COND'>Cond. Pagto </label><input type='text' name='A2_COND'id='A2_COND' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_PRICOM'>1a Compra   </label><input type='text' name='A2_PRICOM'id='A2_PRICOM' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_ULTCOM'>Ult Compra  </label><input type='text' name='A2_ULTCOM'id='A2_ULTCOM' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_REPRES'>Represent.  </label><input type='text' name='A2_REPRES'id='A2_REPRES' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_FABRICA'>Fabricante  </label><input type='text' name='A2_FABRICA'id='A2_FABRICA' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CODLOC'>Cod.Local   </label><input type='text' name='A2_CODLOC'id='A2_CODLOC' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_MNOTA'>Maior Nota  </label><input type='text' name='A2_MNOTA'id='A2_MNOTA' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_PAISORI'>Pais Origem </label><input type='text' name='A2_PAISORI'id='A2_PAISORI' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_B2B'>Utiliza B2B </label><input type='text' name='A2_B2B'id='A2_B2B' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_NUMRA'>Cód Func    </label><input type='text' name='A2_NUMRA'id='A2_NUMRA' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_FRETISS'>F.Ret.ISS   </label><input type='text' name='A2_FRETISS'id='A2_FRETISS' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_ENDNOT'>End.Not.Form</label><input type='text' name='A2_ENDNOT'id='A2_ENDNOT' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CODSIAF'>Cod.Mun.SIAF</label><input type='text' name='A2_CODSIAF'id='A2_CODSIAF' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_PRSTSER'>Ind. Prest. </label><input type='text' name='A2_PRSTSER'id='A2_PRSTSER' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_SIMPNAC'>Opt Simp Nac</label><input type='text' name='A2_SIMPNAC'id='A2_SIMPNAC' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_INCULT'>Inc. Cultura</label><input type='text' name='A2_INCULT'id='A2_INCULT' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_IMPIP'>Ident.Prod. </label><input type='text' name='A2_IMPIP'id='A2_IMPIP' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CPFIRP'>CPF IR Progr</label><input type='text' name='A2_CPFIRP'id='A2_CPFIRP' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_FILTRF'>Fil. Transf.</label><input type='text' name='A2_FILTRF'id='A2_FILTRF' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_REGESIM'>Rg. Simp. MT</label><input type='text' name='A2_REGESIM'id='A2_REGESIM' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_INCLTMG'>Inc.Prd.Leit</label><input type='text' name='A2_INCLTMG'id='A2_INCLTMG' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_IBGE'>Cod.IBGE    </label><input type='text' name='A2_IBGE'id='A2_IBGE' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_MJURIDI'>M.Jurídico  </label><input type='text' name='A2_MJURIDI'id='A2_MJURIDI' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_CONFFIS'>Conf. Física</label><input type='text' name='A2_CONFFIS'id='A2_CONFFIS' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_FATAVA'>Fator Aval. </label><input type='text' name='A2_FATAVA'id='A2_FATAVA' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_DTAVA'>Data Aval.  </label><input type='text' name='A2_DTAVA'id='A2_DTAVA' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_SITESBH'>SitEspRes BH</label><input type='text' name='A2_SITESBH'id='A2_SITESBH' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_TPJ'>TPJ         </label><input type='text' name='A2_TPJ'id='A2_TPJ' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_IRPROG'>IRRF Prog   </label><input type='text' name='A2_IRPROG'id='A2_IRPROG' class='form-control'></div>
+	<div class='form-group col-md-2'><label for='A2_MUNSC'>Cod Mun SC  </label><input type='text' name='A2_MUNSC'id='A2_MUNSC' class='form-control'></div>
+	
+     <!--  --> 
+    </div>
+    
+    <div id="autonomos" class="tab-pane fade">
+      <h3>Autonomos</h3>
+     <!--  --> 
+    	
+    <!--  --> 
+    </div>
+    
+    <div id="resideEx" class="tab-pane fade">
+      <h3>Residente Exterior</h3>
+     <!--  --> 
+    	
+    <!--  --> 
+    </div>
+  </div>
+</div>
+		
+	</form>
+<script type="text/javascript" src="cep.js"</script>
+</div>
+</body>
+</html>

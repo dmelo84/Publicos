@@ -1,0 +1,128 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<div class="row">
+	
+		<div class="form-group col-md-3">
+		    <label for="empresa" class="required">Empresa<font color="#FF0000">*</font></label>
+		    <select class="form-control" name="empresa" id="empresa" onChange="setEmpFil()">
+		        <option value="01" selected="selected">01-Galderma</option>
+		        <option value="02">02-Galderma Distribuidora</option>
+		        <option value="99">99-Galderma Desenvolvimento</option>
+		     </select>
+			<input type="hidden" name="filial" id="filial" class="form-control">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="motivoProrrogacao" class="required">Motivo prorrogação<font color="#FF0000">*</font></label>
+			<select class="form-control" id="motivoProrrogacao" name="motivoProrrogacao">
+		      <option value="01" selected="selected">Atraso na entrega</option>
+		      <option value="02">negociação comercial</option>
+		      <option value="03">Outros</option>
+			</select>
+		</div>
+		<div class="form-group col-md-2">
+		<label for="emisSF2">Data Emissão<font color="#FF0000">*</font></label>
+			<div class="form-group">
+		    	<input type="text" name="emisSF2" id="emisSF2" class="form-control" readonly>
+			</div>
+	   </div>
+	</div>
+	
+	<div class="row">
+		<div class="form-group col-md-4">
+			<label for="cliente">Cliente<font color="#FF0000">*</font></label>
+			<div class="form-group">
+		    	<input type="text" name="cliente" id="cliente" class="form-control" readonly>
+			</div>
+		</div>
+		<div class="form-group col-md-2">
+			<label for="venctoreal" class="required">Vencimento Atual</label>
+			<input type="text" name="venctoreal" id="venctoreal" class="form-control" readonly>
+		</div>
+		<div class="form-group col-md-2">
+		<label for="entrega">Data Entrega<font color="#FF0000">*</font></label>
+			<div class="form-group">
+		    	<input type="text" name="entrega" id="entrega" class="form-control" readonly>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group col-md-1">
+			<label for="prefixo">Prefixo</label>
+			<input type="text" name="prefixo" id="prefixo" class="form-control" readonly>
+		</div>
+		<!-- /.col-lg-6 -->
+	    <div class="col-md-4">
+	        <div class="form-group">
+	        	<label for="titulo">Titulo<font color="#FF0000">*</font></label>
+		        	<input type="text" name="titulo" id="titulo" class="form-control" readonly>
+	        	<!--  Fim -->
+	        </div>
+	        <!-- /input-group -->
+	    </div>
+	    <!-- /.col-lg-6 -->
+	        <div class="form-group col-md-1">
+				<label for="parcela">Parcela</label>
+				<input type="text" name="parcela" id="parcela" class="form-control" readonly>
+			</div>
+	    <div class="form-group col-md-1">
+			<label for="tipo">Tipo</label>
+			<input type="text" name="tipo" id="tipo" class="form-control" readonly>
+		</div>
+		<div class="form-group col-md-4">
+			<label for="nome" class="required">Nome</label>
+			<input type="text" name="nome" id="nome" class="form-control" readonly>
+		</div>
+		<div class="form-group col-md-4">
+			<label for="valorConvertido" class="required">Valor</label>
+			<input type="text" name="valorConvertido" id="valorConvertido" class="form-control" mask="#00.000.000.000.000,00" readonly>
+			<input type="hidden" name="valor" id="valor" class="form-control" readonly>
+		</div>
+		<div class="form-group col-md-2">
+    		<label for="ok" class="required">Status</label>
+    		<input type="text" name="ok" id="ok" class="form-control" readonly>
+    	</div>
+    	<div class="row">
+	    	<div class="form-group col-md-2">
+				<label for="venctoaltera" class="required">Data a ser atualizada<font color="#FF0000">*</font></label>
+				<input type="text" name="venctoaltera" id="venctoaltera" class="form-control" placeholder="Entre com a data">
+			</div>
+			<div class="form-group col-md-2">
+			    <label for="aprova">Aprova alteração?</label>
+			    <select class="form-control" id="aprova" name="aprova">
+			      <option value='S'>Sim</option>
+			      <option value='N'>Nao</option>
+			      <option value='P'>Pendente</option>
+				</select>
+			</div>
+    	</div>	
+		<div class="form-group col-md-6">
+			<label for="motivo" class="required">Motivo da reprovação**</font></label>
+			<textarea id="motivo" name="motivo" class="form-control"></textarea>
+		</div>
+		<div class="form-group col-md-6">
+			<label for="justificativa" class="required">Justificativa da alteração<font color="#FF0000">*</font></label>
+			<textarea id="justificativa" name="justificativa" class="form-control"></textarea>
+		</div>
+	</div>
+	<div class='row'>
+		<div>
+			<p>
+			***Campo obrigatório apenas quando processo for reprovado.
+			</p>
+		</div>
+	</div>
+</form>
+<script type="text/javascript" src="custom.js"</script> 
+</div>
+</body>
+</html>

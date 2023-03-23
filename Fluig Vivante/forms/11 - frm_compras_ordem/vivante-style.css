@@ -1,0 +1,48 @@
+h2{
+  color: #566172 !important;
+}
+
+label.active{
+  background-color:#3CB5DB !important ;
+  color:#FBFBFB !important
+}
+label{
+  color:#566172 !important;
+}
+
+
+.bootstrap-tagsinput{
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  height: 32px;
+}
+
+.tab-content{
+  background-color: white !important;
+}
+
+
+.selecaoQuadro{
+ 
+  border: 2px solid red !important;
+
+}
+
+.headcol {
+  position: absolute;
+  width: 5em;
+  left: 0;
+  top: auto;
+  border-top-width: 1px;
+  /*only relevant for first row*/
+  margin-top: -1px;
+  /*compensate for top border*/
+}
+
+.headcol:before {
+  content: 'Row ';
+}
+
+.hide{
+  display: none;
+}

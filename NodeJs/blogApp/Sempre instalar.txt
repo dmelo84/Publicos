@@ -1,0 +1,18 @@
+Sempre instalar
+ 1 - npm install --save express
+ 2 - npm install --save handlebars@4.5.3 /*npm install --save express-handlebars*/
+ 3 - npm install mongoose --save
+ 4 - npm install body-parser --save
+
+ //Configurar sessão
+ 5 - npm install --save express-session
+ 6 - npm install --save connect-flash
+
+//Encryptar senha
+7 - npm install --save bcryptjs
+
+//Autenticação
+8 - npm install --save passport
+
+//Estratégia
+9 - npm install --save passport-local

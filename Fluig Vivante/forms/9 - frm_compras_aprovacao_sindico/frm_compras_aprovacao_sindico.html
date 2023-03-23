@@ -1,0 +1,212 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="https://conecta.vivante.com.br/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="https://conecta.vivante.com.br/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="https://conecta.vivante.com.br/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="https://conecta.vivante.com.br/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="https://conecta.vivante.com.br/portal/resources/style-guide/js/fluig-style-guide.min.js"
+	 charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="main.js" charset="utf-8"></script>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form" class="col-lg-10" class="col-md-10">
+			<div class="row">
+				<h1>
+					<strong style="color: #7E3A7F"><span class="fluigicon fluigicon-process-decision fluigicon-lg"></span> Aprovação
+						Síndico
+					</strong>
+				</h1>
+				<hr>
+			</div>
+			<div class="row">
+				<div class="alert alert-info">
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label for="produto_nome" class="fs-display-block">Produto/Serviço</label>
+							<span class="" style="font-size: 20px; font-weight: bold;">
+								<textarea style="width:100%;" name="produto_nome" id="produto_nome" class="fs-no-style-input">BUCHA, MODELO REDUCAO, MATERIAL ALUMINIO SILICIO, POLEGADAS 3/8"- 4</textarea>
+							</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-xs-6 col-sm-4 col-md-2">
+							<label for="quantidade" class="fs-display-block">Quantidade</label>
+							<span class="" style="font-size: 20px; font-weight: bold;">
+								<input type="text" data-mask-value name="quantidade" id="quantidade" class="fs-no-style-input" placeholder="0 UN">
+							</span>
+						</div>
+						<div class="form-group col-xs-6 col-sm-4 col-md-2">
+							<label for="preco" class="fs-display-block">Preço Unitário</label>
+							<span class="" style="font-size: 20px; font-weight: bold;">
+								<input type="text" data-mask-money name="preco" id="preco" class="fs-no-style-input" placeholder="R$ 0,00">
+							</span>
+						</div>
+						<div class="form-group col-sm-4 col-md-2">
+							<label for="total" class="fs-display-block">Total</label>
+							<span class="" style="font-size: 25px; font-weight: bold;">
+								<input type="text" data-mask-money style="display:block;" name="total" id="total" class="fs-no-style-input"
+								 placeholder="R$ 0,00">
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group col-md-6">
+					<label for="ccusto" class="fs-display-block">Centro de Custo</label>
+					<input type="text" style="width:100%;" name="ccusto" id="ccusto" class="fs-no-style-input" placeholder="Centro de Custo">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="unidade" class="fs-display-block">Unidade</label>
+					<input type="text" style="width:100%;" name="unidade" id="unidade" class="fs-no-style-input" placeholder="Unidade">
+				</div>
+				<div class="form-group col-md-12">
+					<label for="fornecedor" class="fs-display-block">Fornecedor</label>
+					<input type="text" style="width:100%;" name="fornecedor" id="fornecedor" class="fs-no-style-input" placeholder="Fornecedor">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="solicitante" class="fs-display-block">Solicitante</label>
+					<input type="text" style="width:100%;" name="solicitante" id="solicitante" class="fs-no-style-input" placeholder="Solicitante">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="aprovador" class="fs-display-block">Aprovador</label>
+					<input type="text" style="width:100%;" name="aprovador" id="aprovador" class="fs-no-style-input" placeholder="Aprovador">
+				</div>
+			</div>
+			<div class="row">
+				<h3>
+					<strong style="color: #7E3A7F">Informações da Cotação</strong>
+				</h3>
+				<a href="https://conecta.vivante.com.br/portal/p/Vivante/ecmnavigation?app_ecm_navigation_doc=1310">Rpt</a>
+				<div class="table-responsive">
+					<table class="table table-bordered">
+						<thead>
+							<th>Fornecedor</th>
+							<th>Quantidade</th>
+							<th>Preço Original</th>
+							<th>Total Original</th>
+							<th>Preço Final</th>
+							<th>Total Final</th>
+						</thead>
+						<tbody id="dadosCotacao">
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="row">
+				<h3>
+					<strong style="color: #7E3A7F">Últimas compras do item</strong>
+				</h3>
+				<div class="table-responsive">
+					<table class="table table-bordered">
+						<thead>
+							<th>Data</th>
+							<th>Fornecedor</th>
+							<th>Quantidade</th>
+							<th>Preço</th>
+							<th>Total</th>
+						</thead>
+						<tbody id="dadosUltimasCompras">
+						</tbody>
+					</table>
+				</div>
+
+				<!--
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+									#1 SUPRICORP SUPRIMENTOS LTDA</br>
+									<strong>R$ 900,00</strong>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<div class="form-group col-xs-6">
+									<label for="nome">Preço</label>
+									<input type="text" name="nome" id="nome" class="form-control">
+								</div>
+								<div class="form-group col-xs-6">
+									<label for="nome">Total</label>
+									<input type="text" name="nome" id="nome" class="form-control">
+								</div>
+
+								<div class="form-group col-xs-6">
+										<label for="nome">Preço</label>
+										<input type="text" name="nome" id="nome" class="form-control">
+									</div>
+									<div class="form-group col-xs-6">
+										<label for="nome">Total</label>
+										<input type="text" name="nome" id="nome" class="form-control">
+									</div>
+
+
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="collapse-icon" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+									<strong>#1 R$ 800,00</strong></br>HERICA BODART GUIMARAES ME
+								</a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse">
+							<div class="panel-body">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+								officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+								moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+								keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+								butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+								haven't heard of them accusamus labore sustainable VHS.
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a class="collapse-icon" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+									<strong>#1 R$ 800,00</strong></br>M & M SUPRIMENTOS PARA INFORMATICA LTDA EPP
+								</a>
+							</h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse">
+							<div class="panel-body">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+								officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+								moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+								keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+								butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+								haven't heard of them accusamus labore sustainable VHS.
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+-->
+
+			</div>
+			<input type="hidden" class="fs-no-style-input" name="numero_processo" id="numero_processo">
+			<input type="hidden" class="fs-no-style-input" name="NumAtividadeMovimentada" id="NumAtividadeMovimentada">
+			<input type="hidden" class="fs-no-style-input" name="status_aprovacao" id="status_aprovacao">
+			<input type="hidden" class="fs-no-style-input" name="ordem_processo_origem" id="ordem_processo_origem">
+			<input type="hidden" class="fs-no-style-input" name="ordem_documentId" id="ordem_documentId">
+			<input type="hidden" class="fs-no-style-input" name="ordem_childId" id="ordem_childId">
+
+			<input type="hidden" class="fs-no-style-input" name="cotacao_numero" id="cotacao_numero">
+			<input type="hidden" class="fs-no-style-input" name="cotacao_item" id="cotacao_item">
+			<input type="text" class="fs-no-style-input" name="produto_codigo" id="produto_codigo">
+
+		</form>
+	</div>
+</body>
+
+</html>

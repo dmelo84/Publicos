@@ -1,0 +1,60 @@
+<Integracao>
+    <Fatura>
+        <Login>integrador</Login>
+        <Senha>integrador@1234</Senha>
+    </Fatura>
+    <Pedido>
+        <CNPJFilial>14055768000177</CNPJFilial>
+        <NomeFilial>SOM DIAGNOSTICOS LTDA</NomeFilial>
+        <IDPleres>P0082564</IDPleres>
+        <DataEnvio>20211130</DataEnvio>
+        <ValorTotal>350.00</ValorTotal>
+        <DescNFE>TC ABDOMEN SUPERIOR</DescNFE>
+        <TipoFaturamento>P</TipoFaturamento>
+        <C5_XBRTLIQ>B</C5_XBRTLIQ>
+        <C5_XOBS />
+        <Recibo>78764</Recibo>
+        <Atendimento>18-411545</Atendimento>
+    </Pedido>
+    <Cliente>
+        <CPFCNPJ>66562295220</CPFCNPJ>
+        <Nome>BENILDA DO SOCORRO PANTOJA PUREZA</Nome>
+        <Endereco>RUA CAPITAO TEODATO LEAO 46</Endereco>
+        <Bairro>CENTRO</Bairro>
+        <CodMunicipio>03309</CodMunicipio>
+        <Municipio>IGARAPE MIRI</Municipio>
+        <UF>PA</UF>
+        <CEP>68430000</CEP>
+        <Complemento />
+        <DDD>91</DDD>
+        <Telefone>88618045</Telefone>
+        <Email>benildapantoja76@gmail.com</Email>
+        <CodPais>105</CodPais>
+        <InscMunicipal />
+        <InscEstadual />
+    </Cliente>
+    <ItensPedido>
+        <ItemPedido>
+            <SeqItem>01</SeqItem>
+            <CodEspec>23000002</CodEspec>
+            <DescEspec />
+            <Valor>350.00</Valor>
+        </ItemPedido>
+    </ItensPedido>
+    <Pagamentos>
+        <Pagamento>
+            <SeqItem>1</SeqItem>
+            <Tipo>CC</Tipo> <!--- CRIAR TIPO DE PAGAMENTO VC=VOUCHER -->>
+            <Valor>350.00</Valor>
+            <QtdeParcelas>3</QtdeParcelas>
+            <DataPgto>20211130</DataPgto>
+            <NumCheque />
+            <CodBandeira>9</CodBandeira>
+            <DescBandeira>ELO CREDITO</DescBandeira>
+            <CodMaquinaCartao>2</CodMaquinaCartao>
+            <DescMaquinaCartao>PinPad</DescMaquinaCartao>
+            <NumCartao>5067XXXXXXXX6069</NumCartao>
+            <IDTransacao>723950</IDTransacao> <!--- ID PLERES DA NOTA DE DEBITO DO VOUCHER  -->>
+        </Pagamento>
+    </Pagamentos>
+</Integracao>

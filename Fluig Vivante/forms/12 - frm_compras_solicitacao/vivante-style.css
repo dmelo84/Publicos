@@ -1,0 +1,28 @@
+h2{
+  color: #566172 !important;
+}
+
+label.active{
+  background-color:#3CB5DB !important ;
+  color:#FBFBFB !important
+}
+label{
+  color:#566172 !important;
+}
+
+.bootstrap-tagsinput{
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  height: 32px;
+}
+
+.tag-text{
+	white-space:pre-wrap !important
+}
+
+/*
+.fluig-style-guide .bootstrap-tagsinput .tag .tag-text{
+	white-space:pre-wrap !important
+}*/
+
+

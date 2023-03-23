@@ -1,0 +1,1316 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>fluxoBaixaDacao</processId>
+    </processDefinitionPK>
+    <processDescription>Fluxo Baixa de Titulos Dacao</processDescription>
+    <instruction></instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Fluxo Financeiro</categoryId>
+    <managerEngineAllocationId></managerEngineAllocationId>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Fluxo Baixa de Titulos Dacao</processId>
+      <version>44</version>
+    </processDefinitionVersionPK>
+    <versionDescription></versionDescription>
+    <formId>0</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>2</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>false</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>110</positionX>
+      <positionY>71</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>7</sequence>
+      </processStatePK>
+      <stateName>Nivel 1</stateName>
+      <stateDescription>Nivel 1</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>310</positionX>
+      <positionY>220</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>9</sequence>
+      </processStatePK>
+      <stateName>Nivel 2</stateName>
+      <stateDescription>Nivel 2</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>130</positionX>
+      <positionY>470</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>14</sequence>
+      </processStatePK>
+      <stateName>Nivel 1 Simples</stateName>
+      <stateDescription>Nivel 1 Simples</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>700</positionX>
+      <positionY>60</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>11</sequence>
+      </processStatePK>
+      <stateName>Rota</stateName>
+      <stateDescription>Rota</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>430</positionX>
+      <positionY>50</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>21</sequence>
+      </processStatePK>
+      <stateName>Exclusivo</stateName>
+      <stateDescription>Exclusivo</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>730</positionX>
+      <positionY>240</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>25</sequence>
+      </processStatePK>
+      <stateName>Exclusivo</stateName>
+      <stateDescription>Exclusivo</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>420</positionX>
+      <positionY>310</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>37</sequence>
+      </processStatePK>
+      <stateName>Exclusivo</stateName>
+      <stateDescription>Exclusivo</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>470</positionX>
+      <positionY>430</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>16</sequence>
+      </processStatePK>
+      <stateName>Fim</stateName>
+      <stateDescription>Fim</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>750</positionX>
+      <positionY>487</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>44</version>
+        <sequence>11</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;hdi_total&quot;) &lt;= 499999.99</condition>
+      <destinationSequenceId>14</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;000030&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>44</version>
+        <sequence>11</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;hdi_total&quot;) &gt;= 500000.00</condition>
+      <destinationSequenceId>7</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;000004&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>44</version>
+        <sequence>21</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprovaN1&quot;)  == &quot;S&quot;</condition>
+      <destinationSequenceId>16</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>44</version>
+        <sequence>21</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprovaN1&quot;)  == &quot;N&quot; </condition>
+      <destinationSequenceId>4</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>44</version>
+        <sequence>25</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprovaN1&quot;)  == &quot;S&quot;</condition>
+      <destinationSequenceId>9</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;000030&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Usuário</engineAllocationId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>44</version>
+        <sequence>25</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprovaN1&quot;)  == &quot;N&quot;</condition>
+      <destinationSequenceId>4</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;4&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>44</version>
+        <sequence>37</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprovaN1&quot;)  == &quot;S&quot;</condition>
+      <destinationSequenceId>16</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>44</version>
+        <sequence>37</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprovaN1&quot;)  == &quot;N&quot;</condition>
+      <destinationSequenceId>4</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+  </list>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>15</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>14</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>19</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>11</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>22</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>14</initialStateSequence>
+      <finalStateSequence>21</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>24</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>21</initialStateSequence>
+      <finalStateSequence>16</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>28</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>7</initialStateSequence>
+      <finalStateSequence>25</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>30</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>11</initialStateSequence>
+      <finalStateSequence>7</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>39</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>25</initialStateSequence>
+      <finalStateSequence>9</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>44</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>21</initialStateSequence>
+      <finalStateSequence>4</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>45</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>25</initialStateSequence>
+      <finalStateSequence>4</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>46</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>9</initialStateSequence>
+      <finalStateSequence>37</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>47</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>37</initialStateSequence>
+      <finalStateSequence>16</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <linkSequence>48</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>37</initialStateSequence>
+      <finalStateSequence>4</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeTaskSave</eventId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+&#xd;
+    var atv      = getValue(&quot;WKNumState&quot;);&#xd;
+    var nextAtv  = getValue(&quot;WKNextState&quot;);&#xd;
+&#xd;
+    if (atv &gt; 0) {&#xd;
+&#xd;
+        var anexos   = hAPI.listAttachments();&#xd;
+        var temAnexo = false;&#xd;
+&#xd;
+        if (anexos.size() &gt; 0) {&#xd;
+            temAnexo = true;&#xd;
+        }&#xd;
+&#xd;
+        if (!temAnexo) {&#xd;
+            throw &quot;É preciso anexar o documento para continuar o processo!&quot;;&#xd;
+        }&#xd;
+&#xd;
+    }&#xd;
+    /*Integração com o Protheus*/&#xd;
+    var atv      = getValue(&quot;WKNumState&quot;);&#xd;
+	var nextAtv  = getValue(&quot;WKNextState&quot;);&#xd;
+	var obj      = {}&#xd;
+	var oTabela  = hAPI.getChildrenIndexes(&apos;ingre&apos;);&#xd;
+	var alias    = hAPI.getCardValue(&apos;depto&apos;)&#xd;
+	var oTitulo  = {&quot;erro&quot;:&quot;Sem Informacao&quot;}&#xd;
+	var lOk = true;&#xd;
+	var aprovado = hAPI.getCardValue(&apos;aprovaN1&apos;)&#xd;
+		&#xd;
+	if(nextAtv == 16 &amp;&amp; aprovado == &apos;S&apos; ){&#xd;
+		&#xd;
+		for(var i = 0; i &lt; oTabela.length; i++){&#xd;
+			&#xd;
+			console.log(&quot;Tamanho tabela &quot;+oTabela.length)&#xd;
+			&#xd;
+			empresa = hAPI.getCardValue(&apos;empresaId&apos;)&#xd;
+			filial  = hAPI.getCardValue(&apos;filial___&apos;+oTabela[i])&#xd;
+								&#xd;
+			console.log(&quot;Linha: &quot;+i +&quot; Inicio!&quot;)&#xd;
+			&#xd;
+	//		if(hAPI.getCardValue(&quot;titulo___&quot;+i) != &apos;&apos;){&#xd;
+				obj = {&#xd;
+						empresa  : hAPI.getCardValue(&quot;empresaId&quot;),&#xd;
+						filial   : hAPI.getCardValue(&apos;filial___&apos;+oTabela[i]),&#xd;
+						prefixo  : hAPI.getCardValue(&apos;prefixo___&apos;+oTabela[i]),&#xd;
+						numero   : hAPI.getCardValue(&apos;titulo___&apos;+oTabela[i]),&#xd;
+						parcela  : hAPI.getCardValue(&apos;parcela___&apos;+oTabela[i]),&#xd;
+						tipo     : hAPI.getCardValue(&quot;tipo___&quot;+oTabela[i]),&#xd;
+						valor    : hAPI.getCardValue(&quot;valor___&quot;+oTabela[i]),&#xd;
+						alias    : alias,&#xd;
+						processo : getValue(&quot;WKNumProces&quot;).toString(),&#xd;
+						atividade: getValue(&quot;WKNumState&quot;).toString()&#xd;
+					}&#xd;
+				/*/Log do Objeto/*/&#xd;
+				console.log(&quot;Objeto Titulos: &quot;+obj)&#xd;
+			    oTitulo = obj					&#xd;
+				/*/POST/*/&#xd;
+				try{&#xd;
+		            var clientService = fluigAPI.getAuthorizeClientService();&#xd;
+		            var data = {&#xd;
+		                companyId : getValue(&quot;WKCompany&quot;) + &apos;&apos;,&#xd;
+		                serviceCode : &apos;baixaTitulos&apos;,&#xd;
+		                endpoint : &apos;http://10.30.4.139:8083/rest/BAIXA_TITULOS&apos;,&#xd;
+		                method : &apos;post&apos;,// &apos;delete&apos;, &apos;patch&apos;, &apos;put&apos;, &apos;get&apos;     &#xd;
+		                timeoutService: &apos;300&apos;, // segundos&#xd;
+		                params : obj,&#xd;
+		             headers: {&#xd;
+		            	 TenantID : empresa+&quot;,&quot;+&quot;01&quot;&#xd;
+		             }&#xd;
+		            }&#xd;
+		            &#xd;
+		            console.log(JSONUtil.toJSON(data))&#xd;
+		            &#xd;
+		            var vo = clientService.invoke(JSONUtil.toJSON(data));&#xd;
+		            var retorno  = JSON.parse(vo.getResult());&#xd;
+		            &#xd;
+		            console.log(&quot;RETORNO =&gt; &quot;+vo.getResult())&#xd;
+		            &#xd;
+		            if(vo.getResult()== null || vo.getResult().isEmpty()){&#xd;
+		            	console.log(&quot;ERROR =&gt; &quot;+err)&#xd;
+		            	throw err&#xd;
+		            }else{	 	                	                	                &#xd;
+		                if(typeof(retorno.OK) != &quot;undefined&quot;){&#xd;
+		                	lOk = true;&#xd;
+		                	console.log(&quot;OK =&gt; &quot;+retorno.OK);&#xd;
+		                }else{&#xd;
+		                	console.log(&quot;PARSE =&gt; &quot;+retorno.errorMessage)&#xd;
+		                	lOk = false;&#xd;
+		                	throw &quot;Erro na integração: &quot;+retorno.errorMessage&#xd;
+		                }&#xd;
+		                &#xd;
+		                console.log(&quot;Linha: &quot;+i +&quot; Fim!&quot;)&#xd;
+		                &#xd;
+		                /*****Envio de email******/&#xd;
+		              //Gravou&#xd;
+		        		if(lOk){&#xd;
+		        					        			&#xd;
+		        			var JSONStr = JSONUtil.toJSON(oTitulo); &#xd;
+		        			&#xd;
+		        			console.log(JSONStr)&#xd;
+		        			&#xd;
+		        			var aEmail = [&quot;diogo.silva@qsdobrasil.com&quot;,&quot;diogo.silva@galderma.com&quot;,&quot;raphaela.marques@galderma.com&quot;]&#xd;
+		        			&#xd;
+		        			 log.info(&apos;funcao email&apos;);&#xd;
+		        			&#xd;
+		        			for(j = 0; j &lt; aEmail.length; j++){&#xd;
+		        				&#xd;
+		        				    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();&#xd;
+		        				    var subject = &quot;[ WorkFlow ] - Título com baixa dação&quot;;&#xd;
+		        				    var emailSolic = aEmail[j]//&quot;raphaela.marques@galderma.com&quot;&#xd;
+		        				    var mailFluig  = &quot;workflow@galderma.com&quot;&#xd;
+		        				    &#xd;
+		        				    if(hAPI.getCardValue(&apos;depto&apos;) == &apos;SE1&apos;){&#xd;
+		        				    	cDepto = &quot;Contas a Receber&quot;&#xd;
+		        				    }else{&#xd;
+		        				    	cDepto = &quot;Contas a Pagar&quot;&#xd;
+		        				    }&#xd;
+		        				    	&#xd;
+		        				    mensagem = &quot;&lt;!DOCTYPE html&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;html&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;head&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;style&gt;&quot;&#xd;
+		        				    mensagem +=&quot;table, td, th {&quot;    &#xd;
+		        				    mensagem +=&quot;border: 1px solid #ddd;&quot;&#xd;
+		        				    mensagem +=&quot;text-align: left;&quot;&#xd;
+		        				    mensagem +=&quot;}&quot;&#xd;
+		        				   	mensagem +=&quot;table {&quot;&#xd;
+		        				    mensagem +=&quot;border-collapse: collapse;&quot;&#xd;
+		        				    mensagem +=&quot;width: 100%;&quot;&#xd;
+		        				    mensagem +=&quot;}&quot;&#xd;
+		        				    mensagem +=&quot;th, td {&quot;&#xd;
+		        				    mensagem +=&quot;padding: 15px;&quot;&#xd;
+		        				    mensagem +=&quot;}&quot;&#xd;
+		        				    mensagem +=&quot;&lt;/style&gt;&quot;&#xd;
+		        				    mensagem += &quot;&lt;/head&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;body&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;h2&gt;Alteração de título dação do &quot;+cDepto+&quot;&lt;/h2&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;p&gt;O título abaixo foi baixado pelo processo do Fluig.&lt;/p&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;table&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;tr&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Empresa&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Nome&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Filial&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Prefixo&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Titulo&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Parcela&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Tipo&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Valor&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;/tr&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;tr&gt;&quot;&#xd;
+		        				    	if(hAPI.getCardValue(&apos;empresaId&apos;) == &apos;01&apos;){&#xd;
+		        				    		cEmpresa = &quot;Galderma&quot;&#xd;
+		        				    	}else{&#xd;
+		        				    		cEmpresa = &quot;Galderma Distribuidora&quot;&#xd;
+		        				    	}&#xd;
+		        				//    for(var i = 0; i &lt; oTabela.length; i++){&#xd;
+		        				    	&#xd;
+		        				    	mensagem +=&quot;&lt;td&gt;&quot;+cEmpresa+&quot;&lt;/td&gt;&quot;&#xd;
+		        				    	mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;nome___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+		        				    	mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;filial___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;prefixo___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;titulo___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;parcela___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;tipo___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;valor___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;/tr&gt;&quot;&#xd;
+		        			 //	    }&#xd;
+		        				    		        				    	&#xd;
+		        				    mensagem +=&quot;&lt;/table&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;/body&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;/html&gt;&quot;&#xd;
+&#xd;
+&#xd;
+		        				    obj.simpleEmail(1,subject, mailFluig, emailSolic, mensagem, &quot;text/html&quot;);&#xd;
+		        			}&#xd;
+		        		}&#xd;
+		                /************************/&#xd;
+		            }&#xd;
+		        }catch(err){&#xd;
+		        	console.log(&quot;ERRO DIOGO&quot;)&#xd;
+		        	console.log(&quot;CATCH =&gt; &quot;+err)&#xd;
+		        	throw &quot;Erro na integração: &quot;+retorno.errorMessage&#xd;
+		        }&#xd;
+	//		}&#xd;
+		}&#xd;
+	}&#xd;
+	&#xd;
+	/*/Adiciona o obj no array alista/*/&#xd;
+	//alista.push(obj)&#xd;
+	/*/Exibe em console o que o sistema montou/*/&#xd;
+	//console.log(&quot;Array  Titulos: &quot;+alista)&#xd;
+    &#xd;
+    /*#########################*/&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskSave</eventId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskSave(colleagueId,nextSequenceId,userList){&#xd;
+/*	&#xd;
+	var atv      = getValue(&quot;WKNumState&quot;);&#xd;
+	var nextAtv  = getValue(&quot;WKNextState&quot;);&#xd;
+	var obj      = {}&#xd;
+	var oTabela  = hAPI.getChildrenIndexes(&apos;ingre&apos;);&#xd;
+	var alias    = hAPI.getCardValue(&apos;depto&apos;)&#xd;
+	var oTitulo  = {&quot;erro&quot;:&quot;Sem Informacao&quot;}&#xd;
+	var lOk = true;&#xd;
+		&#xd;
+	if(atv == 16 ){&#xd;
+		&#xd;
+		for(var i = 0; i &lt; oTabela.length; i++){&#xd;
+			&#xd;
+			console.log(&quot;Tamanho tabela &quot;+oTabela.length)&#xd;
+			&#xd;
+			empresa = hAPI.getCardValue(&apos;empresaId&apos;)&#xd;
+			filial  = hAPI.getCardValue(&apos;filial___&apos;+oTabela[i])&#xd;
+								&#xd;
+			console.log(&quot;Linha: &quot;+i +&quot; Inicio!&quot;)&#xd;
+			&#xd;
+	//		if(hAPI.getCardValue(&quot;titulo___&quot;+i) != &apos;&apos;){&#xd;
+				obj = {&#xd;
+						empresa  : hAPI.getCardValue(&quot;empresaId&quot;),&#xd;
+						filial   : hAPI.getCardValue(&apos;filial___&apos;+oTabela[i]),&#xd;
+						prefixo  : hAPI.getCardValue(&apos;prefixo___&apos;+oTabela[i]),&#xd;
+						numero   : hAPI.getCardValue(&apos;titulo___&apos;+oTabela[i]),&#xd;
+						parcela  : hAPI.getCardValue(&apos;parcela___&apos;+oTabela[i]),&#xd;
+						tipo     : hAPI.getCardValue(&quot;tipo___&quot;+oTabela[i]),&#xd;
+						valor    : hAPI.getCardValue(&quot;valor___&quot;+oTabela[i]),&#xd;
+						alias    : alias,&#xd;
+						processo : getValue(&quot;WKNumProces&quot;).toString(),&#xd;
+						atividade: getValue(&quot;WKNumState&quot;).toString()&#xd;
+					}&#xd;
+				//Log do Objeto//&#xd;
+				console.log(&quot;Objeto Titulos: &quot;+obj)&#xd;
+			    oTitulo = obj					&#xd;
+				//POST//&#xd;
+				try{&#xd;
+		            var clientService = fluigAPI.getAuthorizeClientService();&#xd;
+		            var data = {&#xd;
+		                companyId : getValue(&quot;WKCompany&quot;) + &apos;&apos;,&#xd;
+		                serviceCode : &apos;baixaTitulos&apos;,&#xd;
+		                endpoint : &apos;http://10.30.4.139:8083/rest/BAIXA_TITULOS&apos;,&#xd;
+		                method : &apos;post&apos;,// &apos;delete&apos;, &apos;patch&apos;, &apos;put&apos;, &apos;get&apos;     &#xd;
+		                timeoutService: &apos;300&apos;, // segundos&#xd;
+		                params : obj,&#xd;
+		             headers: {&#xd;
+		            	 TenantID : empresa+&quot;,&quot;+&quot;01&quot;&#xd;
+		             }&#xd;
+		            }&#xd;
+		            &#xd;
+		            console.log(JSONUtil.toJSON(data))&#xd;
+		            &#xd;
+		            var vo = clientService.invoke(JSONUtil.toJSON(data));&#xd;
+		            var retorno  = JSON.parse(vo.getResult());&#xd;
+		            &#xd;
+		            console.log(&quot;RETORNO =&gt; &quot;+vo.getResult())&#xd;
+		            &#xd;
+		            if(vo.getResult()== null || vo.getResult().isEmpty()){&#xd;
+		            	console.log(&quot;ERROR =&gt; &quot;+err)&#xd;
+		            	throw err&#xd;
+		            }else{	 	                	                	                &#xd;
+		                if(typeof(retorno.OK) != &quot;undefined&quot;){&#xd;
+		                	lOk = true;&#xd;
+		                	console.log(&quot;OK =&gt; &quot;+retorno.OK);&#xd;
+		                }else{&#xd;
+		                	console.log(&quot;PARSE =&gt; &quot;+retorno.errorMessage)&#xd;
+		                	lOk = false;&#xd;
+		                	throw retorno.errorMessage&#xd;
+		                }&#xd;
+		                &#xd;
+		                console.log(&quot;Linha: &quot;+i +&quot; Fim!&quot;)&#xd;
+		                &#xd;
+		                //Envio de email//&#xd;
+		              //Gravou&#xd;
+		        		if(lOk){&#xd;
+		        					        			&#xd;
+		        			var JSONStr = JSONUtil.toJSON(oTitulo); &#xd;
+		        			&#xd;
+		        			console.log(JSONStr)&#xd;
+		        			&#xd;
+		        			var aEmail = [&quot;diogo.silva@qsdobrasil.com&quot;,&quot;diogo.silva@galderma.com&quot;,&quot;raphaela.marques@galderma.com&quot;]&#xd;
+		        			&#xd;
+		        			 log.info(&apos;funcao email&apos;);&#xd;
+		        			&#xd;
+		        			for(j = 0; j &lt; aEmail.length; j++){&#xd;
+		        				&#xd;
+		        				    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();&#xd;
+		        				    var subject = &quot;[ WorkFlow ] - Título com baixa dação&quot;;&#xd;
+		        				    var emailSolic = aEmail[j]//&quot;raphaela.marques@galderma.com&quot;&#xd;
+		        				    var mailFluig  = &quot;workflow@galderma.com&quot;&#xd;
+		        				    	&#xd;
+		        				    mensagem = &quot;&lt;!DOCTYPE html&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;html&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;head&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;style&gt;&quot;&#xd;
+		        				    mensagem +=&quot;table, td, th {&quot;    &#xd;
+		        				    mensagem +=&quot;border: 1px solid #ddd;&quot;&#xd;
+		        				    mensagem +=&quot;text-align: left;&quot;&#xd;
+		        				    mensagem +=&quot;}&quot;&#xd;
+		        				   	mensagem +=&quot;table {&quot;&#xd;
+		        				    mensagem +=&quot;border-collapse: collapse;&quot;&#xd;
+		        				    mensagem +=&quot;width: 100%;&quot;&#xd;
+		        				    mensagem +=&quot;}&quot;&#xd;
+		        				    mensagem +=&quot;th, td {&quot;&#xd;
+		        				    mensagem +=&quot;padding: 15px;&quot;&#xd;
+		        				    mensagem +=&quot;}&quot;&#xd;
+		        				    mensagem +=&quot;&lt;/style&gt;&quot;&#xd;
+		        				    mensagem += &quot;&lt;/head&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;body&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;h2&gt;Alteração de título dação&lt;/h2&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;p&gt;O título abaixo foi baixado pelo processo do Fluig.&lt;/p&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;table&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;tr&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Empresa&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Nome&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Filial&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Prefixo&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Titulo&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Parcela&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Tipo&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;th&gt;Valor&lt;/th&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;/tr&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;tr&gt;&quot;&#xd;
+		        				    	if(hAPI.getCardValue(&apos;empresaId&apos;) == &apos;01&apos;){&#xd;
+		        				    		cEmpresa = &quot;Galderma&quot;&#xd;
+		        				    	}else{&#xd;
+		        				    		cEmpresa = &quot;Galderma Distribuidora&quot;&#xd;
+		        				    	}&#xd;
+		        				//    for(var i = 0; i &lt; oTabela.length; i++){&#xd;
+		        				    	&#xd;
+		        				    	mensagem +=&quot;&lt;td&gt;&quot;+cEmpresa+&quot;&lt;/td&gt;&quot;&#xd;
+		        				    	mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;nome___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+		        				    	mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;filial___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;prefixo___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;titulo___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;parcela___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;tipo___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;valor___&apos;+oTabela[i])+&quot;&lt;/td&gt;&quot;&#xd;
+			        				    mensagem +=&quot;&lt;/tr&gt;&quot;&#xd;
+		        			 //	    }&#xd;
+		        				    		        				    	&#xd;
+		        				    mensagem +=&quot;&lt;/table&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;/body&gt;&quot;&#xd;
+		        				    mensagem +=&quot;&lt;/html&gt;&quot;&#xd;
+&#xd;
+&#xd;
+		        				    obj.simpleEmail(1,subject, mailFluig, emailSolic, mensagem, &quot;text/html&quot;);&#xd;
+		        			}&#xd;
+		        		}&#xd;
+		                //&#xd;
+		            }&#xd;
+		        }catch(err){&#xd;
+		        	console.log(&quot;ERRO DIOGO&quot;)&#xd;
+		        	console.log(&quot;CATCH =&gt; &quot;+err)&#xd;
+		        }&#xd;
+	//		}&#xd;
+		}&#xd;
+	}&#xd;
+&#xd;
+*/	&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeStateEntry</eventId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeStateEntry(sequenceId){&#xd;
+	&#xd;
+	 var atividadeAtual = getValue(&quot;WKNumState&quot;);&#xd;
+	 var proximaAtividade = getValue(&quot;WKNextState&quot;);&#xd;
+	 var usuario = getValue(&apos;WKUser&apos;); //usuário logado&#xd;
+	 var numSolicitacao = getValue(&quot;WKNumProces&quot;);&#xd;
+	    &#xd;
+	console.log(&quot;Tarefa =&quot;+sequenceId)&#xd;
+	//hAPI.setCardValue(&apos;hdi_etapa&apos;, atividadeAtual);&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>FFFFFF</color>
+      <height>572</height>
+      <width>831</width>
+      <positionX>10</positionX>
+      <positionY>10</positionY>
+      <stateName>Pool</stateName>
+      <type>1</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>8080FF</color>
+      <height>190</height>
+      <width>801</width>
+      <positionX>40</positionX>
+      <positionY>10</positionY>
+      <stateName>Reporter</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>00FF00</color>
+      <height>190</height>
+      <width>801</width>
+      <positionX>40</positionX>
+      <positionY>200</positionY>
+      <stateName>Assignee</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>82b0b7</color>
+      <height>192</height>
+      <width>801</width>
+      <positionX>40</positionX>
+      <positionY>390</positionY>
+      <stateName>SwimLane</stateName>
+      <type>2</type>
+      <parentSequence>1</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list/>
+  <list/>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>28</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>158</positionX>
+      <positionY>247</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>28</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>158</positionX>
+      <positionY>360</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>30</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>464</positionX>
+      <positionY>160</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>30</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>390</positionX>
+      <positionY>161</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>30</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
+      <positionX>362</positionX>
+      <positionY>161</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>44</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>127</positionX>
+      <positionY>301</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>45</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>313</positionX>
+      <positionY>334</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>45</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>217</positionX>
+      <positionY>334</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>45</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
+      <positionX>217</positionX>
+      <positionY>219</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>45</linkSequence>
+        <bendSequence>4</bendSequence>
+      </processLinkBendPK>
+      <positionX>217</positionX>
+      <positionY>126</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>48</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>300</positionX>
+      <positionY>436</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>fluxoBaixaDacao</processId>
+        <version>44</version>
+        <linkSequence>48</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>127</positionX>
+      <positionY>436</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+</list>

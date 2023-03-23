@@ -1,0 +1,74 @@
+{
+    "companyId": "1",
+    "endpoint": "/api/aliancab2b/customer",
+    "method": "post",
+    "serviceCode": "cadastro_clientes",
+    "timeoutService": "100",
+    "params": {
+        "uf": "",
+        "complemento": "",
+        "bairro": "",
+        "municipio": "",
+        "nome": "CISVER SAO JOAO DELREI A VISTA",
+        "insc_num": "",
+        "end": "",
+        "end_num": "",
+        "id": 8375017,
+        "cpf_cnpj": "02162577000125",
+        "cep": ""
+    }
+}
+
+
+{
+    "FILIAL": "02002001",
+    "OPERACAO": "I",
+    "ITENS": [
+        {
+            "C7_CC": "3221",
+            "C7_XFLUIG": "482339",
+            "C7_QUANT": 1,
+            "C7_PRODUTO": "01002006005720",
+            "C7_PRECO": 116.1,
+            "C7_VLDESC": 0,
+            "C7_OBS": "Cesta solicitada pela Celly para brinde",
+            "C7_IPI": 0
+        }
+    ],
+    "USEREMAIL": "fanuel.cardoso@athena.medimagem.com.br",
+    "EMP": "01",
+    "CABEC": {
+        "C7_FORNECE": "22513557",
+        "C7_VALFRE": 0,
+        "C7_SEGURO": 0,
+        "C7_FILIAL": "02002001",
+        "C7_DESPESA": 0,
+        "C7_TPFRETE": "S",
+        "C7_COND": "037",
+        "C7_EMISSAO": "20211201",
+        "C7_LOJA": "0001"
+    },
+    "SISTEMA": "FLUIG",
+    "TABELA": "SC7"
+}
+
+
+
+{
+    "method": "post",
+    "serviceCode": "cadastro_clientes",
+    "bairro": "Paulo Camilo",
+    "municipio": "BETIM",
+    "timeoutService": "100",
+    "nome": "FCA FIAT",
+    "cpf_cnpj": "12838821000180",
+    "cep": "32669900",
+    "uf": "MG",
+    "companyId": "1",
+    "endpoint": "/api/aliancab2b/customer",
+    "complemento": "",
+    "insc_num": "",
+    "end": "do Contorno",
+    "end_num": "3455",
+    "id": 8375308
+}

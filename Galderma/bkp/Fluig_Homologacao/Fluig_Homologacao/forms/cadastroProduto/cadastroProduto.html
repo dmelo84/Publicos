@@ -1,0 +1,395 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script> 
+	<script type="text/javascript" src="../vcXMLRPC.js"></script>
+	<!-- Filtro -->
+	<link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide-filter.min.css">
+	<script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<h2>Cadastro de Produtos</h2>
+	<div class="row">
+		<div class="form-group col-md-3">
+				<label for="empresa">Empresa</label>
+				<select name="empresa" id="empresa" class="form-control">
+					  <option selected></option>
+					  <option value="01">Empresa 01</option>
+					  <option value="02">Empresa 02</option>
+					  <option value="99">Empresa 99</option>
+				</select>
+			</div>
+		<!-- Zoom1 -->
+		<div class="form-group col-md-3">
+			<label for="b1_xorigem">Org. Galderma</label>
+			<input
+			    type="zoom"
+			    id = "b1_xorigem"
+			    name="b1_xorigem"
+			    data-zoom="{
+			        'displayKey':'descricao',
+			        'datasetId':'tabelaSX5_X1',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Escolha o grupo',
+			        'fields':[
+			            {
+			               'field':'tabela',
+			               'label':'tabela'
+			            },{
+			              'field':'chave',
+			              'label':'chave',
+			              'standard':'true'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<!-- Zoom1 -->
+		<div class="form-group col-md-2">
+			<label for="b1_xtipo">Tp. Galderma</label>
+			<input
+			    type="zoom"
+			    id = "b1_xtipo"
+			    name="b1_xtipo"
+			    data-zoom="{
+			        'displayKey':'descricao',
+			        'datasetId':'tabelaSX5_X3',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Escolha o grupo',
+			        'fields':[
+			            {
+			               'field':'tabela',
+			               'label':'tabela'
+			            },{
+			              'field':'chave',
+			              'label':'chave',
+			              'standard':'true'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<!-- Zoom2 -->
+		<div class="form-group col-md-2">
+			<label for="b1_xgrupo">Gpr. Galderm</label>
+			<input
+			    type="zoom"
+			    id = "b1_xgrupo"
+			    name="b1_xgrupo"
+			    data-zoom="{
+			        'displayKey':'descricao',
+			        'datasetId':'tabelaSX5_ZA',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Escolha o grupo',
+			        'fields':[
+			            {
+			               'field':'tabela',
+			               'label':'tabela'
+			            },{
+			              'field':'chave',
+			              'label':'chave',
+			              'standard':'true'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<!-- Zoom2 -->
+		<div class="form-group col-md-2">
+			<label for="b1_grupo">Grupo</label>
+			<input
+			    type="zoom"
+			    id = "b1_grupo"
+			    name="b1_grupo"
+			    data-zoom="{
+			        'displayKey':'codigo',
+			        'datasetId':'dsGrupoProdutos',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Escolha o grupo',
+			        'fields':[
+			            {
+			               'field':'codigo',
+			               'label':'codigo'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao',
+			              'standard':'true'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<div class="form-group col-md-2">
+			<label for="b1_cod">Codigo</label>
+			<input type="text" name="b1_cod" id="b1_cod" class="form-control">
+		</div>
+		<div class="form-group col-md-10">
+			<label for="b1_desc">Descrição</label>
+			<input type="text" name="b1_desc" id="b1_desc" class="form-control">
+		</div>
+		<!-- Zoom3 -->
+		<div class="form-group col-md-3">
+			<label for="b1_xsubgrp">Sub. Grupo</label>
+			<input
+			    type="zoom"
+			    id = "b1_xsubgrp"
+			    name="b1_xsubgrp"
+			    data-zoom="{
+			        'displayKey':'descricao',
+			        'datasetId':'tabelaSX5_X3',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Escolha o grupo',
+			        'fields':[
+			            {
+			               'field':'tabela',
+			               'label':'tabela'
+			            },{
+			              'field':'chave',
+			              'label':'chave',
+			              'standard':'true'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<!-- Zoom3 -->
+		<!-- Zoom4 -->
+		<div class="form-group col-md-3">
+			<label for="b1_tipo">Tipo</label>
+			<input
+			    type="zoom"
+			    id = "b1_tipo"
+			    name="b1_tipo"
+			    data-zoom="{
+			        'displayKey':'chave',
+			        'datasetId':'tabelaSX5_02',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Escolha o grupo',
+			        'fields':[
+			            {
+			               'field':'tabela',
+			               'label':'tabela'
+			            },{
+			              'field':'chave',
+			              'label':'chave',
+			              'standard':'true'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<!-- Zoom4 -->
+		<!-- Zoom5 -->
+		<div class="form-group col-md-2">
+			<label for="b1_um">Unidade</label>
+			<input
+			    type="zoom"
+			    id = "b1_um"
+			    name="b1_um"
+			    data-zoom="{
+			        'displayKey':'codigo',
+			        'datasetId':'dsUnidadeMedida',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Unidade de Medida',
+			        'fields':[
+			            {
+			               'field':'codigo',
+			               'label':'codigo'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao',
+			              'standard':'true'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<!-- Zoom5 -->
+		<div class="form-group col-md-2">
+			<label for="b1_xtipgal">Tipo Gald</label>
+			<select name="b1_xtipgal" id="b1_xtipgal" class="form-control">
+				  <option value="F">Farmaceutico</option>
+				  <option value="C">Cosmetico</option>
+				  <option value="N">Nao</option>
+				  <option value="A">Alimento</option>
+			</select>
+		</div>
+		<!-- Zoom6 -->
+		<div class="form-group col-md-2">
+			<label for="b1_locpad">Armazem Padrão</label>
+			<input
+			    type="zoom"
+			    id = "b1_locpad"
+			    name="b1_locpad"
+			    data-zoom="{
+			        'displayKey':'codigo',
+			        'datasetId':'dsArmazem',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Local Padrão',
+			        'fields':[
+			            {
+			               'field':'codigo',
+			               'label':'codigo'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao',
+			              'standard':'true'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<!-- Zoom6 -->
+		<div class="form-group col-md-3">
+			<label for="b1_prv1">Preço de Venda</label>
+			<input type="text" name="b1_prv1" id="b1_prv1" class="form-control" mask="#00.000.000.000.000,00">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="b1_conta">Conta Contabil</label>
+			<input
+			    type="zoom"
+			    id = "b1_conta"
+			    name="b1_conta"
+			    data-zoom="{
+			        'displayKey':'codigo',
+			        'datasetId':'dsPlanodeContas',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Plano de Contas',
+			        'fields':[
+			            {
+			               'field':'codigo',
+			               'label':'codigo'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao',
+			              'standard':'true'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<div class="form-group col-md-3">
+			<label for="b1_cc">Centro de Custo</label>
+			<input
+			    type="zoom"
+			    id = "b1_cc"
+			    name="b1_cc"
+			    data-zoom="{
+			        'displayKey':'codigo',
+			        'datasetId':'dsCentrodeCusto',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'Centro de Custo',
+			        'fields':[
+			            {
+			               'field':'codigo',
+			               'label':'codigo'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao',
+			              'standard':'true'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+		<div class="form-group col-md-2">
+			<label for="b1_usafefo">FEFO</label>
+			<select name="b1_usafefo" id="b1_usafefo" class="form-control">
+				  <option value="S">Sim</option>
+				  <option value="N">Não</option>
+			</select>
+		</div>
+		<div class="form-group col-md-2">
+			<label for="b1_xtpven">Tipo de Venda</label>
+			<select name="b1_xtpven" id="b1_xtpven" class="form-control">
+				  <option value="1">Venda</option>
+				  <option value="2">Revenda Prod</option>
+				  <option value="3">Revenda Merc</option>
+				  <option value="4">Outros</option>
+			</select>
+		</div>
+		<div class="form-group col-md-2">
+			<label for="b1_posipi">NCM</label>
+			<input
+			    type="zoom"
+			    id = "b1_posipi"
+			    name="b1_posipi"
+			    data-zoom="{
+			        'displayKey':'codigo',
+			        'datasetId':'dsNCM',
+			        'maximumSelectionLength':'1',
+			        'placeholder':'NCM',
+			        'fields':[
+			            {
+			               'field':'codigo',
+			               'label':'codigo'
+			            },{
+			              'field':'descricao',
+			              'label':'descricao',
+			              'standard':'true'
+			            }
+			        ]
+			     }"
+			 />
+		</div>
+			<div class="form-group col-md-4">
+				<label for="b1_origem">Origem</label>
+				<select name="b1_origem" id="b1_origem" class="form-control">
+					  <option value="0">Nacional</option>
+					  <option value="1">Importação direta</option>
+					  <option value="2">Adquirida Mercado Interno</option>
+					  <option value="3">Nacional-Mer/sup 40% e Inf/igual 70%</option>
+					  <option value="4">Nacional, Prod em Conf com od Proc Produtivos basicos</option>
+					  <option value="5">Nacional-Merc/bem de Import inf ou igual 40%</option>
+					  <option value="6">Sem similar nacional, conta na lista CAMEX</option>
+				</select>
+			</div>
+	</div>
+	<!-- Requisitante -->
+	<div class=row>
+		<div class="form-group col-md-3">
+			<label for="requisitante">Requisitante</label>
+			<input type="text" name="requisitante" id="requisitante" class="form-control">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="nome">Nome</label>
+			<input type="text" name="nome" id="nome" class="form-control">
+		</div>
+		<div class="form-group col-md-3">
+			<label for="email">Email</label>
+			<input type="text" name="email" id="email" class="form-control">
+		</div>
+	</div>
+	<!-- Botões -->
+			<div class="form-group col-md-1">
+				<div id="divGrava">
+					<button type="button" id='grava' class="btn btn-primary">Grava</button>
+				</div>
+			</div>
+			<!-- Botoes -->
+</form>
+<script type="text/javascript" src="customizado.js"</script>
+</div>
+</body>
+</html>

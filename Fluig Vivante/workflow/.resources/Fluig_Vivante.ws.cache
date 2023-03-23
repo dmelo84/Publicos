@@ -1,0 +1,1261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_131" class="java.beans.XMLDecoder">
+ <object class="java.util.HashMap">
+  <void method="put">
+   <string>volume</string>
+   <array class="java.lang.String" length="1">
+    <void index="0">
+     <string>Default</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>camposFormulario, documentoId = 10</string>
+   <array class="java.lang.String" length="140">
+    <void index="0">
+     <string>ccusto_codigo</string>
+    </void>
+    <void index="1">
+     <string>ccusto_nome</string>
+    </void>
+    <void index="2">
+     <string>codusuario_rm</string>
+    </void>
+    <void index="3">
+     <string>codusuario_solicitante</string>
+    </void>
+    <void index="4">
+     <string>cotacao_ccusto_codigo</string>
+    </void>
+    <void index="5">
+     <string>cotacao_ccusto_nome</string>
+    </void>
+    <void index="6">
+     <string>cotacao_childId</string>
+    </void>
+    <void index="7">
+     <string>cotacao_cnpj_filial_vivante</string>
+    </void>
+    <void index="8">
+     <string>cotacao_codcfo</string>
+    </void>
+    <void index="9">
+     <string>cotacao_completa</string>
+    </void>
+    <void index="10">
+     <string>cotacao_cond_pgto_hist</string>
+    </void>
+    <void index="11">
+     <string>cotacao_desconto</string>
+    </void>
+    <void index="12">
+     <string>cotacao_entrega_cidade</string>
+    </void>
+    <void index="13">
+     <string>cotacao_entrega_endereco</string>
+    </void>
+    <void index="14">
+     <string>cotacao_entrega_filial</string>
+    </void>
+    <void index="15">
+     <string>cotacao_entrega_local_nome</string>
+    </void>
+    <void index="16">
+     <string>cotacao_entrega_uf</string>
+    </void>
+    <void index="17">
+     <string>cotacao_folderId</string>
+    </void>
+    <void index="18">
+     <string>cotacao_forn_nome</string>
+    </void>
+    <void index="19">
+     <string>cotacao_icmsst</string>
+    </void>
+    <void index="20">
+     <string>cotacao_item_seq</string>
+    </void>
+    <void index="21">
+     <string>cotacao_item_vencedor</string>
+    </void>
+    <void index="22">
+     <string>cotacao_key</string>
+    </void>
+    <void index="23">
+     <string>cotacao_preco</string>
+    </void>
+    <void index="24">
+     <string>cotacao_prev_entrega_hist</string>
+    </void>
+    <void index="25">
+     <string>cotacao_produto_codigo</string>
+    </void>
+    <void index="26">
+     <string>cotacao_produto_codtb2fat</string>
+    </void>
+    <void index="27">
+     <string>cotacao_produto_codtborcamento</string>
+    </void>
+    <void index="28">
+     <string>cotacao_produto_descricao</string>
+    </void>
+    <void index="29">
+     <string>cotacao_produto_idprd</string>
+    </void>
+    <void index="30">
+     <string>cotacao_produto_ipi</string>
+    </void>
+    <void index="31">
+     <string>cotacao_produto_itemcontrl</string>
+    </void>
+    <void index="32">
+     <string>cotacao_produto_itemfamily</string>
+    </void>
+    <void index="33">
+     <string>cotacao_produto_observacoes</string>
+    </void>
+    <void index="34">
+     <string>cotacao_produto_quantidade</string>
+    </void>
+    <void index="35">
+     <string>cotacao_produto_tipo</string>
+    </void>
+    <void index="36">
+     <string>cotacao_sol_documentid</string>
+    </void>
+    <void index="37">
+     <string>cotacao_sol_local_estoque</string>
+    </void>
+    <void index="38">
+     <string>cotacao_solicitacao_item_seq</string>
+    </void>
+    <void index="39">
+     <string>cotacao_solicitacao_numero</string>
+    </void>
+    <void index="40">
+     <string>cotacao_status_item</string>
+    </void>
+    <void index="41">
+     <string>cotacao_tem_frete_hist</string>
+    </void>
+    <void index="42">
+     <string>cotacao_tipo_cotacao</string>
+    </void>
+    <void index="43">
+     <string>cotacao_total_hist</string>
+    </void>
+    <void index="44">
+     <string>cotacao_total_item</string>
+    </void>
+    <void index="45">
+     <string>cotacao_total_itens_hist</string>
+    </void>
+    <void index="46">
+     <string>cotacao_unidade</string>
+    </void>
+    <void index="47">
+     <string>cotacao_unidade_nome</string>
+    </void>
+    <void index="48">
+     <string>cotacao_valor_frete_hist</string>
+    </void>
+    <void index="49">
+     <string>data_cotacao</string>
+    </void>
+    <void index="50">
+     <string>data_limite</string>
+    </void>
+    <void index="51">
+     <string>emElaboracao</string>
+    </void>
+    <void index="52">
+     <string>empresa_codigo</string>
+    </void>
+    <void index="53">
+     <string>empresa_nome</string>
+    </void>
+    <void index="54">
+     <string>entrega_cidade</string>
+    </void>
+    <void index="55">
+     <string>entrega_endereco</string>
+    </void>
+    <void index="56">
+     <string>entrega_filial</string>
+    </void>
+    <void index="57">
+     <string>entrega_local_nome</string>
+    </void>
+    <void index="58">
+     <string>entrega_uf</string>
+    </void>
+    <void index="59">
+     <string>fieldset_cabecalho</string>
+    </void>
+    <void index="60">
+     <string>filial_codigo</string>
+    </void>
+    <void index="61">
+     <string>filial_nome</string>
+    </void>
+    <void index="62">
+     <string>forn_childId</string>
+    </void>
+    <void index="63">
+     <string>forn_cnpj</string>
+    </void>
+    <void index="64">
+     <string>forn_codcfo</string>
+    </void>
+    <void index="65">
+     <string>forn_codigo_pesquisa</string>
+    </void>
+    <void index="66">
+     <string>forn_contato</string>
+    </void>
+    <void index="67">
+     <string>forn_email</string>
+    </void>
+    <void index="68">
+     <string>forn_folderId</string>
+    </void>
+    <void index="69">
+     <string>forn_key</string>
+    </void>
+    <void index="70">
+     <string>forn_nome</string>
+    </void>
+    <void index="71">
+     <string>forn_nome_pesquisa</string>
+    </void>
+    <void index="72">
+     <string>forn_razaosocial</string>
+    </void>
+    <void index="73">
+     <string>forn_seq</string>
+    </void>
+    <void index="74">
+     <string>forn_telefone</string>
+    </void>
+    <void index="75">
+     <string>hist_cnpj_filial_vivante</string>
+    </void>
+    <void index="76">
+     <string>hist_cotacao_ccusto_codigo</string>
+    </void>
+    <void index="77">
+     <string>hist_cotacao_ccusto_nome</string>
+    </void>
+    <void index="78">
+     <string>hist_cotacao_childId</string>
+    </void>
+    <void index="79">
+     <string>hist_cotacao_codcfo</string>
+    </void>
+    <void index="80">
+     <string>hist_cotacao_desconto</string>
+    </void>
+    <void index="81">
+     <string>hist_cotacao_entrega_cidade</string>
+    </void>
+    <void index="82">
+     <string>hist_cotacao_entrega_endereco</string>
+    </void>
+    <void index="83">
+     <string>hist_cotacao_entrega_filial</string>
+    </void>
+    <void index="84">
+     <string>hist_cotacao_entrega_uf</string>
+    </void>
+    <void index="85">
+     <string>hist_cotacao_icmsst</string>
+    </void>
+    <void index="86">
+     <string>hist_cotacao_item_seq</string>
+    </void>
+    <void index="87">
+     <string>hist_cotacao_item_vencedor</string>
+    </void>
+    <void index="88">
+     <string>hist_cotacao_key</string>
+    </void>
+    <void index="89">
+     <string>hist_cotacao_preco</string>
+    </void>
+    <void index="90">
+     <string>hist_cotacao_prod_itemcontrl</string>
+    </void>
+    <void index="91">
+     <string>hist_cotacao_prod_itemfamily</string>
+    </void>
+    <void index="92">
+     <string>hist_cotacao_prod_observacoes</string>
+    </void>
+    <void index="93">
+     <string>hist_cotacao_prod_quantidade</string>
+    </void>
+    <void index="94">
+     <string>hist_cotacao_produto_codigo</string>
+    </void>
+    <void index="95">
+     <string>hist_cotacao_produto_codtb2fat</string>
+    </void>
+    <void index="96">
+     <string>hist_cotacao_produto_descricao</string>
+    </void>
+    <void index="97">
+     <string>hist_cotacao_produto_idprd</string>
+    </void>
+    <void index="98">
+     <string>hist_cotacao_produto_ipi</string>
+    </void>
+    <void index="99">
+     <string>hist_cotacao_produto_tipo</string>
+    </void>
+    <void index="100">
+     <string>hist_cotacao_solicit_item_seq</string>
+    </void>
+    <void index="101">
+     <string>hist_cotacao_solicit_numero</string>
+    </void>
+    <void index="102">
+     <string>hist_cotacao_status_item</string>
+    </void>
+    <void index="103">
+     <string>hist_cotacao_total_item</string>
+    </void>
+    <void index="104">
+     <string>hist_cotacao_unidade</string>
+    </void>
+    <void index="105">
+     <string>hist_cotacao_unidade_nome</string>
+    </void>
+    <void index="106">
+     <string>hist_entrega_local_nome</string>
+    </void>
+    <void index="107">
+     <string>item_seq</string>
+    </void>
+    <void index="108">
+     <string>local_cep</string>
+    </void>
+    <void index="109">
+     <string>local_childId</string>
+    </void>
+    <void index="110">
+     <string>local_cidade</string>
+    </void>
+    <void index="111">
+     <string>local_codigo</string>
+    </void>
+    <void index="112">
+     <string>local_condpgto</string>
+    </void>
+    <void index="113">
+     <string>local_dataentrega</string>
+    </void>
+    <void index="114">
+     <string>local_endereco</string>
+    </void>
+    <void index="115">
+     <string>local_estado</string>
+    </void>
+    <void index="116">
+     <string>local_forn_key</string>
+    </void>
+    <void index="117">
+     <string>local_nome</string>
+    </void>
+    <void index="118">
+     <string>local_tem_frete</string>
+    </void>
+    <void index="119">
+     <string>local_valor_frete</string>
+    </void>
+    <void index="120">
+     <string>nome_comprador</string>
+    </void>
+    <void index="121">
+     <string>numero_cotacao</string>
+    </void>
+    <void index="122">
+     <string>observacoes</string>
+    </void>
+    <void index="123">
+     <string>produto_codigo</string>
+    </void>
+    <void index="124">
+     <string>produto_codtb2fat</string>
+    </void>
+    <void index="125">
+     <string>produto_codtborcamento</string>
+    </void>
+    <void index="126">
+     <string>produto_descricao</string>
+    </void>
+    <void index="127">
+     <string>produto_idprd</string>
+    </void>
+    <void index="128">
+     <string>produto_itemcontrl</string>
+    </void>
+    <void index="129">
+     <string>produto_itemfamily</string>
+    </void>
+    <void index="130">
+     <string>produto_observacoes</string>
+    </void>
+    <void index="131">
+     <string>produto_quantidade</string>
+    </void>
+    <void index="132">
+     <string>produto_tipo</string>
+    </void>
+    <void index="133">
+     <string>sol_unidade</string>
+    </void>
+    <void index="134">
+     <string>sol_unidade_nome</string>
+    </void>
+    <void index="135">
+     <string>solicitacao_data</string>
+    </void>
+    <void index="136">
+     <string>solicitacao_documentid</string>
+    </void>
+    <void index="137">
+     <string>solicitacao_item_seq</string>
+    </void>
+    <void index="138">
+     <string>solicitacao_local_estoque</string>
+    </void>
+    <void index="139">
+     <string>solicitacao_numero</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>mecanismoGrupo</string>
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Síndicos</string>
+      </void>
+      <void property="groupId">
+       <string>Sindicos</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Equipe de TI para Suporte aos Processos</string>
+      </void>
+      <void property="groupId">
+       <string>TI_Suporte_Processos</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Moderator group Vivante Informa</string>
+      </void>
+      <void property="groupId">
+       <string>MODERATOR_vivante-informa</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Member group Vivante Informa</string>
+      </void>
+      <void property="groupId">
+       <string>MEMBER_vivante-informa</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Moderator group Projeto Conecta</string>
+      </void>
+      <void property="groupId">
+       <string>MODERATOR_projeto-conecta</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Member group Projeto Conecta</string>
+      </void>
+      <void property="groupId">
+       <string>MEMBER_projeto-conecta</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Responsáveis pela Atividade Contabilidade no processo</string>
+      </void>
+      <void property="groupId">
+       <string>Contabilidade_Prestacao_Contas</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Responsáveis pela Atividade Financeiro no processo</string>
+      </void>
+      <void property="groupId">
+       <string>Financeiro_Prestacao_Contas</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Solicitações Pendentes</string>
+      </void>
+      <void property="groupId">
+       <string>SolicitacoesPendentes</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Compradores - Acesso Central de Compras</string>
+      </void>
+      <void property="groupId">
+       <string>Compradores</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Vivante_Padrao</string>
+      </void>
+      <void property="groupId">
+       <string>Vivante_Padrao</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso CP003-OrdemDeCompras - CENTRAL DE COMPRAS</string>
+      </void>
+      <void property="groupId">
+       <string>CP003-OrdemDeCompras</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Pesquisa Atendimento - Acesso a Página</string>
+      </void>
+      <void property="groupId">
+       <string>PESQUISA_ATENDIMENTO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Gestor Processo - CP001 - Solicitação de Compras  (papel admin do processo)</string>
+      </void>
+      <void property="groupId">
+       <string>GP_CP001_Solicitação_de_Compras</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Gestor Processo - CP003 - Ordem de Compra  (papel admin do processo)</string>
+      </void>
+      <void property="groupId">
+       <string>GP_CP003_Ordem_de_Compra</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Gestor Processo - CP002 - Cotação de Compras  (papel admin do processo)</string>
+      </void>
+      <void property="groupId">
+       <string>GP_CP002_Cotação_de_Compras</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>TC-APROVADOR - Treinamento de Compras</string>
+      </void>
+      <void property="groupId">
+       <string>TC-APROVADOR</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>TC-COMPRADOR - Treinamento de Compras</string>
+      </void>
+      <void property="groupId">
+       <string>TC-COMPRADOR</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>TC-SOLICITANTE - Treinamento de Compras</string>
+      </void>
+      <void property="groupId">
+       <string>TC-SOLICITANTE</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>ADM-Turmas-Treinamento</string>
+      </void>
+      <void property="groupId">
+       <string>ADM-Turmas-Treinamento</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Usuários da Equipe de Compras</string>
+      </void>
+      <void property="groupId">
+       <string>GP_Equipe_Compras</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Gestor Processo - CP005 - Confirmação de Recebimento  (papel admin do processo)</string>
+      </void>
+      <void property="groupId">
+       <string>GP_CP005_Confirmação_de_Recebimento</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso CP001_Solicitacao_de_Compras - CENTRAL DO SOLICITANTE</string>
+      </void>
+      <void property="groupId">
+       <string>CP001_solicitacao_de_compras</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso a inclusão de solicitações no processo FIN001 - Prestação de Contas</string>
+      </void>
+      <void property="groupId">
+       <string>FIN001_Prestação_de_Contas</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Aprovador_CP001_Solicitação_de_Compras</string>
+      </void>
+      <void property="groupId">
+       <string>Aprovador_CP001_Solicitação_de_Compras</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Gestores do Workflow de Prestação de Contas (papel admin do processo)</string>
+      </void>
+      <void property="groupId">
+       <string>GestorWorkflowPrestacaoContas</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso ao processo CP005 - Confirmação de Recebimento</string>
+      </void>
+      <void property="groupId">
+       <string>CP005_Confirmação_de_Recebimento</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_HALLIBURTON</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_HALLIBURTON</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_PS_DELPHINA_RINALDI</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_PS_DELPHINA_RINALDI</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_UNISINOS</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_UNISINOS</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Responsáveis pela Correção do Processo FIN001 - Prestação de Contas</string>
+      </void>
+      <void property="groupId">
+       <string>GP_Correcao_FIN001_PrestacaoContas</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_HIAE</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_HIAE</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso a Página - Base de Pesquisa Fornecedor / Produto</string>
+      </void>
+      <void property="groupId">
+       <string>BasePesquisa_FornecedorProduto</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_HOSP_METROP_BH</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_HOSP_METROP_BH</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_HCOR</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_HCOR</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_GTI</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_GTI</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_IMPLANTACAO</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_IMPLANTACAO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Prestacao_Contas_HALLIBURTON</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Prestacao_Contas_HALLIBURTON</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_PRESTACAO_DE_CONTAS_GFINAN</string>
+      </void>
+      <void property="groupId">
+       <string>REL_PRESTACAO_DE_CONTAS_GFINAN</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_AGENCIASP4</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_AGENCIASP4</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso a Página REL_OC_INDICADOR_SER_VIVANTE</string>
+      </void>
+      <void property="groupId">
+       <string>REL_OC_INDICADOR_SER_VIVANTE</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_EMBRACO</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_EMBRACO</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_PETRONAS</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_PETRONAS</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Analista Fluig</string>
+      </void>
+      <void property="groupId">
+       <string>ANALISTA_FLUIG</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_PC_BARRA_SHOPPING</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_PC_BARRA_SHOPPING</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_PC_SHOPPING_NEW_YORK</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_PC_SHOPPING_NEW_YORK</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_PC_SHOPPING_VILLAGE_MALL</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_PC_SHOPPING_VILLAGE_MALL</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso Página REL_Acompanhamento_OC_PC_SHOPPING_MADUREIRA</string>
+      </void>
+      <void property="groupId">
+       <string>REL_Acompanhamento_OC_PC_SHOPPING_MADUREIRA</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.GroupDto">
+      <void property="groupDescription">
+       <string>Acesso aos Relatórios de Compras</string>
+      </void>
+      <void property="groupId">
+       <string>Relatórios_Compras</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>expediente</string>
+   <array class="java.lang.String" length="1">
+    <void index="0">
+     <string>Default</string>
+    </void>
+   </array>
+  </void>
+  <void method="put">
+   <string>mecanismoPapel</string>
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>admin</string>
+      </void>
+      <void property="roleId">
+       <string>admin</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>Aprovadores Produtos FR</string>
+      </void>
+      <void property="roleId">
+       <string>Aprov_Sindico_Fr</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>Aprovadores Produtos DT</string>
+      </void>
+      <void property="roleId">
+       <string>Aprov_Sindico_DT</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>Aprov_Sindico_Fr</string>
+      </void>
+      <void property="roleId">
+       <string>Aprov_Sindico_ME</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>Aprov_Sindico_PQ</string>
+      </void>
+      <void property="roleId">
+       <string>Aprov_Sindico_PQ</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>Aprov_Sindico_RH</string>
+      </void>
+      <void property="roleId">
+       <string>Aprov_Sindico_RH</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>Aprov_Sindico_TI</string>
+      </void>
+      <void property="roleId">
+       <string>Aprov_Sindico_TI</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>Aprov_Sindico_UE</string>
+      </void>
+      <void property="roleId">
+       <string>Aprov_Sindico_UE</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>Comprador da Unidade - Acesso CP002 - Cotação</string>
+      </void>
+      <void property="roleId">
+       <string>Comprador_Unidade</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.totvs.tds.ecm.foundation.ws.WorkflowRoleDto">
+      <void property="companyId">
+       <long>1</long>
+      </void>
+      <void property="roleDescription">
+       <string>Gestor_Unidade</string>
+      </void>
+      <void property="roleId">
+       <string>Gestor_Unidade</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="put">
+   <string>mecanismo</string>
+   <array class="[Ljava.lang.Object;" length="18">
+    <void index="0">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprov_Ordem_Compra</string>
+      </void>
+      <void index="1">
+       <string>Aprov_Ordem_Compra</string>
+      </void>
+     </array>
+    </void>
+    <void index="1">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprov_Prestacao_Contas</string>
+      </void>
+      <void index="1">
+       <string>Aprov_Prestacao_Contas</string>
+      </void>
+     </array>
+    </void>
+    <void index="2">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprov_Prestacao_Contas2</string>
+      </void>
+      <void index="1">
+       <string>Aprov_Prestacao_Contas2</string>
+      </void>
+     </array>
+    </void>
+    <void index="3">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprovador_Portfolio</string>
+      </void>
+      <void index="1">
+       <string>Aprovador_Portfolio</string>
+      </void>
+     </array>
+    </void>
+    <void index="4">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprovador_Unidade</string>
+      </void>
+      <void index="1">
+       <string>Aprovador_Unidade</string>
+      </void>
+     </array>
+    </void>
+    <void index="5">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Aprovadores de Ordem de Compra</string>
+      </void>
+      <void index="1">
+       <string>Aprovadores_Ordem_Compra</string>
+      </void>
+     </array>
+    </void>
+    <void index="6">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Associação</string>
+      </void>
+      <void index="1">
+       <string>Associado</string>
+      </void>
+     </array>
+    </void>
+    <void index="7">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Campo de Formulário</string>
+      </void>
+      <void index="1">
+       <string>Campo Formulário</string>
+      </void>
+     </array>
+    </void>
+    <void index="8">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Compradores da Unidade</string>
+      </void>
+      <void index="1">
+       <string>Compradores_Unidade</string>
+      </void>
+     </array>
+    </void>
+    <void index="9">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Executor de Atividade</string>
+      </void>
+      <void index="1">
+       <string>Executor Atividade</string>
+      </void>
+     </array>
+    </void>
+    <void index="10">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Favorecido da Prestação de Contas</string>
+      </void>
+      <void index="1">
+       <string>Fav_Prestacao_Contas</string>
+      </void>
+     </array>
+    </void>
+    <void index="11">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Gestores_Unidade</string>
+      </void>
+      <void index="1">
+       <string>Gestores_Unidade</string>
+      </void>
+     </array>
+    </void>
+    <void index="12">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Grupo</string>
+      </void>
+      <void index="1">
+       <string>Grupo</string>
+      </void>
+     </array>
+    </void>
+    <void index="13">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Grupos do Colaborador</string>
+      </void>
+      <void index="1">
+       <string>Grupos Colaborador</string>
+      </void>
+     </array>
+    </void>
+    <void index="14">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Papel</string>
+      </void>
+      <void index="1">
+       <string>Papel</string>
+      </void>
+     </array>
+    </void>
+    <void index="15">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição para um Grupo</string>
+      </void>
+      <void index="1">
+       <string>Pool Grupo</string>
+      </void>
+     </array>
+    </void>
+    <void index="16">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição para um Papel</string>
+      </void>
+      <void index="1">
+       <string>Pool Papel</string>
+      </void>
+     </array>
+    </void>
+    <void index="17">
+     <array class="java.lang.Object" length="2">
+      <void index="0">
+       <string>Atribuição por Usuário</string>
+      </void>
+      <void index="1">
+       <string>Usuário</string>
+      </void>
+     </array>
+    </void>
+   </array>
+  </void>
+ </object>
+</java>

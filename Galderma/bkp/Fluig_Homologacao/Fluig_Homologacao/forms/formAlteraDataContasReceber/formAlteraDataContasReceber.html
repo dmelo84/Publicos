@@ -1,0 +1,118 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script> 
+	<script type="text/javascript" src="../vcXMLRPC.js"></script>
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<div class="row">
+		<div class="form-group col-md-2">
+			<label for="venctoaltera">Data a ser atualizada</label>
+			<input type="text" name="venctoaltera" id="venctoaltera" class="form-control" placeholder="Entre com a data">
+		</div>
+	</div>
+	<div class="row">
+		<div class="form-group col-md-3">
+		    <label for="empresa">Selecione a Empresa</label>
+		    <select class="form-control" id="empresa" name="empresa">
+		      <option> </option>
+		      <option>01-Galderma</option>
+		      <option>02-Galderma Distribuidora</option>
+    		</select>
+  		</div>
+		<div class="form-group col-md-1">
+			<label for="prefixo">Prefixo</label>
+			<input type="text" name="prefixo" id="prefixo" class="form-control">
+		</div>
+		<!-- /.col-lg-6 -->
+	    <div class="col-lg-4">
+	        <div class="form-group">
+	        	<label for="titulo">Título</label>
+		        	<input
+				    type="zoom"
+				    id = "titulo"
+				    name="titulo"
+				    data-zoom="{
+				        'displayKey':'Numero',
+				        'datasetId':'retornoTitulo',
+				        'maximumSelectionLength':'1',
+				        'placeholder':'Escolha o Titulo',
+				        'fields':[
+				            {
+				               'field':'Prefixo',
+				               'label':'Prefixo'
+				            },{
+				              'field':'Numero',
+				              'label':'Numero',
+				              'standard':'true'
+				            },{
+				              'field':'Tipo',
+				              'label':'Tipo'
+				            },{
+				              'field':'Valor',
+				              'label':'Valor'
+				            },{
+				              'field':'Vencimento',
+				              'label':'Vencimento'
+				            },{
+				              'field':'Nome',
+				              'label':'Nome'
+				            },{
+				              'field':'Parcela',
+				              'label':'Parcela'
+				            }
+				        ]
+				     }"
+				 />
+	        	<!--  Fim -->
+	        </div>
+	        <!-- /input-group -->
+	    </div>
+	    <!-- /.col-lg-6 -->
+	        <div class="form-group col-md-1">
+				<label for="parcela">Parcela</label>
+				<input type="text" name="parcela" id="parcela" class="form-control">
+			</div>
+	    <div class="form-group col-md-1">
+			<label for="tipo">Tipo</label>
+			<input type="text" name="tipo" id="tipo" class="form-control">
+		</div>
+		<div class="form-group col-md-4">
+			<label for="nome">Nome</label>
+			<input type="text" name="nome" id="nome" class="form-control">
+		</div>
+		<div class="form-group col-md-2">
+			<label for="venctoreal">Vencimento Atual</label>
+			<input type="text" name="venctoreal" id="venctoreal" class="form-control" readonly>
+		</div>
+		<div class="form-group col-md-4">
+			<label for="valor">Valor</label>
+			<input type="text" name="valor" id="valor" class="form-control" readonly>
+		</div>
+		<div class="form-group col-md-2">
+		    <label for="aprova">Aprova alteração?</label>
+		    <select class="form-control" id="aprova" name="aprova">
+		      <option>...</option>
+		      <option>Nao</option>
+		      <option>Sim</option>
+    		</select>
+  		</div>
+		<!-- Inicio zoom -->
+		<!-- Fim zoom -->
+	</div>
+	<!-- Botões -->
+		<div id="divGrava">
+			<button type="button" id='grava' class="btn btn-primary">Grava</button>
+		</div>
+	<!-- Botoes -->
+</form>
+<script type="text/javascript" src="validCampos.js"</script> 
+</div>
+</body>
+</html>

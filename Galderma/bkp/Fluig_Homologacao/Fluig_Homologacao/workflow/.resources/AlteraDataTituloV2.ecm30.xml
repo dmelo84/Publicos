@@ -1,0 +1,1110 @@
+<list>
+  <ProcessDefinition>
+    <processDefinitionPK>
+      <companyId>1</companyId>
+      <processId>AlteraDataTituloV2</processId>
+    </processDefinitionPK>
+    <processDescription>Fluxo Postergação de Titulo</processDescription>
+    <instruction></instruction>
+    <active>true</active>
+    <publicProcess>false</publicProcess>
+    <volumeId>Default</volumeId>
+    <categoryId>Prorrogação de Vencimento dos Titulos </categoryId>
+    <managerEngineAllocationId>Papel</managerEngineAllocationId>
+    <managerEngineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;Solicitante_PROR_VENC&lt;/Role&gt;&lt;/AssignmentController&gt;</managerEngineAllocationConfiguration>
+    <snapshotFrequency>0</snapshotFrequency>
+    <baseDay>0</baseDay>
+    <baseMonth>0</baseMonth>
+    <periodId>Default</periodId>
+    <uniqueCardVersion>false</uniqueCardVersion>
+    <keyWord></keyWord>
+    <complementsLevel>1</complementsLevel>
+    <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
+    <notifyManagerComplements>false</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
+    <notifyAuthorityComplements>true</notifyAuthorityComplements>
+  </ProcessDefinition>
+  <ProcessDefinitionVersion>
+    <processDefinitionVersionPK>
+      <companyId>1</companyId>
+      <processId>Fluxo Postergação de Titulo</processId>
+      <version>70</version>
+    </processDefinitionVersionPK>
+    <versionDescription>Nova Versão.</versionDescription>
+    <formId>623</formId>
+    <editionMode>true</editionMode>
+    <updateAttachmentsVersion>false</updateAttachmentsVersion>
+    <controlsAttachmentsSecurity>false</controlsAttachmentsSecurity>
+    <active>true</active>
+    <blockedVersion>false</blockedVersion>
+    <counterSign>false</counterSign>
+    <openInstances>0</openInstances>
+    <bpmnVersion>1</bpmnVersion>
+    <processStates/>
+    <favorito>false</favorito>
+    <inheritFormSecurity>false</inheritFormSecurity>
+    <mobileReady>true</mobileReady>
+  </ProcessDefinitionVersion>
+  <list>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </processStatePK>
+      <stateName>Início</stateName>
+      <stateDescription>Início</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>true</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>66</positionX>
+      <positionY>64</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId>Default</periodId>
+      <stateType>0</stateType>
+      <bpmnType>10</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </processStatePK>
+      <stateName>Aprovação nivel 1º</stateName>
+      <stateDescription>Aprovação nivel 1º</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Papel</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;Solicitante_PROR_VENC&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>810</positionX>
+      <positionY>157</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>6</sequence>
+      </processStatePK>
+      <stateName>Aprovação nivel 2°</stateName>
+      <stateDescription>Aprovação nivel 2°</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Papel</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;Solicitante_PROR_VENC&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>149</positionX>
+      <positionY>283</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>58</sequence>
+      </processStatePK>
+      <stateName>Maior que 1MI - Nivel1</stateName>
+      <stateDescription>Maior que 1MI - Nivel1</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Papel</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;Solicitante_PROR_VENC&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>618</positionX>
+      <positionY>274</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>2</sequence>
+      </processStatePK>
+      <stateName>Rota</stateName>
+      <stateDescription>Rota</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>580</positionX>
+      <positionY>141</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>66</sequence>
+      </processStatePK>
+      <stateName>Aprovação ate 1mi</stateName>
+      <stateDescription>Aprovação ate 1mi</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>1030</positionX>
+      <positionY>23</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>72</sequence>
+      </processStatePK>
+      <stateName>Rejeiçao &gt; 1MI</stateName>
+      <stateDescription>Rejeiçao &gt; 1MI</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>300</positionX>
+      <positionY>160</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>77</sequence>
+      </processStatePK>
+      <stateName>Rejeição &gt; 1MI - nivel 2</stateName>
+      <stateDescription>Rejeição &gt; 1MI - nivel 2</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>60</positionX>
+      <positionY>160</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>18</sequence>
+      </processStatePK>
+      <stateName>End</stateName>
+      <stateDescription>End</stateDescription>
+      <instruction>Atividade final do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>1043</positionX>
+      <positionY>367</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>6</stateType>
+      <bpmnType>60</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+  </list>
+  <list>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>70</version>
+        <sequence>2</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;valor&quot;) &lt;= 999999.99</condition>
+      <destinationSequenceId>4</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <expressionOrder>4</expressionOrder>
+        <version>70</version>
+        <sequence>2</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;valor&quot;) &gt;= 1000000.00</condition>
+      <destinationSequenceId>58</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>70</version>
+        <sequence>66</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprova&quot;) == &quot;S&quot;</condition>
+      <destinationSequenceId>18</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>70</version>
+        <sequence>66</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprova&quot;) == &quot;N&quot;</condition>
+      <destinationSequenceId>1</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;1&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>70</version>
+        <sequence>72</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprova&quot;) == &quot;S&quot;</condition>
+      <destinationSequenceId>6</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>70</version>
+        <sequence>72</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprova&quot;) == &quot;N&quot;</condition>
+      <destinationSequenceId>1</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;1&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>70</version>
+        <sequence>77</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprova&quot;) == &quot;S&quot;</condition>
+      <destinationSequenceId>18</destinationSequenceId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>70</version>
+        <sequence>77</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;aprova&quot;) == &quot;N&quot;</condition>
+      <destinationSequenceId>1</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;1&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <conditionType>0</conditionType>
+    </ConditionProcessState>
+  </list>
+  <list>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>61</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>1</initialStateSequence>
+      <finalStateSequence>2</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>62</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>2</initialStateSequence>
+      <finalStateSequence>4</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>69</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>66</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>70</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>66</initialStateSequence>
+      <finalStateSequence>18</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>73</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>58</initialStateSequence>
+      <finalStateSequence>72</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>74</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>72</initialStateSequence>
+      <finalStateSequence>6</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>75</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>66</initialStateSequence>
+      <finalStateSequence>1</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>76</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>72</initialStateSequence>
+      <finalStateSequence>1</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>78</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>6</initialStateSequence>
+      <finalStateSequence>77</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>79</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>77</initialStateSequence>
+      <finalStateSequence>1</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>80</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>77</initialStateSequence>
+      <finalStateSequence>18</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <linkSequence>84</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>2</initialStateSequence>
+      <finalStateSequence>58</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+  </list>
+  <list/>
+  <list>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>beforeTaskSave</eventId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+&#xd;
+    var atv      = getValue(&quot;WKNumState&quot;);&#xd;
+    var nextAtv  = getValue(&quot;WKNextState&quot;);&#xd;
+&#xd;
+    if (atv == 1) {&#xd;
+&#xd;
+        var anexos   = hAPI.listAttachments();&#xd;
+        var temAnexo = false;&#xd;
+&#xd;
+        if (anexos.size() &gt; 0) {&#xd;
+            temAnexo = true;&#xd;
+        }&#xd;
+&#xd;
+        if (!temAnexo) {&#xd;
+            throw &quot;É preciso anexar o documento para continuar o processo!&quot;;&#xd;
+        }&#xd;
+&#xd;
+    }&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
+        <eventId>afterTaskSave</eventId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function afterTaskSave(colleagueId,nextSequenceId,userList){&#xd;
+	var atv      = getValue(&quot;WKNumState&quot;);&#xd;
+	var nextAtv  = getValue(&quot;WKNextState&quot;);&#xd;
+	var obj = {}&#xd;
+	var auxTratDate = [];&#xd;
+	var dia, mes, ano, cDataEmiss&#xd;
+	var lVez = false;&#xd;
+	var lOk  = false;&#xd;
+		&#xd;
+		 auxTratDate = hAPI.getCardValue(&quot;venctoaltera&quot;).split(&apos;/&apos;);&#xd;
+	   	 ano  = auxTratDate[2];&#xd;
+	   	 mes  = auxTratDate[1];&#xd;
+	   	 dia  = auxTratDate[0];&#xd;
+	   	&#xd;
+	   	 cDataEmiss = ano+mes+dia//(&quot;00&quot; + dia).slice(-2)+&apos;/&apos;+(&quot;00&quot; + mes).slice(-2)+&apos;/&apos;+(&quot;0000&quot; + ano).slice(-4);&#xd;
+		&#xd;
+	   	 var Docs = hAPI.getCardValue(&apos;empresa&apos;) == &quot;&quot; ? hAPI.getCardValue(&apos;cliente&apos;) : hAPI.getCardValue(&apos;titulo&apos;);&#xd;
+	   	&#xd;
+		obj = {&#xd;
+			cEmp  : hAPI.getCardValue(&apos;empresa&apos;),&#xd;
+			cPref : hAPI.getCardValue(&apos;prefixo&apos;),&#xd;
+			cNum  : hAPI.getCardValue(&apos;titulo&apos;),&#xd;
+			cParc : hAPI.getCardValue(&apos;parcela&apos;),&#xd;
+			cTipo : hAPI.getCardValue(&quot;tipo&quot;),&#xd;
+			dData : hAPI.getCardValue(&quot;venctoaltera&quot;),&#xd;
+			nValor: hAPI.getCardValue(&quot;valor&quot;),&#xd;
+			cTable: &quot;SE1&quot;,&#xd;
+			cProcesso : getValue(&quot;WKNumProces&quot;).toString(),&#xd;
+			atividade : getValue(&quot;WKNumState&quot;).toString()&#xd;
+		}&#xd;
+		&#xd;
+		if(atv == 4 &amp;&amp; hAPI.getCardValue(&quot;aprova&quot;) == &quot;S&quot; || atv == 6 &amp;&amp; hAPI.getCardValue(&quot;aprova&quot;) == &quot;S&quot; ){&#xd;
+			&#xd;
+			try{&#xd;
+	            var clientService = fluigAPI.getAuthorizeClientService();&#xd;
+	            var data = {&#xd;
+	                companyId : getValue(&quot;WKCompany&quot;) + &apos;&apos;,&#xd;
+	                serviceCode : &apos;ALTERA_VENCIMENTO_TITULO&apos;,&#xd;
+	                endpoint : &apos;http://10.30.4.139:8083/rest/TITULOS_FINANCEIRO&apos;,&#xd;
+	                method : &apos;post&apos;,// &apos;delete&apos;, &apos;patch&apos;, &apos;put&apos;, &apos;get&apos;     &#xd;
+	                timeoutService: &apos;100&apos;, // segundos&#xd;
+	                params : obj,&#xd;
+	             headers: {&#xd;
+	            	 TenantID:hAPI.getCardValue(&apos;empresa&apos;)+&quot;,01&quot;&#xd;
+	             }&#xd;
+	            }&#xd;
+	            &#xd;
+	            console.log(JSONUtil.toJSON(data))&#xd;
+	            &#xd;
+	            var vo = clientService.invoke(JSONUtil.toJSON(data));&#xd;
+	            var retorno  = JSON.parse(vo.getResult());&#xd;
+	            &#xd;
+	            console.log(&quot;RETORNO =&gt; &quot;+vo.getResult())&#xd;
+	            &#xd;
+	            if(vo.getResult()== null || vo.getResult().isEmpty()){&#xd;
+	            	console.log(&quot;ERROR =&gt; &quot;+err)&#xd;
+	            	throw err&#xd;
+	            }else{	 	                	                	                &#xd;
+	                if(typeof(retorno.OK) != &quot;undefined&quot;){&#xd;
+	                	lVez = true;&#xd;
+	                	console.log(&quot;OK =&gt; &quot;+retorno.OK);&#xd;
+	                }else{&#xd;
+	                	console.log(&quot;PARSE =&gt; &quot;+retorno.errorMessage)&#xd;
+	                	throw retorno.errorMessage&#xd;
+	                }&#xd;
+	                console.log(&quot;lVez =&gt; &quot;+lVez)&#xd;
+	            }&#xd;
+	        }catch(err){&#xd;
+	        	console.log(&quot;CATCH =&gt; &quot;+err)&#xd;
+	        	//throw &quot;catch &quot;+err&#xd;
+	        }&#xd;
+	      //Envio de email&#xd;
+            if(atv == 4 || atv == 6 ){&#xd;
+        		&#xd;
+        		if(hAPI.getCardValue(&apos;aprova&apos;) == &apos;S&apos; &amp;&amp; lVez){&#xd;
+        			lOk = true;&#xd;
+        		}&#xd;
+        		&#xd;
+        		if(lOk){&#xd;
+        			&#xd;
+        			var oTitulo = {&#xd;
+        						  cEmp:  hAPI.getCardValue(&apos;empresa&apos;),&#xd;
+        		        		  cPref: hAPI.getCardValue(&apos;prefixo&apos;),&#xd;
+        		      			  cNum:  hAPI.getCardValue(&apos;titulo&apos;),&#xd;
+        		      			  cParc: hAPI.getCardValue(&apos;parcela&apos;),&#xd;
+        		      			  cTipo: hAPI.getCardValue(&apos;tipo&apos;),&#xd;
+        		      			  dData: hAPI.getCardValue(&apos;venctoaltera&apos;),&#xd;
+        		      			  nValor:hAPI.getCardValue(&apos;valor&apos;),&#xd;
+        		      			  cTable: &quot;SE1&quot;,&#xd;
+        	      			  };&#xd;
+        			&#xd;
+        			var JSONStr = JSONUtil.toJSON(oTitulo); &#xd;
+        			console.log(JSONStr)&#xd;
+        			&#xd;
+        			var aEmail = [&quot;diogo.silva@qsdobrasil.com&quot;,&quot;diogo.silva@galderma.com&quot;,&quot;raphaela.marques@galderma.com&quot;]&#xd;
+        			&#xd;
+        			 log.info(&apos;funcao email&apos;);&#xd;
+        			&#xd;
+        			for(i = 0; i &lt; aEmail.length; i++){&#xd;
+        				&#xd;
+        				    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();&#xd;
+        				    var subject = &quot;[ WorkFlow ] - Titulo com Vencimento alterado&quot;;&#xd;
+        				    var emailSolic = aEmail[i]//&quot;raphaela.marques@galderma.com&quot;&#xd;
+        				    var mailFluig  = &quot;workflow@galderma.com&quot;&#xd;
+        				    	&#xd;
+        				    mensagem = &quot;&lt;!DOCTYPE html&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;html&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;head&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;style&gt;&quot;&#xd;
+        				    mensagem +=&quot;table, td, th {&quot;    &#xd;
+        				    mensagem +=&quot;border: 1px solid #ddd;&quot;&#xd;
+        				    mensagem +=&quot;text-align: left;&quot;&#xd;
+        				    mensagem +=&quot;}&quot;&#xd;
+        				   	mensagem +=&quot;table {&quot;&#xd;
+        				    mensagem +=&quot;border-collapse: collapse;&quot;&#xd;
+        				    mensagem +=&quot;width: 100%;&quot;&#xd;
+        				    mensagem +=&quot;}&quot;&#xd;
+        				    mensagem +=&quot;th, td {&quot;&#xd;
+        				    mensagem +=&quot;padding: 15px;&quot;&#xd;
+        				    mensagem +=&quot;}&quot;&#xd;
+        				    mensagem +=&quot;&lt;/style&gt;&quot;&#xd;
+        				    mensagem += &quot;&lt;/head&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;body&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;h2&gt;Alteração de título&lt;/h2&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;p&gt;O título abaixo foi alterado pelo processo do Fluig.&lt;/p&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;table&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;tr&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;th&gt;Empresa&lt;/th&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;th&gt;Titulo&lt;/th&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;th&gt;Cliente&lt;/th&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;th&gt;Vencimento Atual&lt;/th&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;th&gt;Vencimento Anterior&lt;/th&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;th&gt;Valor&lt;/th&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;/tr&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;tr&gt;&quot;&#xd;
+        				    	if(hAPI.getCardValue(&apos;empresa&apos;) == &apos;01&apos;){&#xd;
+        				    		cEmpresa = &quot;Galderma&quot;&#xd;
+        				    	}else{&#xd;
+        				    		cEmpresa = &quot;Galderma Distribuidora&quot;&#xd;
+        				    	}&#xd;
+        				    mensagem +=&quot;&lt;td&gt;&quot;+cEmpresa+&quot;&lt;/td&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;titulo&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;nome&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;venctoaltera&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;venctoreal&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;td&gt;&quot;+&quot;R$ &quot;+hAPI.getCardValue(&apos;valorConvertido&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;/tr&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;/table&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;/body&gt;&quot;&#xd;
+        				    mensagem +=&quot;&lt;/html&gt;&quot;&#xd;
+&#xd;
+&#xd;
+        				    obj.simpleEmail(1,subject, mailFluig, emailSolic, mensagem, &quot;text/html&quot;);&#xd;
+        			}&#xd;
+        			   &#xd;
+        		}else{&#xd;
+        			//Else alterando o titulo&#xd;
+        			var oTitulo = {&#xd;
+  						  cEmp:  hAPI.getCardValue(&apos;empresa&apos;),&#xd;
+  		        		  cPref: hAPI.getCardValue(&apos;prefixo&apos;),&#xd;
+  		      			  cNum:  hAPI.getCardValue(&apos;titulo&apos;),&#xd;
+  		      			  cParc: hAPI.getCardValue(&apos;parcela&apos;),&#xd;
+  		      			  cTipo: hAPI.getCardValue(&apos;tipo&apos;),&#xd;
+  		      			  dData: hAPI.getCardValue(&apos;venctoaltera&apos;),&#xd;
+  		      			  nValor:hAPI.getCardValue(&apos;valor&apos;),&#xd;
+  		      			  cTable: &quot;SE1&quot;,&#xd;
+  	      			  };&#xd;
+  			&#xd;
+  			var JSONStr = JSONUtil.toJSON(oTitulo); &#xd;
+  			console.log(JSONStr)&#xd;
+  			&#xd;
+  			var aEmail = [&quot;diogo.silva@qsdobrasil.com&quot;,&quot;diogo.silva@galderma.com&quot;,&quot;raphaela.marques@galderma.com&quot;]&#xd;
+  			&#xd;
+  			 log.info(&apos;funcao email&apos;);&#xd;
+  			&#xd;
+  			for(i = 0; i &lt; aEmail.length; i++){&#xd;
+  				&#xd;
+  				    var obj = new com.fluig.foundation.mail.service.EMailServiceBean();&#xd;
+  				    var subject = &quot;[ WorkFlow ] - Titulo não alterado&quot;;&#xd;
+  				    var emailSolic = aEmail[i]//&quot;raphaela.marques@galderma.com&quot;&#xd;
+  				    var mailFluig  = &quot;workflow@galderma.com&quot;&#xd;
+  				    	&#xd;
+  				    mensagem = &quot;&lt;!DOCTYPE html&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;html&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;head&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;style&gt;&quot;&#xd;
+  				    mensagem +=&quot;table, td, th {&quot;    &#xd;
+  				    mensagem +=&quot;border: 1px solid #ddd;&quot;&#xd;
+  				    mensagem +=&quot;text-align: left;&quot;&#xd;
+  				    mensagem +=&quot;}&quot;&#xd;
+  				   	mensagem +=&quot;table {&quot;&#xd;
+  				    mensagem +=&quot;border-collapse: collapse;&quot;&#xd;
+  				    mensagem +=&quot;width: 100%;&quot;&#xd;
+  				    mensagem +=&quot;}&quot;&#xd;
+  				    mensagem +=&quot;th, td {&quot;&#xd;
+  				    mensagem +=&quot;padding: 15px;&quot;&#xd;
+  				    mensagem +=&quot;}&quot;&#xd;
+  				    mensagem +=&quot;&lt;/style&gt;&quot;&#xd;
+  				    mensagem += &quot;&lt;/head&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;body&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;h2&gt;Alteração de título&lt;/h2&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;p&gt;&lt;font color=&apos;#FF0000&apos;&gt;Houve um erro na alteração do título.&lt;/font&gt;&lt;/p&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;p&gt;&lt;font color=&apos;#FF0000&apos;&gt;&quot;+retorno.errorMessage+&quot;&lt;/font&gt;&lt;/p&gt;&quot;	&#xd;
+  				    mensagem +=&quot;&lt;table&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;tr&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;th&gt;Empresa&lt;/th&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;th&gt;Titulo&lt;/th&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;th&gt;Cliente&lt;/th&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;th&gt;Vencimento Atual&lt;/th&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;th&gt;Vencimento Anterior&lt;/th&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;th&gt;Valor&lt;/th&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;/tr&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;tr&gt;&quot;&#xd;
+  				    	if(hAPI.getCardValue(&apos;empresa&apos;) == &apos;01&apos;){&#xd;
+  				    		cEmpresa = &quot;Galderma&quot;&#xd;
+  				    	}else{&#xd;
+  				    		cEmpresa = &quot;Galderma Distribuidora&quot;&#xd;
+  				    	}&#xd;
+  				    mensagem +=&quot;&lt;td&gt;&quot;+cEmpresa+&quot;&lt;/td&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;titulo&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;nome&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;venctoaltera&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;td&gt;&quot;+hAPI.getCardValue(&apos;venctoreal&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;td&gt;&quot;+&quot;R$ &quot;+hAPI.getCardValue(&apos;valorConvertido&apos;)+&quot;&lt;/td&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;/tr&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;/table&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;/body&gt;&quot;&#xd;
+  				    mensagem +=&quot;&lt;/html&gt;&quot;&#xd;
+&#xd;
+&#xd;
+  				    obj.simpleEmail(1,subject, mailFluig, emailSolic, mensagem, &quot;text/html&quot;);&#xd;
+  			}&#xd;
+        			//Fim&#xd;
+        		}&#xd;
+        		&#xd;
+        	}&#xd;
+            //Fim envio de email &#xd;
+		}&#xd;
+}</eventDescription>
+    </WorkflowProcessEvent>
+  </list>
+  <list/>
+  <list>
+    <SwimLane>
+      <color>82b0b7</color>
+      <height>121</height>
+      <width>1151</width>
+      <positionX>20</positionX>
+      <positionY>10</positionY>
+      <stateName>SwimLane</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>adc9ac</color>
+      <height>145</height>
+      <width>1151</width>
+      <positionX>20</positionX>
+      <positionY>126</positionY>
+      <stateName>SwimLane</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>3</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>d0daae</color>
+      <height>145</height>
+      <width>1151</width>
+      <positionX>20</positionX>
+      <positionY>270</positionY>
+      <stateName>SwimLane</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>1</version>
+        <sequence>4</sequence>
+      </swimLanePK>
+    </SwimLane>
+  </list>
+  <list/>
+  <list/>
+  <list>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>70</version>
+        <linkSequence>69</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>903</positionX>
+      <positionY>161</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>70</version>
+        <linkSequence>73</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>372</positionX>
+      <positionY>353</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>70</version>
+        <linkSequence>80</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>84</positionX>
+      <positionY>384</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>70</version>
+        <linkSequence>84</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>828</positionX>
+      <positionY>256</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>AlteraDataTituloV2</processId>
+        <version>70</version>
+        <linkSequence>84</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>828</positionX>
+      <positionY>325</positionY>
+    </ProcessLinkBend>
+  </list>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+  <list/>
+</list>

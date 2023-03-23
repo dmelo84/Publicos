@@ -1,0 +1,54 @@
+#Include 'Protheus.ch'
+
+/*/{Protheus.doc} function_method_class_name
+Ponto de Entrada para manipulação o filtro que seleciona os registros de abatimentos do fornecedor.
+DENTRO DA ROTINA fina090 
+@author Mauro Nagata | www.compila.com.br	 
+@since 14/03/2020
+@version version
+@param param
+@return return, return_description
+@example
+(examples)
+@see (links_or_references)
+/*/
+User Function F090ADFR()
+
+Local cCondicao		:= PARAMIXB[1]
+Local lMultFilial 	:= PARAMIXB[2]
+local cDtVen 		:= AllTrim(GETMV("MV_PARDT"))	
+Local aReturn 		:= {}
+ 
+// hfp-compila  20210330   - TASK 21567618
+//     Modificado a linha abaixo, que estava trazendo todas as filiais para agora considerar, 
+//     somente as filiais do grupo.
+//     ex:   FILIAL 00201SP0001, ESTAVA trazendo filial 00101MG0001.
+//     Agora vai considerar todas do grupo  '00201' ou sej, nao traz mais a 00101(MG0001) acima
+//     cCondicao := "E2_FILIAL >= '           ' .And. E2_FILIAL <= 'ZZZZZZZZZZZ' .And. "
+
+//ajuste 20210407
+// rotina de BORDERO, esta chamando esse ponto entrada, nao achamos documentacao, 
+// e ao executar com o "left"  trava e nao sai mais.
+ 
+IF IsInCallStack("FINA080")  //se baixa manual 
+   // como descrito acima, pegando somente as 5 primeiras posicos da filial identicas a filiar do titulo
+   cCondicao :="Left( E2_FILIAL, 5) == Left( xfilial('SE2'), 5) .and. "   //hfp-compila 20210330
+
+else  // senao segue normal
+   cCondicao := "E2_FILIAL >= '           ' .And. E2_FILIAL <= 'ZZZZZZZZZZZ' .And. "
+
+ENDIF
+
+cCondicao += "(E2_TIPO $ '"+MV_CPNEG + "/" + MVPAGANT+ "') .And. "
+cCondicao += "E2_VENCREA >= Stod('"+cDtVen+"')  .And.  "
+cCondicao += "E2_SALDO > 0 "
+
+//lMultFilial := .F.	//.T.
+//substituída linha acima pela abaixo [Mauro Nagata, www.compila.com.br, 20200427]
+//foi enviado patch Totvs para utilização com multifilial
+lMultFilial := .T.
+
+AADD(aReturn,cCondicao)
+AADD(aReturn,lMultFilial)
+
+Return aReturn

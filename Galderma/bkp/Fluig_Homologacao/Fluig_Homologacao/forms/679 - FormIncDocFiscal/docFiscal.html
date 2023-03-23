@@ -1,0 +1,216 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+</head>
+<style>
+	.heavy {
+	  opacity: 0;
+	}
+</style>
+<body class="fluig-style-guide background">
+<div class="fluig-style-guide">
+    <form name="form" role="form">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="text-align: center;">
+                <strong>Documento Fiscal</strong>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+	                <div class="form-group col-md-4">
+		                <label for="cmpDestinataria"><strong>Destinátaria</strong></label>
+	                    <select class="form-control" name="cmpDestinataria" id="cmpDestinataria" onChange="setEmpFil()">
+		    		        <option value="01" selected="selected">01-Galderma</option>
+		    		        <option value="02">02-Galderma Distribuidora</option>
+		    		     </select>
+		            </div>
+	                <div class="form-group col-md-1">
+		                <label for="cmpTipo"><strong>Tipo</strong></label>
+		                    <select class="form-control" name="cmpTipo" id="cmpTipo" onChange="typeDoc()">
+		                    <option value="VAZIO" selected="selected"></option>
+		                    <option value="1">NF-e</option>
+		                    <option value="2">CT-e</option>
+		                    <option value="3">NF-s</option>
+		                    <option value="0">Outros</option>
+		                </select>
+		            </div>
+                    <div class="form-group col-md-2" id="ForSemZoom">
+	                	<label for="cmpFornecedor1"><strong>Fornecedor</strong></label>
+	                	<input type="text" name="cmpFornecedor1" id="cmpFornecedor1" class="form-control" readonly>
+	                </div>
+                    <div class="form-group col-md-2" id="ForZoom" style="display: none">
+	                <label for="cmpFornecedor"><strong>Fornecedor </strong></label>
+	                    <input type="zoom" name="cmpFornecedor" id="cmpFornecedor"
+	                        dataset="ds_ITENS_DOC_QXML" datasetvalue="ds_ITENS_DOC_QXML"
+	                        data-zoom="{'displayKey':'PP2_EMCNPJ',
+	                                    'datasetId':'ds_ITENS_DOC_QXML',
+	                                    'fields':[{'field':'PP1_EMRAZA','label':'Fornecedor','standard':true}]}"
+	                                    	class="form-control" style="display: show;">
+								 <input type="hidden" name="hidden_cmpFornecedor" id="hidden_cmpFornecedor">
+	                </div>
+	                <div class="form-group col-md-2" id="PedSemZoom">
+	                	<label for="cmpPedido1"><strong>Pedido</strong></label>
+	                	<input type="text" name="cmpPedido1" id="cmpPedido1" class="form-control" readonly>
+	                </div>
+	                <div class="form-group col-md-2" id="PedZoom" style="display: none">
+		                <label for="cmpPedido"><strong>Pedido</strong></label>
+						 <input type="zoom" name="cmpPedido" id="cmpPedido"
+	                           dataset="ds_PEDIDO_COMPRA" datasetvalue="ds_PEDIDO_COMPRA"
+	                           data-zoom="{'displayKey':'C7_NUM',
+	                                       'datasetId':'ds_PEDIDO_COMPRA',
+	                                       'fields':[{'field':'C7_NUM','label':'Descricao','standard':true}]}"
+	                                       class="form-control" style="display: show;">
+	                </div>
+	                <div class="form-group col-md-2" id="DocsemZoom">
+	                	<label for="cmpNumDoc1"><strong>Nº Documento</strong></label>
+	                	<input type="text" name="cmpNumDoc1" id="cmpNumDoc1" class="form-control" readonly>
+	                </div>
+                    <div class="form-group col-md-2" id="divDoc" style="display: none">
+                        <label for="cmpNumDoc"><strong>Nº Documento</strong></label>
+                        <input type="zoom" name="cmpNumDoc" id="cmpNumDoc"
+                            dataset="ds_ITENS_DOC_QXML" datasetvalue="ds_ITENS_DOC_QXML"
+                            data-zoom="{'displayKey':'PP2_DOC',
+                                        'datasetId':'ds_ITENS_DOC_QXML',
+                                        'fields':[{'field':'PP2_DOC','label':'Documento','standard':true}]}"
+                                        	class="form-control" style="display: show;">
+								 <input type="hidden" name="hidden_cmpNumDoc" id="hidden_cmpNumDoc">
+                    </div>
+                    
+                    <div class="form-group col-md-1">
+	                    <label for="cmpSerie"><strong>Série</strong>
+	                    </label>
+	                    <input type="text" name="cmpSerie" id="cmpSerie" class="form-control" readonly />
+                    </div>
+                </div>
+                <div class="row">
+	                <div class="form-group col-md-2">
+	                    <label for="cmpSolicitante"><strong>Solicitante</strong></label>
+	                    <input type="text" name="cmpSolicitante" id="cmpSolicitante" class="form-control" readonly>
+	                </div>
+	                <div class="form-group col-md-2">
+						<label for="cmpEmissao"><strong>Data de Emissão</strong></label>
+						<input type="text" name="cmpEmissao" id="cmpEmissao" class="form-control" mask="00/00/0000" readonly >
+				    </div>
+		            <div class="form-group col-md-2">
+	                    <label for="cmpAntecipacao"><strong>Antecipação de Pagamento</strong>
+	                    </label>
+	                    <select class="form-control" name="cmpAntecipacao" id="cmpAntecipacao" onChange="antecipacao()">
+	                        <option value="1" selected="selected">Não</option>
+	                        <option value="2">Sim</option>
+	                    </select>
+	                </div>
+		            <div class="form-group col-md-2" id="DivdtAntecipacao" style="display: none">
+						<label for="cmpEmissao"><strong>Data da Antecipação</strong></label>
+						<input type="text" name="cmpDtAntecipacao" id="cmpDtAntecipacao" class="form-control" mask="00/00/0000">
+				    </div>
+				    <div class="form-group col-md-6">
+					<label for="motivo">Motivo da reprova&ccedil;&atilde;o</label>
+					<textarea id="motivo" name="motivo" class="form-control" readOnly></textarea>
+				</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading" style="text-align: center;">
+                <strong>Itens</strong>
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <table tablename="tabelaProdutos" class="table" noaddbutton=true nodeletebutton=true
+                        id="tabelaProdutos">
+                        <thead>
+                            <tr>
+                                <td align="center"></td>
+                                <td align="center"</td>
+                                <td align="center"></td>
+                                <td align="center" width="10%"></td>
+                                <td align="center" width="10%"></td>
+                                <!---td align="center" width="5%"></td--->
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align:center;">
+			                       <label for="cmpItem"><strong>Item</strong></label>
+                                    <input style="min-width:50px;" class="form-control valor" type="text" name="cmpItem"id="cmpItem" readOnly>
+                                    <div class="heavy">
+										<input style="min-width:30px;" type="text" name="cmpSpace1" class="form-control" readOnly>
+									</div>
+                                </td>
+                                <td style="vertical-align:center;">
+	                                <label for="cmpProd"><strong>Produto / Descrição</strong></label>
+	                                <!---input type="zoom" name="cmpProd" id="cmpProd"
+	                                dataset="ds_QHUBSB1" datasetvalue="ds_QHUBSB1"
+	                                data-zoom="{'displayKey':'ZOOMINFO',
+	                                            'datasetId':'ds_QHUBSB1',
+	                                            'fields':[{'field':'ZOOMINFO','label':'Descricao','standard':true}]}" class="form-control" style="display: show;">
+	                                <input class="form-control valor" type="text" name="cmpProdExc" id="cmpProdExc" style="display: none;">
+									<div class="heavy">
+										<input style="min-width:300px;" type="text" name="cmpProd1" class="form-control" readonly>
+									</div--->
+	                            	<input style="min-width:50px;" class="form-control valor" type="text" name="cmpProd" id="cmpProd" readonly>
+                           
+                                </td>
+                                <td>
+                                
+	                             	<label for="cmpVlr"><strong>Valor Unitário</strong></label>
+	                            	<input style="min-width:50px;" class="form-control valor" type="text" name="cmpVlr" id="cmpVlr" readOnly>
+                           
+                                </td>
+	                            <td>
+		                            <label for="cmpQtde"><strong>Quantidade</strong></label>
+	                                <input style="min-width:50px;" class="form-control valor" type="text" name="cmpQtde" id="cmpQtde" readOnly>
+	                            </td>
+                                <td style="vertical-align:center;">
+                            	 	<label for="cmpVlrTotal"><strong>Total</strong></label>
+                            		<input style="min-width:50px;" class="form-control valor" type="text" name="cmpVlrTotal" id="cmpVlrTotal" readonly>
+	  	                         </td>
+	  	                       <!---td style="vertical-align:center;">
+	  	                            	
+  	                            	 <label for="Apagar"><strong>Apagar</strong></label><br>
+                                     <i class="fluigicon fluigicon-trash icon-lg" title="Apagar" name="Apagar" id="Apagar"
+                                         onclick="removeproduto(this)"></i>
+		                        </td--->
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="row" name="div_addproduto" id="div_addproduto">
+                    <p align=center>
+                        <button type="button" class="btn btn-info" id="addButton" name="addActivityButtons"
+                            id="addActivityButtons" data-toggle="button" onclick="addproduto()">
+                            + Item</button>
+
+                    </p>
+					<input type="hidden" name="ctrlit" id="ctrlit" value="1">
+					<input type="hidden" name="itreal" id="itreal" value="1">
+					<input type="hidden" name="itview" id="itview" class="form-control"  value="0" >
+					<input type="hidden" name="cmpAntecipacaoOk" id="cmpAntecipacaoOk" class="form-control"  value="0" >
+                </div>
+            </div>     
+        </div>
+
+    </form>
+</div>
+<script type="text/javascript" src="custom.js" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+
+	var beforeSendValidate = function(numState, nextState) {
+		
+		if(numState == 27){
+			$("#cmpAntecipacaoOk").val("1")
+		}
+	}
+</script>
+</body>
+
+</html>

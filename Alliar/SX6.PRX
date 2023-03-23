@@ -1,0 +1,30 @@
+#include "Protheus.ch"
+
+User Function SX6()
+aSaveArq:={Alias(),IndexOrd(),Recno()}
+cPerg   :="SGM001"
+Select SX1
+If ! dbSeek(cPerg)
+	aRegistros:={}
+	AADD(aRegistros,{cPerg,"01","Palavra Chave      ?","mv_ch1","C",20,0,0,"G","","mv_par01",""," ","","","","","","","","","","","","","SED"})
+	For i:=1 to Len(aRegistros)
+		RecLock("SX1",.T.)
+		For j:=1 to FCount()
+			FieldPut(j,aRegistros[i,j])
+		Next
+		MsUnlock()
+	Next
+EndIf
+If Pergunte(cPerg,.t.)               // Pergunta no SX1
+	Select SX6
+	If ! Empty(mv_par01)
+		Set Filter to Trim(mv_par01) $ Upper((FIELDGET(FIELDPOS("X6_DESCRIC")))+(FIELDGET(FIELDPOS("X6_DESC1")))+((FIELDGET(FIELDPOS("X6_DESC2")))))
+	EndIf
+	CFGX017()
+	Select SX6
+	Set Filter to
+EndIf
+DBSelectArea(aSaveArq[1])
+DBSetOrder(aSaveArq[2])
+DBGoTo(aSaveArq[3])
+Return

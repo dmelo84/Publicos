@@ -1,0 +1,544 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+
+	<!--<link type="text/css" rel="stylesheet" href="/devLib/resources/css/vivante-style.css" />-->
+	<link type="text/css" rel="stylesheet" href="css/vivante-style.css" />
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/portal/resources/style-guide/css/fluig-style-guide-filter.min.css">
+	<script src="/portal/resources/style-guide/js/fluig-style-guide-filter.min.js"></script>
+
+	<script src="/devLib/resources/js/plugins/moment/moment.js"></script>
+	<script src="/devLib/resources/js/plugins/numeral/numeral.min.js"></script>
+	<script src="/devLib/resources/js/plugins/numeral/pt-br.min.js"></script>
+	<script src="/devLib/resources/js/plugins/maskMoney/jquery.maskMoney.min.js"></script>
+
+
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div id="formulario">
+
+
+				<div id="header_solicitacao">
+					<h1>
+						<strong style="color: #7E3A7F">
+							<span class="fluigicon fluigicon-add-test fluigicon-lg"></span> Solicitação de Compras
+						</strong>
+					</h1>
+					<hr>
+
+
+
+				</div>
+				<div id="body_solicitacao">
+
+					<div id="capa_solicitacao">
+						<div class="panel panel-default">
+							<div class="panel-body fs-no-padding-top">
+								<fieldset id="fsIdentificacao">
+									<div class="row">
+										<div class="col-md-12">
+											<h3>
+												<strong style="color: #7E3A7F">Identificação</strong>
+											</h3>
+										</div>
+										<div class="form-group col-md-1">
+											<label class="fs-display-block">Nº Solicitacao </label>
+											<input type="text" style="display:block; font-size: 25px; color: #7E3A7F; font-weight: bold;" name="numero_solicitacao" id="numero_solicitacao"
+												   class="fs-no-style-input" placeholder="####" readonly>
+										</div>
+										<div class="form-group col-md-2">
+											<label>Emissão</label>
+											<input type="text" name="data_solicitacao" id="data_solicitacao" class="form-control" readonly>
+										</div>
+										<div id="fg_data_necessidade" class="form-group col-md-3">
+											<label for="data_necessidade">Data Necessidade</label>
+											<input type="text" name="data_necessidade" id="data_necessidade" class="form-control" data-validation="data_necessidade">
+										</div>
+										<div class="form-group col-md-3">
+											<label>Solicitante</label>
+											<input type="text" name="nome_solicitante" id="nome_solicitante" class="form-control" readonly>
+										</div>
+										<div class="form-group col-md-3">
+											<label>Status</label>
+											<button type="button" data-info-status class="btn btn-info btn-block">
+												<i class="fas fa-play-circle"></i>
+												Início do Processo</button>
+										</div>
+
+
+									</div>
+
+									<div class="row">
+												<div class="btn-group col-md-3">
+													<div class="form-group col-md-12 col-xs-12 fs-no-padding ">
+														<label>Tipo da Solicitação
+															<span class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+														</label>
+														<!--	<select id="tipo_solicitacao1" name="tipo_solicitacao1" class="form-control">
+																																					<option value="pontual">Pontual</option>
+																																					<option value="contrato">Contrato</option>
+																																				</select>-->
+														<div class="btn-group col-md-12 col-xs-12" style="padding: 0;" data-toggle="buttons">
+															<label class="btn btn-default active col-xs-6">
+																<input type="radio" name="tipo_solicitacao" id="tipo_solicitacao_pontual" value="pontual" checked>
+																<i class="fas fa-compress"></i>
+																Pontual
+															</label>
+															<label class="btn btn-default col-xs-6">
+																<input type="radio" name="tipo_solicitacao" id="tipo_solicitacao_contrato" value="contrato">
+																<i class="fas fa-file-signature"></i> Contrato
+															</label>
+														</div>
+													</div>
+												</div>
+										<div class="form-group col-md-3">
+											<label for="empresa_codigo">Empresa</label>
+											<div class="input-group" id="">
+												<span class="input-group-addon fs-xs-space">
+													<input type="text" id="empresa_codigo" style="text-align:center" name="empresa_codigo" size="1" class="fs-no-style-input" placeholder=""
+														   data-validation="required" data-validation-error-msg="É necessário informar a empresa." readonly>
+												</span>
+												<input type="text" class="form-control" name="empresa_nome" id="empresa_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+													   data-validation-error-msg="É necessário informar a empresa." />
+												<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acEmpresa">
+													<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+												</span>
+											</div>
+										</div>
+										<div class="form-group col-md-4">
+											<label for="unidade_codigo">Unidade</label>
+											<div class="input-group" id="">
+												<span class="input-group-addon fs-xs-space">
+													<input type="text" id="unidade_codigo" style="text-align:center" name="unidade_codigo" size="5" class="fs-no-style-input" placeholder="" data-validation="required"
+														   data-validation-error-msg="É necessário informar a unidade." readonly>
+												</span>
+												<input type="text" class="form-control" name="unidade_nome" id="unidade_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+													   data-validation-error-msg="É necessário informar a unidade." />
+												<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acUnidade">
+													<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+												</span>
+											</div>
+										</div>
+										<div id="divContrato" class="form-group col-md-4">
+											<label for="contrato_codigo">Contrato</label>
+											<div class="input-group" id="">
+												<span class="input-group-addon fs-xs-space">
+													<input type="text" id="contrato_codigo" style="text-align:center" name="contrato_codigo" size="10" class="fs-no-style-input" placeholder=""
+														   data-validation="required" data-validation-error-msg="É necessário informar um contrato." readonly>
+												</span>
+												<input type="text" class="form-control" name="contrato_descricao" id="contrato_descricao" placeholder="É necessário informar um contrato."
+													   data-validation="required" data-validation-error-msg="É necessário informar um contrato." />
+												<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acContrato">
+													<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+												</span>
+											</div>
+										</div>
+										
+
+
+										<div class="form-group col-md-5">
+											<label for="ccusto_codigo">Centro de Custo</label>
+											<div class="input-group" id="">
+												<span class="input-group-addon fs-xs-space">
+													<input type="text" id="ccusto_codigo" style="text-align:center" name="ccusto_codigo" size="20" class="fs-no-style-input" placeholder=""
+														   data-validation="required" data-validation-error-msg="É necessário informar o centro de custo." readonly>
+												</span>
+												<input type="text" class="form-control" name="ccusto_nome" id="ccusto_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+													   data-validation-error-msg="É necessário informar o centro de custo." />
+												<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acCentroCusto">
+													<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+												</span>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+								
+
+										<div class="form-group col-md-2">
+											<label for="prioridade">Prioridade</label>
+											<select class="form-control" name="prioridade" id="prioridade">
+												<option value="normal">Normal</option>
+												<option value="urgente">Urgente</option>
+											</select>
+										</div>
+
+										<div class="form-group col-md-6" id="divFinalidade">
+											<label for="finalidade_compra">Finalidade Específica</label>
+											<div class="input-group">
+												<span class="input-group-addon">
+													<input name="finalidade_especifica" id="finalidade_especifica" value="sim" type="checkbox" disabled>
+												</span>
+												<input type="hidden" class="form-control" name="finalidade_compra_codigo" id="finalidade_compra_codigo">
+												<input type="text" class="form-control" data-validation="" data-validation-error-msg="É necessário informar a finalidade." name="finalidade_compra"
+													   id="finalidade_compra" placeholder="Digite para iniciar a pesquisa" />
+												<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acFinalidadeCompra">
+													<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+					<div id="itens_solicitacao" class="row">
+
+						<ul class="nav nav-tabs" role="tablist" id="tabs">
+							<li class="active col-xs-12 col-md-3">
+								<a href="#tabItensSolicitacao" role="tab" data-toggle="tab">
+									<strong>
+										<span class="fluigicon fluigicon-list-dropdown fluigicon-sm"></span> Itens da
+										Solicitação </strong>
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content fs-no-margin fs-no-padding">
+
+							<div class="tab-pane active" id="tabItensSolicitacao">
+								
+								<div id="conteinerTabelaItensSolicitacao" class="col-md-12 fs-md-space">
+									<div class="row">
+										<div class="form-group col-md-2 col-sm-6">
+											<label>Preço Total</label>
+											<input type="text" class="form-control fs-sm-space fs-txt-right" data-total-itens="" name="total_itens" id="total_itens" mask="#00.000.000.000.000,0000" readonly="" autocomplete="off" data-validation-skipped="1" value="">
+										</div>
+									</div>
+								
+									<div class="well well-sm">
+
+										<fieldset id="fsAddProduto">
+											<div id="div_adicionaProduto" class="col-md-12">
+												<div class="form-group col-md-8 col-sm-7">
+													<label>Produto/Serviço</label>
+													<div class="input-group">
+
+														<span class="input-group-addon">
+
+															<input type="text" name="produto_codigo_add" id="produto_codigo_add" size="5" class="fs-no-style-input">
+														</span>
+														<input name="produto_descricao_add" id="produto_descricao_add" class="form-control input-sm">
+													</div>
+													<p>* Se o item for de primeira compra, clique aqui  <a href="#" class="fluigicon fluigicon-export fs-no-text-underline" target="_blank"></a>
+														para solicitar o cadastro pelo Movdesk.</p>
+												</div>
+												<div class="form-group col-md-2 col-sm-3">
+													<label>Quantidade</label>
+													<div class="input-group">
+														<span class="input-group-addon">
+															<input type="text" name="produto_un_add" id="produto_un_add" size="3" class="fs-no-style-input">
+														</span>
+														<input type="text" name="produto_quantidade_add" id="produto_quantidade_add" class="form-control input-sm" mask="#00.000.000.000.000,00">
+													</div>
+												</div>
+												<div class="col-md-1">
+													<button id="btnAddItem" style="margin-top: 25px" class="btn btn-default btn-sm">
+														<span class="fluigicon fluigicon-plus-circle fluigicon-sm"></span>
+														Adicionar Item
+													</button>
+												</div>
+
+
+											</div>
+											<div id="div_adicionaItensContrato" class="col-md-12">
+												<button id="btnAddItemContrato" data-btn-open-itens-contrato style="margin-top: 5px" class="btn btn-default btn-sm pull-right">
+													<i class="fas fa-file-signature"></i> Adicionar Itens do Contrato</button>
+											</div>
+										</fieldset>
+
+										<fieldset id="fsItens">
+											<table tablename="tblItensSolicitacao" id="tblItensSolicitacao" class="table" nodeletebutton="true" noaddbutton="true">
+												<thead>
+													<tr>
+														<td style="width: 15px;">Item</td>
+														<td class="col-md-6">Produto/Serviço</td>
+														<td style="max-width: 150px" class="fs-txt-center">Quantidade
+														</td>
+														<td class="fs-txt-right">Preço Estimado <i class="fluigicon fluigicon-info-sign icon-xs bs-docs-popover-hover" data-toggle="popover" title=""
+															   data-content="Valores estimados com base nas últimas compras ou cotações do item para referência inicial na solicitação. O valor final será negociado pelo comprador responsável. "
+															   data-original-title="Estimativa de Preço"></i></td>
+														<td class="fs-txt-right">Total Estimado <i class="fluigicon fluigicon-info-sign icon-xs bs-docs-popover-hover" data-toggle="popover" title=""
+															   data-content="Valores estimados com base nas últimas compras ou cotações do item para referência inicial na solicitação. O valor final será negociado pelo comprador responsável. "
+															   data-original-title="Estimativa de Preço"></i></td>
+														<td></td>
+														<td style="display: none;"></td>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td style="width: 15px;">
+															<input type="text" size="2" class="fs-no-style-input" name="item_seq" id="item_seq" readonly>
+														</td>
+														<td>
+															<div class="input-group">
+																<span class="input-group-addon">
+																	<input type="text" name="produto_codigo" id="produto_codigo" size="5" class="fs-no-style-input" readonly>
+																</span>
+
+																<input type="text" name="produto_descricao" id="produto_descricao" class="form-control" readonly>
+
+															</div>
+															<div class="fs-sm-margin-top fs-display-block">
+																<div data-label-item-exclusivo class="fs-float-left fs-sm-margin-right" style="display:none;">
+																	<label class="label label-warning">Exclusivo</label>
+																</div>
+																<div data-label-item-contratual class="fs-float-left fs-sm-margin-right" style="display:none;">
+																	<label class="label label-warning">Contratual</label>
+																</div>
+															</div>
+
+															<div data-div-observacoes-item class="form-group">
+																<label for="produto_observacoes">Observações</label>
+																<textarea data-produto-observacoes name="produto_observacoes" id="produto_observacoes" class="form-control" cols="30"
+																		 placeholder="Utilize este campo para detalhamento do item solicitado." rows="1"></textarea>
+
+															</div>
+														</td>
+														<td>
+															<div class="input-group" style="max-width: 150px">
+																<span class="input-group-addon fs-no-padding">
+																	<input type="text" name="produto_un" id="produto_un" size="5" class="fs-no-style-input fs-txt-center" readonly>
+																</span>
+																<input type="text" name="produto_quantidade" data-produto-quantidade id="produto_quantidade"
+																	   class="form-control fs-xs-space fs-txt-center calculavel" mask="#00.000.000.000.000,00">
+															</div>
+
+
+														</td>
+														<td>
+															<input type="text" class="form-control fs-sm-space fs-txt-right calculavel" data-produto-preco name="produto_preco" id="produto_preco"
+																   mask="#00.000.000.000.000,0000" readonly>
+														</td>
+														<td>
+															<input type="text" class="form-control fs-sm-space fs-txt-right" data-produto-total name="produto_total" id="produto_total"
+																   mask="#00.000.000.000.000,0000" readonly>
+														</td>
+														<td style="min-width: 40px;">
+
+															<div class="btn-group">
+																<!--<button data-btnRateioItem type="button"
+																	class="btn btn-default" id="btnRateioItem"
+																	onclick="rateio.exibeModal(this,event);" data-toggle="tooltip" data-placement="top" title="Rateios">
+																	<span
+																		class="fluigicon fluigicon-maximize fluigicon-sm"
+																		style="display: inline"></span>
+																</button>-->
+																<button data-btnDetalheItem type="button" class="btn btn-default" id="btnDetalheItem" onclick="showModalDetalheItem(this)"
+																		data-toggle="tooltip" data-placement="top" title="Detalhes">
+																	<span class="fluigicon fluigicon-list-dropdown fluigicon-sm" style="display: inline"></span>
+																</button>
+																<button data-btnRemoveItem type="button" class="btn btn-default" id="btnRemoveItem" onclick="fnCustomDelete(this)" data-toggle="tooltip"
+																		data-placement="top" title="Excluir">
+																	<span style="display: inline" class="fluigicon fluigicon-remove-circle fluigicon-sm fs-cursor-pointer"></span>
+																</button>
+
+															</div>
+
+														</td>
+														<td style="display:none;">
+															<input type="text" name="uid_item" id="uid_item">
+															<input type="text" name="numero_cotacao" id="numero_cotacao">
+															<input type="text" name="numero_pedido" id="numero_pedido">
+															<input type="hidden" name="ccusto_codigo_item" id="ccusto_codigo_item">
+															<input type="hidden" name="ccusto_nome_item" id="ccusto_nome_item">
+															<input type="hidden" name="itemfamily" id="itemfamily">
+															<input type="hidden" name="itemcontrl" id="itemcontrl">
+															<input type="hidden" name="produto_tipo" id="produto_tipo">
+															<input type="hidden" name="produto_codtb2fat" id="produto_codtb2fat">
+															<input type="hidden" name="produto_codtb1fat" id="produto_codtb1fat">
+															<input type="hidden" name="produto_codtborcamento" id="produto_codtborcamento">
+															<input type="hidden" name="produto_id" id="produto_id">
+															<input type="hidden" name="produto_exclusivo" id="produto_exclusivo">
+															<input type="hidden" name="produto_normal" id="produto_normal">
+															<input type="hidden" name="produto_contratual" id="produto_contratual">
+															<!--Campos do Contrato-->
+
+															<input type="hidden" name="produto_contrato_idcnt" id="produto_contrato_idcnt">
+															<input type="hidden" name="produto_contrato_nseqitmcnt" id="produto_contrato_nseqitmcnt">
+														</td>
+													</tr>
+
+												</tbody>
+											</table>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+
+
+					</div>
+
+					<!--Tabela de Rateios-->
+
+					<table class="table" tablename="tblRateio" id="tblRateio" nodeletebutton="true" noaddbutton="true" class="table table-condensed" style="display:none">
+						<thead>
+							<tr>
+								<th>UID</th>
+								<th>Código C.Custo</th>
+								<th>Nome C.Custo</th>
+								<th>Valor</th>
+								<th>%</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<input type="text" class="form-control" name="tblRat_uid_item" id="tblRat_uid_item">
+								</td>
+								<td>
+									<input type="text" class="form-control" name="tblRat_ccusto_codigo" id="tblRat_ccusto_codigo"></td>
+
+								<td>
+									<input type="text" class="form-control" name="tblRat_ccusto_nome" id="tblRat_ccusto_nome">
+								</td>
+								<td>
+									<input type="text" class="form-control" name="tblRat_valor" id="tblRat_valor">
+								</td>
+								<td>
+									<input type="text" class="form-control" name="tblRat_percent" id="tblRat_percent">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<!--Dados da Entrega-->
+					<div class="panel panel-default">
+						<div class="panel-body fs-no-padding-top">
+
+							<fieldset id="fsDadosEntrega">
+								<div class="row">
+									<div class="col-md-12">
+										<h3>
+											<strong style="color: #7E3A7F">Dados da Entrega</strong>
+										</h3>
+									</div>
+
+
+									<div class="col-md-6 fs-no-padding-left">
+										<div class="form-group col-md-12">
+											<label for="local_estoque_codigo">Local de Estoque</label>
+											<div class="input-group" id="">
+												<span class="input-group-addon fs-xs-space">
+													<input type="text" id="local_estoque_codigo" style="text-align:center" name="local_estoque_codigo" size="7" class="fs-no-style-input" placeholder=""
+														   data-validation="required" data-validation-error-msg="É necessário informar o local de estoque." readonly>
+												</span>
+												<input type="text" class="form-control" name="local_estoque_nome" id="local_estoque_nome" placeholder="Digite para iniciar a pesquisa"
+													   data-validation="required" data-validation-error-msg="É necessário informar o local de estoque." />
+												<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acLocalEstoque">
+													<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+												</span>
+											</div>
+										</div>
+
+										<div class="form-group col-md-6">
+											<label>Filial de Faturamento</label>
+											<input type="text" id="filial" name="filial" class="form-control input-sm" readonly>
+										</div>
+										<div class="form-group col-md-6">
+											<label>CNPJ</label>
+											<input type="text" name="cnpj_filial_vivante" id="cnpj_filial_vivante" class="form-control input-sm" readonly>
+										</div>
+										<div class="form-group col-md-6">
+											<label>Endereço</label>
+											<input type="text" name="entrega_endereco" id="entrega_endereco" class="form-control input-sm" readonly>
+										</div>
+										<div class="form-group col-md-4">
+											<label>Cidade</label>
+											<input type="text" name="entrega_cidade" id="entrega_cidade" class="form-control input-sm" readonly>
+										</div>
+										<div class="form-group col-md-2">
+											<label>UF</label>
+											<input type="text" name="entrega_uf" id="entrega_uf" class="form-control input-sm" readonly>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group col-md-12">
+											<label for="observacoes_capa">Observações</label>
+											<textarea rows="4" name="observacoes_capa" id="observacoes_capa" class="form-control" data-validation="required"
+													  data-validation-error-msg="Informe a observação da Solicitação." placeholder="Informe aqui as observações desta solicitação para ciência da área de Compras"></textarea>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+
+					<input type="hidden" name="navegador" id="navegador">
+					<input type="hidden" name="codcoligada" id="codcoligada">
+					<input type="hidden" name="codfilial" id="codfilial">
+					<input type="hidden" name="codusuario_solicitante" id="codusuario_solicitante">
+					<input type="hidden" name="codusuario_rm" id="codusuario_rm">
+					<input type="hidden" name="status_solicitacao" id="status_solicitacao">
+					<input type="hidden" name="data_solicitacao_us" id="data_solicitacao_us">
+					<input type="hidden" name="stateSequence" id="stateSequence">
+					<input type="hidden" name="stateName" id="stateName">
+					<input type="hidden" name="estimarPreco" id="estimarPreco">
+					<!--CAMPOS CONTRATO-->
+
+					<input type="hidden" name="fornecedor_codigo" id="fornecedor_codigo">
+					<input type="hidden" name="fornecedor_nome" id="fornecedor_nome">
+					<input type="hidden" name="fornecedor_cnpj" id="fornecedor_cnpj">
+				</div>
+		</form>
+	</div>
+</body>
+<script type="text/javascript" src="js/utils.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+
+<script type="text/javascript" src="js/lookup.js"></script>
+<script type="text/javascript" src="js/autocomplete.js"></script>
+<script type="text/javascript" src="js/inicializadores.js"></script>
+<script type="text/javascript" src="js/modalContrato.js"></script>
+<script type="text/javascript" src="js/beforeSendValidate.js"></script>
+<script src="/devLib/resources/js/plugins/formValidator/jquery.form-validator.min.js"></script>
+<script src="js/rateio.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="/devLib/resources/js/plugins/datatables/jquery.dataTables.css">
+
+
+
+<!--<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>-->
+<script src="/devLib/resources/js/plugins/datatables/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="/devLib/resources/js/plugins/datatables/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/devLib/resources/js/plugins/datatables/dataTables.select.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/devLib/resources/js/plugins/datatables/dataTables.editor.min.js"></script>
+
+
+<script>
+	$.validate({
+
+		validateOnBlur: true,
+		addValidClassOnAll: false,
+		validateHiddenInputs: false,
+		inputParentClassOnSuccess: '',
+		//showHelpOnFocus: true,
+		//addSuggestions: true,
+		onModulesLoaded: function () {
+
+		}
+	});
+</script>
+
+</html>

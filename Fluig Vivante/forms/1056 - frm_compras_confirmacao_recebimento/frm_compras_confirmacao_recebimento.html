@@ -1,0 +1,231 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<link type="text/css" rel="stylesheet" href="js/plugins/datatables/dataTables.bootstrap.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js"charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery.maskMoney.min.js"></script>
+	<script type="text/javascript" src="js/plugins/moment/moment.js"></script>
+	<script type="text/javascript" src="js/plugins/numeral/numeral.min.js"></script>
+	<script type="text/javascript" src="js/plugins/numeral/pt-br.min.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery.form-validator.min.js"></script>
+	<script type="text/javascript" src="js/plugins/datatables//datatables.min.js"></script>
+	
+
+
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form" class="col-lg-10 col-md-12">
+			<div>
+				<h1>
+					<strong style="color: #7E3A7F"><span class="fluigicon fluigicon-download fluigicon-lg"></span> Confirmação de
+						Recebimento
+					</strong>
+				</h1>
+				<hr>
+			</div>
+
+			<input type="hidden" name="nome_solicitante"  id="nome_solicitante">
+			<input type="hidden" name="codusuario_solicitante"  id="codusuario_solicitante">
+			<input type="hidden" name="codusuario_rm"  id="codusuario_rm">
+			<input type="hidden" class="form-control" name="ordens_recebidas" id="ordens_recebidas">
+
+			
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li ><a href="#tabOrdens" role="tab" data-toggle="tab">Ordens de Compra</a></li>
+				<li class="active"><a href="#tabRecebimento" role="tab" data-toggle="tab">Pré-Recebimento</a></li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane" id="tabOrdens">
+					<div class="col-md-12 row">
+						<h3 class="fs-no-margin-top">
+							<strong style="color: #7E3A7F">Filtros</strong>
+						</h3>
+					</div>
+					<div class="row col-md-12 well well-sm fs-no-margin">
+						<div class="form-group col-md-5">
+							<label>Fornecedor</label>
+							<div class="input-group" id="">
+								<span class="input-group-addon fs-xs-space">
+									<input type="text" id="fornecedor_codigo" style="text-align:center" name="fornecedor_codigo" size="20" class="fs-no-style-input"
+									 placeholder="" readonly>
+								</span>
+								<input type="text" class="form-control" name="fornecedor_nome" id="fornecedor_nome" placeholder="Digite para iniciar a pesquisa" />
+								<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acFornecedor">
+									<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-3 fs-no-padding-left">
+							<div class="form-group col-md-6">
+								<label for="numero_ordem">Nº Ordem</label>
+								<input type="text" name="numero_ordem" id="numero_ordem" class="form-control">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="numero_solicitacao">Nº Solicitação</label>
+								<input type="text" name="numero_solicitacao" id="numero_solicitacao" class="form-control">
+							</div>
+						</div>
+						<div style="margin-top:25px">
+							<button data-btn-filter class="btn btn-default"><span class="fluigicon fluigicon-filter fluigicon-sm"></span>
+								Filtra</button>
+							<button data-btn-clear class="btn btn-default"><span class="fluigicon fluigicon-eraser fluigicon-sm"></span>
+								Limpar</button>
+						</div>
+					</div>
+					<div class="col-md-12 row">
+						<h3 class="fs-no-top">
+							<strong style="color: #7E3A7F">Listagem de Ordens de Compra</strong>
+						</h3>
+					</div>
+					<div id="divTableData" class="row col-md-12">
+						<table id="tableOrdens" class="table table-striped table-bordered" width="100%"></table>
+					</div>
+			
+				</div>
+				<div class="tab-pane active" id="tabRecebimento">
+					<div class="row">
+						<div class="form-group col-md-4">
+						  <label for="filial">Filial</label>
+						  <input type="text" name="filial" id="filial" class="form-control" readonly>
+						</div>
+						<div class="pull-right">
+							<button data-btn-limpar-recebimento class="btn btn-primary"><span class="fluigicon fluigicon-test-refresh fluigicon-sm"></span> Limpar</button>
+						</div>
+						<div class="form-group col-md-2">
+								<label for="filial_cnpj">CNPJ</label>
+								<input type="text" name="filial_cnpj" id="filial_cnpj" class="form-control" readonly>
+							  </div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-4">
+							<label for="fornecedor">Fornecedor</label>
+							<input type="text" name="fornecedor" id="fornecedor" class="form-control" data-validation="required"
+							data-validation-error-msg="Selecione um fornecedor." readonly>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="cnpj">CNPJ</label>
+							<input type="text" name="cnpj" id="cnpj" class="form-control" data-validation="required"
+							data-validation-error-msg="Selecione um fornecedor." readonly>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="condpgto">Cond. Pgto</label>
+							<input type="text" name="condpgto" id="condpgto" class="form-control" readonly>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-2">
+							<label for="nf_numero">Nro Nota Fiscal</label>
+							<input type="text" name="nf_numero" id="nf_numero" class="form-control" data-validation="required"
+							 data-validation-error-msg="Informe o número da NF.">
+						</div>
+						<div class="form-group col-md-1">
+							<label for="nf_serie">Série</label>
+							<input type="text" name="nf_serie" id="nf_serie" class="form-control" data-validation="required"
+							 data-validation-error-msg="Informe a série da NF">
+						</div>
+
+
+						<div class="form-group col-md-2">
+							<label for="nf_emissao">Emissão</label>
+							<div class="input-group date" id="nf_emissao_div">
+								<input type="text" name="nf_emissao" id="nf_emissao" class="form-control" placeholder="" data-validation="even_number"
+								>
+								<span class="input-group-addon">
+									<span class="fluigicon fluigicon-calendar"></span>
+								</span>
+							</div>
+						</div>
+
+
+						<div class="form-group col-md-2">
+							<label for="nome">Arquivos Digitalizados</label>
+							<button class="btn btn-primary"  onclick="showCamera('nome_do_anexo');" ><span class="fluigicon fluigicon-paperclip fluigicon-sm"></span> Anexar NF /
+								Boleto</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-2">
+							<label for="valorLiquido">Valor Líquido</label>
+							<input type="text" data-mask-money name="valorLiquido" id="valorLiquido" class="form-control fs-txt-right"
+							 placeholder="R$ 0,00" readonly>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="frete">Frete</label>
+							<input type="text" data-valor-frete data-mask-money name="frete" id="frete" class="form-control fs-txt-right" placeholder="R$ 0,00">
+						</div>
+						<div class="form-group col-md-2">
+							<label for="icms">Valor ICMS</label>
+							<input type="text" data-mask-money name="icms" id="icms" class="form-control fs-txt-right" placeholder="R$ 0,00"
+							 readonly>
+						</div>
+	
+						<div class="form-group col-md-2">
+							<label for="valorTotal">Valor Total</label>
+							<input type="text" data-mask-money name="valorTotal" id="valorTotal" class="form-control fs-txt-right"
+							 placeholder="R$ 0,00" readonly>
+						</div>
+	
+					</div>
+					
+					<div class="row">
+						<table tablename="tblItemRecebido" id="tblItemRecebido" class="table table-striped table-bordered" nodeletebutton="true" noaddbutton="true">
+							<thead>
+								<tr>
+									<th>Nro Ordem</th>
+									<th>Cód. Item</th>
+									<th>Descrição</th>
+									<th>Qtd. Ordem</th>
+									<th>Qtd. Saldo</th>
+									<th>Qtd. Recebida</th>
+									<th>Preço Unitário</th>
+									<th>% IPI/ISS</th>
+									<th>Total Recebido</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" size="10" class="fs-no-style-input" name="titem_nroOrdem" id="titem_nroOrdem"></td>
+									<td><input type="text" size="6" class="fs-no-style-input" name="titem_codItem" id="titem_codItem"></td>
+									<td><textarea style="width:100%" class="fs-no-style-input" name="titem_descricao" id="titem_descricao" cols="65"></textarea></td>
+									<td><input type="text" style="width:100%" class="fs-no-style-input fs-txt-right" name="titem_qtdOrdem" id="titem_qtdOrdem"></td>
+									<td><input type="text" style="width:100%" class="fs-no-style-input fs-txt-right" name="titem_qtdSaldo" id="titem_qtdSaldo"></td>
+									<td><input type="text" data-qtd-recebida data-mask-value class="form-control fs-txt-right input-sm" name="titem_qtdRecebida" id="titem_qtdRecebida"></td>
+									<td><input type="text" style="width:100%" class="fs-no-style-input fs-txt-right" name="titem_precoUnitario" id="titem_precoUnitario"></td>
+									<td><input type="text" size="4" style="width:100%" class="fs-no-style-input" name="titem_ipi_iss" id="titem_ipi_iss"></td>
+									<td><input type="text" data-total-recebido data-mask-money style="width:100%" class="fs-no-style-input fs-txt-right" name="titem_totalRecebido" id="titem_totalRecebido"></td>
+									<td style="display:none;">
+										<input type="text" size="4" style="width:100%" class="fs-no-style-input" name="titem_unEntrada" id="titem_unEntrada">
+										<input type="text" size="4" style="width:100%" class="fs-no-style-input" name="titem_unEstoque" id="titem_unEstoque">
+										<input type="text" data-mask-value style="width:100%" class="form-control fs-txt-right input-sm" name="titem_fatorConv" id="titem_fatorConv">
+										<input type="hidden" class="form-control" name="titem_dataOrdem" id="titem_dataOrdem">
+										<input type="hidden" class="form-control" name="titem_codcoligada" id="titem_codcoligada">
+										<input type="hidden" class="form-control" name="titem_codfilial" id="titem_codfilial">
+										<input type="hidden" class="form-control" name="titem_nseqitmmov" id="titem_nseqitmmov">
+										<input type="hidden" class="form-control" name="titem_idprd" id="titem_idprd">
+										<input type="hidden" class="form-control" name="titem_idmov" id="titem_idmov">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+
+		</form>
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/autoComplete.js"></script>
+	<script type="text/javascript" src="js/beforeSendValidate.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,463 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<link type="text/css" rel="stylesheet" href="css/vivante-style.css" />
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+</head>
+
+<body class="fluig-style-guide">
+	<div class="rowfs-clearfix">
+		<form name="form" role="form" class="">
+			<div id="ordem_header" class="row col-md-12">
+				<div>
+					<h1>
+						<strong style="color: #7E3A7F"><span class="fluigicon fluigicon-add-test fluigicon-lg"></span> Ordem de Compra
+						</strong>
+					</h1>
+					<hr>
+				</div>
+				<!---CAMPOS AUXILIARES-->
+				<div style="display:none;">
+					<input type="hidden" name="navegador" id="navegador" class="form-control" readonly>
+					<input type="hidden" name="idmov" id="idmov" class="form-control" readonly>
+					<input type="hidden" name="codigo_solicitante" id="codigo_solicitante" class="form-control" readonly>
+					<input type="hidden" name="codusuario_rm" id="codusuario_rm" class="form-control" readonly>
+					<input type="hidden" class="form-control" name="nro_cotacao" id="nro_cotacao">
+					<input type="hidden" class="form-control" name="filial" id="filial">
+					<input type="hidden" class="form-control" name="codcoligada" id="codcoligada">
+					<input type="hidden" class="form-control" name="valortotal_ordem" id="valortotal_ordem">
+					<input type="checkbox" name="aprovado_emergencial" id="aprovado_emergencial">
+					<input type="checkbox" name="aprovado_gerente_unidade" id="aprovado_gerente_unidade">
+					<input type="checkbox" name="aprovado_gerente_portfolio" id="aprovado_gerente_portfolio">
+					<input type="checkbox" name="aprovado_diretor_operacional" id="aprovado_diretor_operacional">
+					<input type="checkbox" name="aprovado_diretor_financeiro" id="aprovado_diretor_financeiro">
+					<input type="checkbox" name="aprovado_presidente" id="aprovado_presidente">
+					<input type="checkbox" name="aprovado_gerente_rh" id="aprovado_gerente_rh">
+					<input type="checkbox" name="aprovado_gerente_sesmet" id="aprovado_gerente_sesmet">
+					<input type="checkbox" name="aprovado_diretor_rh" id="aprovado_diretor_rh">
+					<input type="hidden" name="pendenteAprovSindico" id="pendenteAprovSindico">
+					<input type="hidden" name="ordem_documentId" id="ordem_documentId">
+					<input type="text" name="workflow_compra" id="workflow_compra">
+
+					<!-- Campos utilizados para Alçada de Aprovação -->
+					<input type="hidden" class="form-control" name="nivelAprovador" id="nivelAprovador">
+					<input type="hidden" class="form-control" name="loginAprovador" id="loginAprovador">
+					<input type="hidden" class="form-control" name="ultNivelAprovador" id="ultNivelAprovador">
+					<!-- FIM - Campos utilizados para Alçada de Aprovação -->
+				</div>
+				<input type="hidden" name="emElaboracao" id="emElaboracao">
+				<div id="btnImprimirOrdem" class="row fs-lg-margin-bottom">
+
+					<div class="col-md-12">
+						<button class="btn btn-default pull-right" id="btnGerarRelatorioRM" onclick="GerarRelatorioRM()">Imprimir Ordem de Compra</button>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="row">
+							<div class="form-group col-md-2">
+								<label class="fs-display-block">Nº Solicitação </label>
+								<input type="text" style="display:block; font-size: 25px; color: #7E3A7F; font-weight: bold;" name="ordem_numero" id="ordem_numero" class="fs-no-style-input"
+									   placeholder="####" readonly>
+							</div>
+
+							<div style="display: none;" class="form-group col-md-1">
+								<label class="fs-display-block">Nº Ordem RM </label>
+								<input type="text" style="display:block; font-size: 25px; color: #7E3A7F; font-weight: bold;" name="ordem_numero_rm" id="ordem_numero_rm" class="fs-no-style-input"
+									   placeholder="####" readonly>
+							</div>
+
+							<div class="form-group col-md-3">
+								<label for="ordem_data">Data Emissão</label>
+								<input type="text" name="ordem_data" id="ordem_data" class="form-control" readonly>
+							</div>
+							<div class="form-group col-md-3">
+								<label for="nome_solicitante">Solicitante</label>
+								<input type="text" name="nome_solicitante" id="nome_solicitante" class="form-control" readonly>
+							</div>
+							<div class="form-group col-md-2" style="display: none;">
+								<label for="tipo_ordem">Tipo</label>
+								<select name="tipo_ordem" id="tipo_ordem" class="form-control">
+									<option value="materiais">Materiais</option>
+									<option value="servico">Serviço</option>
+									<option value="ativo">Ativo</option>
+									<option value="contrato">Contrato</option>
+								</select>
+							</div>
+							<div class="form-group col-md-3 pull-right">
+								<label>Status</label>
+								<button data-status-workflow type="button" class="btn btn-info btn-block">
+									<i class="fas fa-play-circle"></i>
+									Pendente</button>
+							</div>
+						</div>
+						<div class="row">
+							<fieldset data-fieldset-contrato>
+								<div class="form-group col-md-3">
+									<label for="empresa_codigo">Empresa</label>
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="empresa_codigo" style="text-align:center" name="empresa_codigo" size="1" class="fs-no-style-input" placeholder=""
+												   data-validation="required" data-validation-error-msg="É necessário informar a empresa." readonly>
+										</span>
+										<input type="text" class="form-control" name="empresa_nome" id="empresa_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											   data-validation-error-msg="É necessário informar a empresa." />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acEmpresa">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-4">
+									<label for="unidade_codigo">Unidade</label>
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="unidade_codigo" style="text-align:center" name="unidade_codigo" size="4" class="fs-no-style-input" placeholder=""
+												   data-validation="required" data-validation-error-msg="É necessário informar a Unidade." readonly>
+										</span>
+										<input type="text" class="form-control" name="unidade_nome" id="unidade_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											   data-validation-error-msg="É necessário informar a Unidade." />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acUnidade">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+								<div id="divContrato" class="form-group col-md-5">
+									<label for="contrato_codigo">Contrato</label>
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="contrato_codigo" style="text-align:center" name="contrato_codigo" size="18" class="fs-no-style-input" placeholder=""
+												   data-validation="required" data-validation-error-msg="É necessário informar o contrato." readonly>
+										</span>
+										<input type="text" class="form-control" name="contrato_nome" id="contrato_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											   data-validation-error-msg="É necessário informar o contrato." />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acContrato">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-5">
+									<label for="ccusto_codigo">Centro de Custo</label>
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="ccusto_codigo" style="text-align:center;" name="ccusto_codigo" size="20" class="fs-no-style-input" placeholder=""
+												   data-validation="required" data-validation-error-msg="É necessário informar o centro de custo." readonly>
+										</span>
+										<input type="text" class="form-control" name="ccusto_nome" id="ccusto_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											   data-validation-error-msg="É necessário informar o centro de custo." />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acCentroCusto">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-4">
+									<label for="local_estoque_codigo">Local de Estoque</label>
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="local_estoque_codigo" style="text-align:center" name="local_estoque_codigo" size="7" class="fs-no-style-input" placeholder=""
+												   data-validation="required" data-validation-error-msg="É necessário informar o local de estoque." readonly>
+										</span>
+										<input type="text" class="form-control" name="local_estoque_nome" id="local_estoque_nome" placeholder="Digite para iniciar a pesquisa"
+											   data-validation="required" data-validation-error-msg="É necessário informar o local de estoque." />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acLocalEstoque">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-5">
+									<label for="fornecedor_codigo">Fornecedor</label>
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="fornecedor_codigo" style="text-align:center" name="fornecedor_codigo" size="18" class="fs-no-style-input" placeholder=""
+												   data-validation="required" data-validation-error-msg="É necessário informar ofornecedor." readonly>
+										</span>
+										<input type="text" class="form-control" name="fornecedor_nome" id="fornecedor_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											   data-validation-error-msg="É necessário informar o fornecedor." />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acFornecedor">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-3">
+									<label for="fornecedor_cnpj">CNPJ/CPF</label>
+									<input type="text" name="fornecedor_cnpj" id="fornecedor_cnpj" class="form-control" readonly>
+								</div>
+							</fieldset>
+						</div>
+						<div class="col-md-7 fs-no-padding">
+							<div class="row ">
+								<div class="form-group col-md-6">
+									<label for="entrega_data">Previsão Entrega</label>
+									<div class="input-group date" id="entrega_data_input">
+										<input type="text" name="entrega_data" id="entrega_data" data-validation="date" data-validation-format="dd/mm/yyyy"
+											   data-validation-error-msg="Informe a previsão de entrega." class="form-control" placeholder="dd/mm/aaaa">
+										<span id="btn_entrega_data" class="input-group-addon fs-xs-space">
+											<span class="fluigicon fluigicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-6">
+									<label for="condpgto">Cond. Pagamento</label>
+									<input type="text" name="condpgto" id="condpgto" class="form-control">
+								</div>
+
+
+
+							</div>
+							<div class="row">
+								<div class="form-group col-md-2">
+									<label>Frete</label>
+									<input type="text" data-mask-money name="valor_frete" id="valor_frete" class="form-control" placeholder="R$ 0,0000">
+								</div>
+								<div class="form-group col-md-5">
+									<label>Total Líquido</label>
+									<input type="text" data-mask-money name="valor_total_liquido" id="valor_total_liquido" class="form-control" readonly>
+								</div>
+								<div class="form-group col-md-5">
+									<label>Total</label>
+									<input type="text" data-mask-money name="valor_total" id="valor_total" class="form-control" readonly>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5">
+
+							<div class="form-group col-md-12">
+								<label for="observacoes">Observações</label>
+								<textarea class="form-control" placeholder="Observações da Ordem de Compra" rows="5" name="observacoes" id="observacoes"></textarea>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div id="ordem_itens" class="row col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h3><strong style="color: #7E3A7F">Itens</strong></h3>
+						<div id="div_adicionaProduto" class="col-md-12 fs-no-padding">
+							<div class="form-group col-md-8 col-sm-7 fs-no-padding">
+								<label>Produto/Serviço</label>
+								<div class="input-group ">
+									<span class="input-group-addon">
+										<input type="text" name="produto_codigo_add" id="produto_codigo_add" size="5" class="fs-no-style-input" readonly>
+									</span>
+									<input name="produto_descricao_add" id="produto_descricao_add" class="form-control ">
+								</div>
+							</div>
+							<div class="form-group col-md-2 col-sm-3">
+								<label>Quantidade</label>
+								<div class="input-group">
+									<span class="input-group-addon">
+										<input type="text" name="produto_un_add" id="produto_un_add" size="3" class="fs-no-style-input" readonly>
+									</span>
+									<input type="text" name="produto_quantidade_add" id="produto_quantidade_add" class="form-control" data-mask-value placeholder="0,00">
+								</div>
+							</div>
+							<div class="col-md-1">
+								<button id="btnAddItem" style="margin-top: 25px" class="btn btn-default btn-sm">
+									<span class="fluigicon fluigicon-plus-circle fluigicon-sm"></span> Adicionar Item
+								</button>
+							</div>
+						</div>
+						<div id="tabelaItens">
+							<table tablename="tblItensOrdem" class="table " nodeletebutton="true" noaddbutton="true">
+								<thead>
+									<tr>
+										<th class="">Seq</th>
+										<th class="col-md-5 fs-v-align-middle">Produto/Serviço</th>
+										<th class="fs-v-align-middle">Quantidade</th>
+										<th class="fs-v-align-middle">Preço Unitário</th>
+										<th class="fs-v-align-middle">% IPI / ISS</th>
+										<th class="fs-v-align-middle">Valor Total</th>
+										<th class="fs-v-align-middle" style="width: 104px"></th>
+										<th class="fs-v-align-middle" style="display:none;"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="fs-v-align-middle" style="padding-left: 2 !important; padding-right: 2 !important">
+											<input type="text" name="seq" id="seq" size="3" class="fs-no-style-input">
+										</td>
+										<td class="fs-v-align-middle" style="padding-left: 2 !important; padding-right: 2 !important">
+											<div class="input-group">
+												<span class="input-group-addon">
+													<input type="text" id="produto_codigo" name="produto_codigo" size="5" class="fs-no-style-input" placeholder="">
+												</span>
+												<input type="text" class="form-control" name="produto_nome" id="produto_nome" readonly />
+											</div>
+										</td>
+										<td class="fs-v-align-middle" style="padding-left: 2 !important; padding-right: 2 !important">
+											<div class="input-group">
+												<span class="input-group-addon fs-xs-space">
+													<input type="text" name="produto_un" style="text-align:center" id="produto_un" size="4" class="fs-no-style-input fs-xs-space" readonly>
+												</span>
+												<input type="text" data-mask-value name="produto_quantidade" id="produto_quantidade" style="text-align:right;" data-validation="required"
+													   data-validation-error-msg="0,00" class="form-control fs-xs-space" placeholder="0,00">
+											</div>
+										</td>
+										<td class="fs-v-align-middle" style="padding-left: 2 !important; padding-right: 2 !important">
+											<input type="text" data-mask-money name="produto_preco" id="produto_preco" style="text-align:right;" data-validation-ignore="R$ ,."
+												   data-validation-decimal-separator="," data-validation="number" data-validation-allowing="float" data-validation-error-msg="Informe o preço."
+												   class="form-control fs-xs-space" placeholder="R$ 0,0000">
+										</td>
+										<td class="fs-v-align-middle" style="padding-left: 2 !important; padding-right: 2 !important"><input type="text" data-mask-percent name="produto_percent_ipi_iss"
+												   id="produto_percent_ipi_iss" style="text-align:right;" class="form-control fs-xs-space" placeholder="0,00 %"></td>
+										<td class="fs-v-align-middle" style="padding-left: 2 !important; padding-right: 2 !important">
+											<input type="text" data-mask-money name="produto_valorTotal" style="text-align:right;" id="produto_valorTotal" placeholder="R$ 0,0000"
+												   class="form-control fs-xs-space" readonly>
+										</td>
+										<td class="fs-v-align-middle" style="padding-left: 2 !important; padding-right: 2 !important">
+											<!-- 
+											<button id="btnDetalheItem" data-btn-detalhe-item class="btn btn-default">
+												<span class="fluigicon fluigicon-list-dropdown fluigicon-sm" style="display: inline"></span></button>
+											<button class="btn btn-default" onclick="fnCustomDelete(this);"><span style="display: inline"
+													  class="fluigicon fluigicon-remove-circle fluigicon-sm fs-cursor-pointer"></span></button>
+											 -->
+													  
+											<div class="btn-group">
+												<button id="btnDetalheItem" data-btn-detalhe-item class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Detalhe Item">
+													<span class="fluigicon fluigicon-list-dropdown icon-sm"></span>
+												</button>
+												<button class="btn btn-default btn_rateio" onclick="rateio.exibeModal(this,event);" data-toggle="tooltip" data-placement="top" title="Rateio">
+													<span class="fluigicon fluigicon-maximize icon-sm"></span>
+												</button>
+												<button class="btn btn-default" data-btn-importar-rateio data-rateio id="btn_ImportarRateio" data-toggle="tooltip" data-placement="top" title="Importar Rateio">
+													<span class="fluigicon fluigicon-upload icon-sm"></span>
+												</button>
+												<button class="btn btn-default" onclick="fnCustomDelete(this);" data-toggle="tooltip" data-placement="top" title="Remover Item">
+													<span class="fluigicon fluigicon-remove-circle icon-sm"></span>
+												</button>
+												 
+											</div>
+										</td>
+										<td style="display: none ;">
+										
+											<input type="hidden" class="form-control" name="tblIt_uid" id="tblIt_uid">
+
+											<input type="hidden" name="childId" id="childId">
+											<input type="hidden" name="childId_cotacao" id="childId_cotacao">
+											<input type="hidden" name="itemfamily" id="itemfamily">
+											<input type="hidden" name="itemcontrl" id="itemcontrl">
+											<input type="hidden" name="produto_tipo" id="produto_tipo">
+											<input type="hidden" name="produto_idprd" id="produto_idprd">
+											<input type="hidden" name="produto_codtb2fat" id="produto_codtb2fat">
+
+
+											<input type="hidden" name="produto_valor_ipi_iss" id="produto_valor_ipi_iss">
+											<input type="hidden" name="produto_codtborcamento" id="produto_codtborcamento">
+											<input type="hidden" name="produto_status_aprovSindico" id="produto_status_aprovSindico">
+											<input type="hidden" name="aprov_sindico_processo" id="aprov_sindico_processo">
+											<input type="hidden" name="aprov_sindico_documentid" id="aprov_sindico_documentid">
+											<input type="hidden" name="ccusto_codigo_item" id="ccusto_codigo_item">
+											<input type="hidden" name="ccusto_nome_item" id="ccusto_nome_item">
+
+											<!--ORÇAMENTO-->
+
+											<input type="hidden" class="form-control" name="budget_previsto" id="budget_previsto">
+											<input type="hidden" class="form-control" name="budget_alocado" id="budget_alocado">
+											<input type="hidden" class="form-control" name="budget_saldo" id="budget_saldo">
+											<input type="hidden" class="form-control" name="budget_excedido" id="budget_excedido">
+
+											<!--Campos do Contrato-->
+
+											<input type="hidden" name="produto_contrato_idcnt" id="produto_contrato_idcnt">
+											<input type="hidden" name="produto_contrato_nseqitmcnt" id="produto_contrato_nseqitmcnt">
+
+											<!--Campos solicitação origem-->
+
+											<input type="text" name="sol_numero" id="sol_numero">
+											<input type="hidden" name="sol_uid_item" id="sol_uid_item">
+											<input type="text" name="sol_id_item" id="sol_id_item">
+											<input type="text" name="sol_documentId" id="sol_documentId">
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="ordem_footer" class="row col-md-12">
+				<div id="tratamentoErro">
+					<div class="col-md-12">
+						<h1><span class="fluigicon fluigicon-android fluigicon-lg"></span> Ops! Algo deu errado na integração.</h1>
+						<h2>Verifique o XML de integração abaixo.</h2>
+					</div>
+					<div id="" class="form-group col-md-12" style="display:none;">
+						<label for="xmlintegracao">Mensagem de erro</label>
+						<textarea class="form-control" name="integracao_msgerro" id="integracao_msgerro" rows="4"></textarea>
+					</div>
+					<div id="" class="form-group col-md-12">
+						<div class="fs-md-space">
+							<label for="integracao_xml">XML Integração</label>
+							<button id="btnIdentarXml" class="btn btn-primary pull-right"> <span class="fluigicon fluigicon-text-left fluigicon-xs"></span>
+								Identar XML</button>
+						</div>
+						<textarea class="form-control" name="integracao_xml" id="integracao_xml" rows="30"></textarea>
+					</div>
+				</div>
+			</div>
+			
+			<table class="table hide" tablename="tblRateio" id="tblRateio" nodeletebutton="true" noaddbutton="true"
+				class="table table-condensed">
+				<thead>
+					<tr>
+						<th>UID</th>
+						<th>Código C.Custo</th>
+						<th>Código Reduzido C.Custo</th>
+						<th>Nome C.Custo</th>
+						<th>Valor</th>
+						<th>%</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<input type="text" class="form-control" name="tblRat_tblIt_uid" id="tblRat_tblIt_uid"></td>
+						<td>
+							<input type="text" class="form-control" name="tblRat_ccusto_codigo" id="tblRat_ccusto_codigo"></td>
+						<td>
+							<input type="text" class="form-control" name="tblRat_ccusto" id="tblRat_ccusto">
+						</td>
+						<td>
+							<input type="text" class="form-control" name="tblRat_ccusto_nome" id="tblRat_ccusto_nome"></td>
+						<td>
+							<input type="text" class="form-control" name="tblRat_valor" id="tblRat_valor">
+						</td>
+						<td>
+							<input type="text" class="form-control" name="tblRat_percent" id="tblRat_percent">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<input class="hide" id="upload" type=file name="files">
+			<textarea class="form-control hide" rows=10 cols=120 name="xlx_json" id="xlx_json"></textarea>
+		</form>
+	</div>
+</body>
+
+<link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css" />
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="rateio.js"></script>
+<script type="text/javascript" src="importaRateio.js"></script>
+<script src="jszip.js"></script>
+<script src="xlsx.js"></script>
+<script type="text/javascript" src="js/autocomplete.js"></script>
+<script type="text/javascript" src="js/beforeSendValidate.js"></script>
+<script type="text/javascript" src="js/status.js"></script>
+<script src="js/plugins/jquery.form-validator.min.js"></script>
+<script src="js/plugins/jquery.maskMoney.min.js"></script>
+<script src="js/plugins/vkbeautify.0.99.00.beta.js"></script>
+<script src="js/rmReport.js"></script>
+
+</html>

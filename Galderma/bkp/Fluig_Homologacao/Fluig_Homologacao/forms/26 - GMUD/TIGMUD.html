@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<!--
+			# Produção
+			>Código: TIGMUD
+			>Formulário: Gestão de mudança - Galderma
+			>Dataset: dsFormTIGMUD
+			>Pasta de destino: 2
+			>Caminho da pasta de destino: Raiz / TI / GMUD
+			>Campo descrito: descricao
+			>Dev: Evaldo Maciel
+		-->
+	<!-- 
+	<meta charset="utf-8">
+	<script type="text/javascript" src="jquery.js" charset="utf-8"></script>
+	<script type="text/javascript" src="fluig-style-guide.min.js" charset="utf-8"></script>
+	<link type="text/css" rel="stylesheet" href="fluig-style-guide-flat.min.css" />
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" /> -->
+
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js" charset="utf-8"></script>
+
+
+	<link type="text/css" rel="stylesheet" href="custom.css" />
+	<script type="text/javascript" src="custom.js" charset="utf-8"></script>
+
+	<!-- custom -->
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<input type="hidden" id="descricaoSol" name="descricaoSol">
+			<input type="hidden" id="numSolicitacao" name="numSolicitacao">
+			<input type="hidden" id="atividade" name="atividade">
+			<input type="hidden" id="dataAtual" name="dataAtual">
+			<input type="hidden" id="numFormulario" name="numFormulario">
+			<input type="hidden" id="usuarioLogado" name="usuarioLogado">
+			<input type="hidden" id="autor" name="autor">
+			<input type="hidden" id="responsavel" name="responsavel">
+			<input type="hidden" id="equipeDev" name="equipeDev">
+			<input type="hidden" id="gerente" name="gerente">
+			<input type="hidden" id="gergmud" name="gergmud">
+
+			<div class="panel-body">
+				<div class="row">
+					<div class="text-left col-md-3">
+						<span>
+							<img src="GALDERMA_LOGO_CMYK_72DPI.jpg" class="img-responsive" id="logoTelemont" style="display: block;">
+						</span>
+					</div>
+					<div class=" text-right col-md-9">
+						<h2>Formulário de Controle de Alteração de Sistema</h2>
+						<p>Número: <b class="numFormularioTexto">AAAAMMDD_T_SSS</b></p>
+						<p>Redigido por <b class="autorTexto">XXXX</b></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="cabecalhoDados">
+				<div class="panel-body">
+					<div class="form-group row">
+						<div class="col-md-12 col-sm-12">
+							<div>
+								<div class="form-group" id="divText_sistema">
+									<div class="col-md-4 col-sm-4">
+										<label for="sistema" class="required">Sistema</label>
+										<input type="text" class="form-control" id="sistema" name="sistema" />
+									</div>
+								</div>
+								<div class="form-group" id="divText_solicitante">
+									<div class="col-md-4 col-sm-4">
+										<label for="solicitante" class="required">Solicitante</label>
+										<input type="hidden" id="solicitanteId" name="solicitanteId" />
+										<input type="text" class="form-control" id="solicitante" name="solicitante" />
+									</div>
+								</div>
+								<div class="form-group" id="divText_dataSol">
+									<div class="col-md-4 col-sm-4">
+										<label for="dataSol" class="required">Data da Solicitação</label>
+										<input type="text" class="form-control" id="dataSol" name="dataSol" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div>
+								<div class="form-group" id="divText_departamento">
+									<div class="col-md-4 col-sm-4">
+										<label for="departamento" class="required">Departamento</label>
+										<input type="text" class="form-control" id="departamento" name="departamento" />
+									</div>
+								</div>
+								<div class="form-group" id="divText_cargo" style="display: none;">
+									<div class="col-md-4 col-sm-4">
+										<label for="cargo" class="required">Cargo</label>
+										<input type="text" class="form-control" id="cargo" name="cargo" />
+									</div>
+								</div>
+								<div class="form-group" id="divText_empresasImpacto">
+									<div class="col-md-4 col-sm-4">
+										<label for="empresasImpacto" class="required">Empresas Impactadas</label>
+										<input type="zoom" id="empresasImpacto" name="empresasImpacto" data-zoom="{
+											'displayKey':'nm_empresa',
+											'datasetId':'dsEmpresasGMUD',
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a empresa',
+											'fields':[
+												{
+												'field':'nm_empresa',
+												'label':'Nome',
+												'standard':'true'
+												}
+											]
+										}" />
+									</div>
+								</div>
+								<div class="form-group" id="divText_refTicket">
+									<div class="col-md-4 col-sm-4">
+										<label for="refTicket" class="required">Referência (Ticket, Num. Projeto...)</label>
+										<input type="text" class="form-control" id="refTicket" name="refTicket" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 1. Proposta -->
+			<div class="panel panel-default" id="div_proposta">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>1. Proposta</b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="div_proposta">
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_proposta">
+								<div class="col-md-12 col-sm-12">
+									<label for="proposta" class="required">Proposta</label>
+									<textarea type="text" rows="5" placeholder="(Incluir breve descrição. Enumerar em caso de propostas múltiplas)" class="form-control" id="proposta" name="proposta"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 2. Detalhamento da Proposta -->
+			<div class="panel panel-default" id="div_detProposta">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>2. Detalhamento da Proposta</b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="div_detProposta">
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_detProposta">
+								<div class="col-md-12 col-sm-12">
+									<label for="detProposta" class="required">Descrição</label>
+									<textarea type="text" rows="5" placeholder="(Em caso de propostas múltiplas, copiar os itens abaixo e preenchê-los para cada uma delas)" class="form-control" id="detProposta" name="detProposta"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_sitAtualXAlt">
+								<div class="col-md-12 col-sm-12">
+									<label for="sitAtualXAlt" class="required">A. SITUAÇÃO ATUAL X ALTERAÇÃO PROPOSTA:</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_sitAtual">
+								<div class="col-md-12 col-sm-12">
+									<label for="sitAtual" class="required">Situação Atual</label>
+									<input type="text" rows="5" class="form-control" id="sitAtual" name="sitAtual" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_altPropostas">
+								<div class="col-md-12 col-sm-12">
+									<label for="altPropostas" class="required">Alteração proposta</label>
+									<input type="text" rows="5" class="form-control" id="altPropostas" name="altPropostas" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_motivoProposta">
+								<div class="col-md-12 col-sm-12">
+									<label for="motivoProposta" class="required">Motivo da Proposta</label>
+									<input type="text" rows="5" class="form-control" id="motivoProposta" name="motivoProposta" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-md-12 " id="div_tipoProposta">
+							<div class='col-md-2 col-xs-2'>
+								<label for="tipoProposta">GMUD será:</label>
+							</div>
+							<div class='col-md-6 col-xs-6'>
+								<div class='form-group'>
+									<input type="radio" name="tipoProposta" id="tipoProposta_melhoria" value="melhoria" />
+									<label for="tipoProposta_melhoria">Melhoria</label><br>
+									<input type="radio" name="tipoProposta" id="tipoProposta_projeto" value="projeto" />
+									<label for="tipoProposta_projeto">Projeto</label><br>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Aprovação do usuário 1 e 2 -->
+			<div class="panel panel-default" id="div_aprova1e2">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>Aprovação do usuário - Detalhamento da Proposta</b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="div_div_aprova1e2">
+						<div class="form-group col-md-12 " id="divText_aprova1e2">
+							<div class='col-md-2 col-xs-2'>
+								<label for="aprova1e2">Aprova proposta e detalhamento:</label>
+							</div>
+							<div class='col-md-6 col-xs-6'>
+								<div class='form-group'>
+									<input type="radio" name="aprova1e2" id="aprova1e2_sim" value="sim" />
+									<label for="aprova1e2_sim">Sim</label><br>
+									<input type="radio" name="aprova1e2" id="aprova1e2_nao" value="nao" />
+									<label for="aprova1e2_nao">Não</label><br>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_div_aprova1e2Just">
+								<div class="col-md-12 col-sm-12">
+									<label for="aprova1e2Just" class="required">Justificativa</label>
+									<textarea type="text" rows="5" placeholder="(Preenhcer com justificativa para negação da proposta)" class="form-control" id="aprova1e2Just" name="aprova1e2Just"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 3. Avaliação de Impactos  -->
+			<div class="panel panel-default" id="div_avalImpacto">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>3. Avaliação de Impactos </b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row">
+						<div class="col-md-12 col-sm-12">
+							<abbr>A alteração proposta:</abbr>
+
+							<div class="form-group col-md-12" id="divText_afetaBoasPraticas">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="afetaBoasPraticas" name="afetaBoasPraticas" />
+										<label for="afetaBoasPraticas" class="">Tem potencial para afetar as Boas Práticas de Fabricação (GMP)?</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_afetaObrigFiscais">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="afetaObrigFiscais" name="afetaObrigFiscais" />
+										<label for="afetaObrigFiscais" class="">Tem potencial para afetar as Obrigações Fiscais?</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_afetaContab">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="afetaContab" name="afetaContab" />
+										<label for="afetaContab" class="">Tem potencial para afetar a Contabilidade?</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_afetaRealGerenc">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="afetaRealGerenc" name="afetaRealGerenc" />
+										<label for="afetaRealGerenc" class="">Tem potencial para afetar Relatórios Gerenciais?</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_afetaProcessCritic">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="afetaProcessCritic" name="afetaProcessCritic" />
+										<label for="afetaProcessCritic" class="">Tem potencial para afetar os Processos Críticos? ?</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 4. Análise Técnica  -->
+			<div class="panel panel-default" id="div_ananliseTec">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>4. Análise Técnica </b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row">
+						<div class="col-md-12 col-sm-12">
+							<h4>A. CLASSIFICAÇÃO ALTERAÇÃO:</h4>
+							<abbr>A alteração proposta é devido:</abbr>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="erroSistema" name="erroSistema">
+										<label for="erroSistema" class="">Erro do Sistema Padrão</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="erroCustomi" name="erroCustomi" />
+										<label for="erroCustomi" class="">Erro de Customização Existente</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="mudParamet" name="mudParamet" />
+										<label for="mudParamet" class="">Mudança Parametrização </label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="atualizaPatch" name="atualizaPatch" />
+										<label for="atualizaPatch" class="">Atualização de Patch</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="novoRelatorio" name="novoRelatorio">
+										<label for="novoRelatorio" class="">Novo Relatório (até 20 horas)</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="customizaProjeto" name="customizaProjeto">
+										<label for="customizaProjeto" class="">Projeto</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="customizaMelhoria" name="customizaMelhoria" />
+										<label for="customizaMelhoria" class="">Customização para Melhoria (até 20 horas) </label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="necessidadeOrga" name="necessidadeOrga" />
+										<label for="necessidadeOrga" class="">Necessidade Organizacional
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-12 col-sm-12">
+							<h4>B. ESPECIFICAÇÃO TÉCNICA:</h4>
+							<abbr>(Descrever com detalhes o que será alterado ou criado)</abbr>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="alteraBD" name="alteraBD" />
+										<label for="alteraBD" class="">Alteração de Banco de Dados? </label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="criaAlteraProg" name="criaAlteraProg" />
+										<label for="criaAlteraProg" class="">Criação/Alteração de
+											Programa</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="mudParamet2" name="mudParamet2" />
+										<label for="mudParamet2" class="">Mudança Parametrização? </label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_sistema">
+								<div class='col-md-12 col-xs-12'>
+									<div class="custom-checkbox custom-checkbox-primary">
+										<input type="checkbox" id="atualizaPatch2" name="atualizaPatch2" />
+										<label for="atualizaPatch2" class="">Atualização de Patches? </label>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-12 col-sm-12">
+							<h4>C. ESFORÇO NECESSÁRIO EM HORAS (Estimativa): </h4>
+							<div class="form-group col-md-12" id="divText_horasDesenvolv">
+								<div class="col-md-3 col-sm-3">
+									<label for="horasDesenvolv" class="required">Horas estimadas de
+										desenvolvimento:</label>
+								</div>
+								<div class="col-md-1 col-sm-1">
+									<input type="text" class="form-control" id="horasDesenvolv" name="horasDesenvolv" />
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_descHorasDesenvolv">
+								<div class="col-md-12 col-sm-12">
+									<label for="descHorasDesenvolv" class="required">Descrição</label>
+									<textarea class="form-control" rows="5" id="descHorasDesenvolv" name="descHorasDesenvolv"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="panel-body">
+					<div class="form-group row" id="div_div_qualidade">
+						<div class="panel-heading ">
+							<h3 class="panel-title">
+								<b>Observações Qualidade</b>
+							</h3>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_div_qualidadeJust">
+								<div class="col-md-12 col-sm-12">
+									<textarea type="text" rows="5" placeholder="Anotações da qualidade é um campo opcional " class="form-control" id="qualidadeJust" name="qualidadeJust"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Aprovação do usuário 3 e 4 -->
+			<div class="panel panel-default" id="div_aprova3e4">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>Aprovação do usuário - Análise técnico</b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="div_div_aprova3e4">
+						<div class="form-group col-md-12 " id="divText_aprova3e4">
+							<div class='col-md-2 col-xs-2'>
+								<label for="aprova3e4">Aprova proposta e detalhamento:</label>
+							</div>
+							<div class='col-md-6 col-xs-6'>
+								<div class='form-group'>
+									<input type="radio" name="aprova3e4" id="aprova3e4_sim" value="sim" />
+									<label for="aprova3e4_sim">Sim</label><br>
+									<input type="radio" name="aprova3e4" id="aprova3e4_nao" value="nao" />
+									<label for="aprova3e4_nao">Não</label><br>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_div_aprova3e4Just">
+								<div class="col-md-12 col-sm-12">
+									<label for="aprova3e4Just" class="required">Justificativa</label>
+									<textarea type="text" rows="5" placeholder="(Preenhcer com justificativa para negação da proposta)" class="form-control" id="aprova3e4Just" name="aprova3e4Just"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 5. Aprovação da Proposta de Alteração -->
+			<div class="panel panel-default" id="div_aprovProposta">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>5. Aprovação da Proposta de Alteração</b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="aprovacaoJustificada">
+						<div class="col-md-12 col-sm-12">
+							<h4></h4>
+							<abbr></abbr>
+							<div class="form-group col-md-12 " id="divText_aprovProposta">
+								<div class='col-md-2 col-xs-2'>
+									<label for="aprovProposta"></label>
+								</div>
+								<div class='col-md-6 col-xs-6'>
+									<div class='form-group'>
+										<input type="radio" name="aprovProposta" id="aprovProposta_sim" value="sim" />
+										<label for="aprovProposta_sim">Sim</label><br>
+										<input type="radio" name="aprovProposta" id="aprovProposta" value="nao" />
+										<label for="aprovProposta">Não</label><br>
+									</div>
+								</div>
+							</div>
+							<div class="form-group col-md-12" id="divText_justRejeicao">
+								<div class='col-md-12 col-xs-12'>
+									<label for="justRejeicao" class="required">Justificativa</label>
+									<textarea placeholder=" (Preencher em caso de rejeição. Caso contrário, indicar NA)" class="form-control" id="justRejeicao" name="justRejeicao"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group row" id="comiteDeAprovacao">
+						<div class="col-md-12 col-sm-12">
+							<h4>COMITÊ DE APROVAÇÃO DA ALTERAÇÃO</h4>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="div_div_aprovComite">
+						<div class="form-group col-md-12 " id="divText_aprovComite">
+							<div class='col-md-2 col-xs-2'>
+								<label for="aprovComite">Aprovação do comitê:</label>
+							</div>
+							<div class='col-md-6 col-xs-6'>
+								<div class='form-group'>
+									<input type="radio" name="aprovComite" id="aprovComite_sim" value="sim" />
+									<label for="aprovComite_sim">Sim</label><br>
+									<input type="radio" name="aprovComite" id="aprovComite_nao" value="nao" />
+									<label for="aprovComite_nao">Não</label><br>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_div_aprovComiteJust">
+								<div class="col-md-12 col-sm-12">
+									<label for="aprovComiteJust" class="required">Justificativa</label>
+									<textarea type="text" rows="5" placeholder="(Preenhcer com justificativa para negação da proposta)" class="form-control" id="aprovComiteJust" name="aprovComiteJust"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 6. Plano de testes -->
+			<div class="panel panel-default" id="div_planoDeTestes">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>6. Plano de testes</b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="planoDeTesteDiv">
+						<div class="col-md-12 col-sm-12">
+							<h4></h4>
+							<abbr></abbr>
+							<div class="form-group col-md-12" id="divText_planoDeTesteDiv">
+								<div class='col-md-12 col-xs-12'>
+									<table class="table" tablename="planoDeTesteTabela" noaddbutton="true">
+										<thead>
+											<tr>
+												<th><b>Empresa</b></th>
+												<th><b>Módulo</b></th>
+												<th><b>Menu</b></th>
+												<th><b>Caminho</b></th>
+												<th><b>Programa</b></th>
+												<th><b>Atividade</b></th>
+												<th><b>Resultado Esperado</b></th>
+												<th class="tabUsuarioChave"><b>Usuário Chave</b></th>
+												<th class="tabAceite"><b>Aceite</b></th>
+												<th class="tabData"><b>Data</b></th>
+											</tr>
+										</thead>
+										<tr>
+											<td><textarea type="text" class="form-control" name="tabEmpresa" id="tabEmpresa" placeholder="Empresa"></textarea></td>
+											<td><textarea type="text" class="form-control" name="tabModulo" id="tabModulo" placeholder="Móduo"></textarea></td>
+											<td><textarea type="text" class="form-control" name="tabMenu" id="tabMenu" placeholder="Menu"></textarea></td>
+											<td><textarea type="text" class="form-control" name="tabCaminho" id="tabCaminho" placeholder="Caminho"></textarea></td>
+											<td><textarea type="text" class="form-control" name="tabPrograma" id="tabPrograma" placeholder="Programa"></textarea></td>
+											<td><textarea type="text" class="form-control" name="tabAtividade" id="tabAtividade" placeholder="Atividade"></textarea></td>
+											<td><textarea type="text" class="form-control" name="tabResultadoEsp" id="tabResultadoEsp" placeholder="Resultado Esperando"></textarea></td>
+											<td><input type="text" class="form-control tabUsuarioChave" name="tabUsuarioChave" id="tabUsuarioChave" placeholder="Usuário Chave" /></td>
+											<td><textarea type="text" class="form-control tabAceite" name="tabAceite" id="tabAceite" placeholder="Aceite"></textarea></td>
+											<td><input type="text" class="form-control tabData" name="tabData" id="tabData" placeholder="Data" /></td>
+										</tr>
+									</table>
+									<button class="btn btn-primary" id="btnAddTeste">
+										<i class="fluigicon fluigicon-plus icon-xs"></i> Adicionar Partes
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel-body">
+					<div class="form-group row" id="div_div_aprovTestes">
+						<div class="form-group col-md-12 " id="divText_aprovTestes">
+							<div class='col-md-2 col-xs-2'>
+								<label for="aprovTestes" class="required">Aprovação dos testes (Lider sustentação):</label>
+							</div>
+							<div class='col-md-6 col-xs-6'>
+								<div class='form-group'>
+									<input type="radio" name="aprovTestes" id="aprovTestes_sim" value="sim" />
+									<label for="aprovTestes_sim">Sim</label><br>
+									<input type="radio" name="aprovTestes" id="aprovTestes_nao" value="nao" />
+									<label for="aprovTestes_nao">Não</label><br>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_div_aprovTestesJust">
+								<div class="col-md-12 col-sm-12">
+									<label for="aprovTestesJust">Justificativa</label>
+									<textarea type="text" rows="5" placeholder="(Preenhcer com justificativa para negação da proposta)" class="form-control" id="aprovTestesJust" name="aprovTestesJust"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel-body" id="div_div_aprovTestesComite" style="display: none;">
+					<div class="form-group row">
+						<div class="form-group col-md-12 " id="divText_aprovTestesComite">
+							<div class='col-md-2 col-xs-2'>
+								<label for="aprovTestesComite">Aprovação dos testes (Comitê):</label>
+							</div>
+							<div class='col-md-6 col-xs-6'>
+								<div class='form-group'>
+									<input type="radio" name="aprovTestesComite" id="aprovTestesComite_sim" value="sim" />
+									<label for="aprovTestesComite_sim">Sim</label><br>
+									<input type="radio" name="aprovTestesComite" id="aprovTestesComite_nao" value="nao" />
+									<label for="aprovTestesComite_nao">Não</label><br>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_div_aprovTestesComiteJust">
+								<div class="col-md-12 col-sm-12">
+									<label for="aprovTestesComiteJust" class="required">Justificativa</label>
+									<textarea type="text" rows="5" placeholder="(Preenhcer com justificativa para negação da proposta)" class="form-control" id="aprovTestesComiteJust" name="aprovTestesComiteJust"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 7. Roteiro de atualização em produção -->
+			<div class="panel panel-default" id="div_roteiroAtualizacao">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>7. Roteiro de atualização em produção</b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="roteiroAtualizacaoDiv">
+						<div class="col-md-12 col-sm-12">
+							<h4></h4>
+							<abbr></abbr>
+							<div class="form-group col-md-12" id="divText_roteiroAtualizacao">
+								<div class='col-md-12 col-xs-12'>
+									<label for="roteiroAtualizacao" class="required">Descrição</label>
+									<textarea id="roteiroAtualizacao" name="roteiroAtualizacao" class="form-control" rows="5"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 8. Roteiro rollback -->
+			<div class="panel panel-default" id="div_roteiroRollback">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>8. Roteiro rollback</b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="roteiroRollbackDiv">
+						<div class="col-md-12 col-sm-12">
+							<h4></h4>
+							<abbr></abbr>
+							<div class="form-group col-md-12" id="divText_roteiroRollback">
+								<div class='col-md-12 col-xs-12'>
+									<label for="roteiroRollback" class="required">Descrição</label>
+									<textarea id="roteiroRollback" name="roteiroRollback" class="form-control" rows="5"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 9. Aprovação Atualização em Produção -->
+			<div class="panel panel-default" id="div_aprovAtualizaProd">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>9. Aprovação Atualização em Produção</b>
+					</h3>
+				</div>
+				<div class="panel-body">
+					<div class="form-group row" id="aprovAtualizaProd">
+						<div class="col-md-12 col-sm-12">
+							<h4></h4>
+							<abbr></abbr>
+							<div class="row">
+								<div class="form-group col-md-12 " id="divText_dataAprovProd">
+									<div class='col-md-2 col-xs-2'>
+										<label for="dataAprovProd">Data</label>
+										<input type="text" class="form-control" id="dataAprovProd" name="dataAprovProd" />
+									</div>
+									<div class='col-md-6 col-xs-6'>
+										<div class='form-group'>
+											<input type="radio" name="horarioAplicacao" id="horarioAplicacao_comercial" value="comercial" />
+											<label for="horarioAplicacao_comercial">Horário Comercial</label><br>
+											<input type="radio" name="horarioAplicacao" id="horarioAplicacao_apos18" value="apos18" />
+											<label for="horarioAplicacao_apos18">Após 18:00</label><br>
+											<input type="radio" name="horarioAplicacao" id="horarioAplicacao_FDS" value="fds" />
+											<label for="horarioAplicacao_FDS">Final Semana</label><br>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row" style="display: none;">
+								<div class="form-group col-md-12" id="div_respSustERP">
+									<div class='col-md-6'>
+										<label for="aprovProdRespSustERP" class="required">Responsável Sustentação ERP</label>
+										<input type="text" class="form-control" id="aprovProdRespSustERP" name="aprovProdRespSustERP" />
+									</div>
+									<div class='col-md-2' style="display: none;">
+										<label for="aprovProdRespSustERPData" class="required">Data Aprov.</label>
+										<input type="text" class="form-control" id="aprovProdRespSustERPData" name="aprovProdRespSustERPData" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row" style="display: none;">
+								<div class="form-group col-md-12" id="div_respERP">
+									<div class='col-md-6'>
+										<label for="aprovProdRespERP" class="required">Responsável ERP</label>
+										<input type="text" class="form-control" id="aprovProdRespERP" name="aprovProdRespERP" />
+									</div>
+									<div class='col-md-2'>
+										<label for="aprovProdRespERPData" class="required">Data Aprov.</label>
+										<input type="text" class="form-control" id="aprovProdRespERPData" name="aprovProdRespERPData" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row" style="display: none;">
+								<div class="form-group col-md-12" id="div_gerenteTI">
+									<div class='col-md-6'>
+										<label for="aprovProdGerenteTI" class="required">Gerente de TI</label>
+										<input type="text" class="form-control" id="aprovProdGerenteTI" name="aprovProdGerenteTI" />
+									</div>
+									<div class='col-md-2'>
+										<label for="aprovProdGerenteTIData" class="required">Data Aprov.</label>
+										<input type="text" class="form-control" id="aprovProdGerenteTIData" name="aprovProdGerenteTIData" />
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 10. Aceite em produção -->
+			<div class="panel panel-default" id="div_aceiteProd">
+				<div class="panel-heading ">
+					<h3 class="panel-title">
+						<b>10. Aceite em produção</b>
+					</h3>
+				</div>
+
+				<div class="panel-body">
+					<div class="form-group row" id="div_div_aprovDeploy">
+						<div class="form-group col-md-12 " id="divText_aprovDeploy">
+							<div class='col-md-2 col-xs-2'>
+								<label for="aprovDeploy">Processo validado com sucesso em ambiente de produção:</label>
+							</div>
+							<div class='col-md-6 col-xs-6'>
+								<div class='form-group'>
+									<input type="radio" name="aprovDeploy" id="aprovDeploy_sim" value="sim" />
+									<label for="aprovDeploy_sim">Sim</label><br>
+									<input type="radio" name="aprovDeploy" id="aprovDeploy_nao" value="nao" />
+									<label for="aprovDeploy_nao">Não</label><br>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group" id="divText_div_aprovDeployJust">
+								<div class="col-md-12 col-sm-12">
+									<label for="aprovDeployJust" class="required">Justificativa</label>
+									<textarea type="text" rows="5" placeholder="(Preenhcer com justificativa para negação da proposta)" class="form-control" id="aprovDeployJust" name="aprovDeployJust"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel-body aprovacaoDeploy">
+					<div class="form-group row" id="aceiteProd">
+						<div class="col-md-12 col-sm-12">
+							<h4></h4>
+							<abbr></abbr>
+							<div class="row" id="divText_aceiteProd" style="display: none;">
+								<div class="form-group col-md-12 ">
+									<div class='col-md-2 col-xs-2'>
+										<label for="processoAprovado">Processo esta:</label>
+									</div>
+									<div class='col-md-6 col-xs-6'>
+										<div class='form-group'>
+											<input type="radio" name="processoAprovado" id="processoAprovado_Aprovado" value="sim" />
+											<label for="processoAprovado_Aprovado">Aprovado</label><br>
+											<input type="radio" name="processoAprovado" id="processoAprovado_reprovado" value="nao" />
+											<label for="processoAprovado_reprovada">Reprovada</label><br>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-12" id="div_respAreaSol">
+									<div class='col-md-6'>
+										<label for="aceiteProdRespAreaSol" class="required">Responsável Área Solicitante</label>
+										<input type="text" class="form-control" id="aceiteProdRespAreaSol" name="aceiteProdRespAreaSol" readonly="true" />
+									</div>
+									<div class='col-md-2'>
+										<label for="aceiteProdRespAreaSolData" class="required">Data / Assinatura</label>
+										<input type="text" class="form-control" id="aceiteProdRespAreaSolData" name="aceiteProdRespAreaSolData" readonly="true" />
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="form-group col-md-12" id="div_respSol">
+									<div class='col-md-6'>
+										<label for="aceiteProdRespSol" class="required">Solicitante</label>
+										<input type="text" class="form-control" id="aceiteProdRespSol" name="aceiteProdRespSol" readonly="true" />
+									</div>
+									<div class='col-md-2'>
+										<label for="aceiteProdRespSolData" class="required">Data / Assinatura</label>
+										<input type="text" class="form-control" id="aceiteProdRespSolData" name="aceiteProdRespSolData" readonly="true" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-12" id="div_prodrespSustERP">
+									<div class='col-md-6'>
+										<label for="aceiteProdRespSustERP" class="required">Responsável Sustentação ERP</label>
+										<input type="text" class="form-control" id="aceiteProdRespSustERP" name="aceiteProdRespSustERP" readonly="true" />
+									</div>
+									<div class='col-md-2'>
+										<label for="aceiteProdRespSustERPData" class="required">Data / Assinatura</label>
+										<input type="text" class="form-control" id="aceiteProdRespSustERPData" name="aceiteProdRespSustERPData" readonly="true" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-12" id="div_prodrespERP">
+									<div class='col-md-6'>
+										<label for="aceiteProdRespERP" class="required">Responsável ERP</label>
+										<input type="text" class="form-control" id="aceiteProdRespERP" name="aceiteProdRespERP" readonly="true" />
+									</div>
+									<div class='col-md-2'>
+										<label for="aceiteProdRespERPData" class="required">Data / Assinatura</label>
+										<input type="text" class="form-control" id="aceiteProdRespERPData" name="aceiteProdRespERPData" readonly="true" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-md-12" id="div_prodgerenteTI">
+									<div class='col-md-6'>
+										<label for="aceiteProdGerenteTI" class="required">Gerente de TI</label>
+										<input type="text" class="form-control" id="aceiteProdGerenteTI" name="aceiteProdGerenteTI" readonly="true" />
+									</div>
+									<div class='col-md-2'>
+										<label for="aceiteProdGerenteTIData" class="required">Data / Assinatura</label>
+										<input type="text" class="form-control" id="aceiteProdGerenteTIData" name="aceiteProdGerenteTIData" readonly="true" />
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</body>
+
+</html>

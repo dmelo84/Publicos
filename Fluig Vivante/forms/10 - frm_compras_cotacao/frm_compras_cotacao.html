@@ -1,0 +1,644 @@
+<html>
+
+<head>
+
+	<link type="text/css" rel="stylesheet" href="/portal/resources/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+
+	<script type="text/javascript" src="/portal/resources/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<link type="text/css" rel="stylesheet" href="css/vivante-style.css" />
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+
+	<script src="js/plugins/moment/moment.js"></script>
+
+	<script src="js/plugins/numeral/numeral.min.js"></script>
+	<script src="js/plugins/numeral/pt-br.min.js"></script>
+
+<!--
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js" charset="utf-8"></script>
+
+	-->
+
+	
+
+
+
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form" class="col-md-12 fs-no-padding">
+			<div id="header_cotacao">
+				<h1>
+					<strong style="color: #7E3A7F">
+						<span class="fluigicon fluigicon-test-refresh fluigicon-lg"></span> Cotação de Compras
+					</strong>
+				</h1>
+				<hr>
+			</div>
+			<input type="hidden" placeholder="emElaboracao" class="form-control" name="emElaboracao" id="emElaboracao">
+			<input type="hidden" placeholder="cotacao_completa" class="form-control" name="cotacao_completa" id="cotacao_completa">
+			<input type="hidden" placeholder="cotacao_folderId" class="form-control" name="cotacao_folderId" id="cotacao_folderId">
+			<input type="hidden" placeholder="codusuario_solicitante" class="form-control" name="codusuario_solicitante" id="codusuario_solicitante">
+			<input type="hidden" placeholder="codusuario_rm" class="form-control" name="codusuario_rm" id="codusuario_rm">
+			<div id="divIdentificacaoCotacao" class="panel panel-default">
+				<fieldset name="fieldset_cabecalho">
+					<div class="panel-body ">
+						<div class="col-md-8">
+							<div class="row">
+								<div class="form-group col-md-2">
+									<label for="numero_cotacao" class="fs-display-block">Nro da Cotação </label>
+									<input type="text" style="display:block; font-size: 25px; color: #7E3A7F; font-weight: bold;" name="numero_cotacao" id="numero_cotacao" class="fs-no-style-input"
+										   placeholder="####" readonly>
+								</div>
+								<div class="form-group col-md-3">
+									<label for="data_cotacao">Data Cotação</label>
+									<input type="text" name="data_cotacao" id="data_cotacao" class="form-control" readonly>
+								</div>
+								<div class="form-group col-md-3">
+									<label class="control-label" for="data_limite">Data Limite</label>
+									<div class="input-group date" id="data_limite_group">
+										<input type="text" name="data_limite" id="data_limite" data-validation="required" data-validation-error-msg="Informe a data limite da cotação."
+											   data-validation-error-msg-container="#" class="form-control">
+										<span class="input-group-addon">
+											<span class="fluigicon fluigicon-calendar"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-4">
+									<label for="nome_comprador">Comprador</label>
+									<input type="text" name="nome_comprador" id="nome_comprador" class="form-control" readonly>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="empresa_codigo">Empresa</label>
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="empresa_codigo" style="text-align:center" name="empresa_codigo" size="1" class="fs-no-style-input" placeholder=""
+												   data-validation="required" data-validation-error-msg="É necessário informar a empresa." readonly>
+										</span>
+										<input type="text" class="form-control" name="empresa_nome" id="empresa_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											   data-validation-error-msg="É necessário informar a empresa." />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acEmpresa">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+								<div class="form-group col-md-6">
+									<label for="filial_nome">Filial</label>
+									<div class="input-group" id="">
+										<span class="input-group-addon fs-xs-space">
+											<input type="text" id="filial_codigo" style="text-align:center" name="filial_codigo" size="4" class="fs-no-style-input" placeholder=""
+												   data-validation="required" data-validation-error-msg="É necessário informar a Filial." readonly>
+										</span>
+										<input type="text" class="form-control" name="filial_nome" id="filial_nome" placeholder="Digite para iniciar a pesquisa" data-validation="required"
+											   data-validation-error-msg="É necessário informar a filial." />
+										<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acFilial">
+											<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row col-md-4 fs-no-margin">
+
+							<div class="form-group col-md-12 fs-no-padding-right ">
+								<label for="observacoes">Observações</label>
+								<textarea class="form-control" rows="4" name="observacoes" id="observacoes"></textarea>
+								<p>As observações serão exibidas aos fornecedores da cotação</p>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div id="divItensCotacao" class="panel panel-default">
+				<div class="panel-body  fs-no-padding-top">
+					<div class="col-md-12 ">
+						<div class="row">
+							<div class="col-md-6">
+								<h2><strong style="color: #7E3A7F">Solicitações de Compras</strong></h2>
+								Seleção dos produtos/serviços solicitados para cotação.
+							</div>
+							<div class="col-md-6 fs-lg-margin-top" id="divIncluirSolicitacoes">
+								<button class="btn btn-primary pull-right fs-v-align-middle" data-btn-selecao-solicitacao disabled><i class="fluigicon fluigicon-plus-sign icon-sm"></i> Incluir
+									Solicitações</button>
+							</div>
+						</div>
+						<table tablename="tblItem" class="table" nodeletebutton="true" noaddbutton="true">
+							<thead>
+								<tr>
+									<td style="width: 30px;">Item</td>
+									<td>Solicitação</td>
+									<td>Data Solicitação</td>
+									<td>Produto/Serviço</td>
+									<td>Quantidade</td>
+									<td></td>
+									<td style="display: none"></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="fs-xs-space col-md-2" style="width: 60px;">
+										<input type="text" class="form-control" size="2" name="item_seq" id="item_seq" readonly>
+									</td>
+									<td class="col-md-1 fs-xs-space">
+										<input type="text" class="form-control fs-txt-right " name="solicitacao_numero" id="solicitacao_numero" readonly>
+									</td>
+									<td class="col-md-2 fs-xs-space">
+										<input type="text" class="form-control" name="solicitacao_data" id="solicitacao_data" readonly>
+									</td>
+									<td class="fs-xs-space">
+										<div class="input-group">
+											<span class="input-group-addon">
+												<input type="text" name="produto_codigo" id="produto_codigo" size="5" class="fs-no-style-input" readonly>
+											</span>
+											<input name="produto_descricao" id="produto_descricao" class="form-control" readonly>
+										</div>
+									</td>
+									<td class="col-md-1 fs-xs-space">
+										<input name="produto_quantidade" id="produto_quantidade" class="form-control" readonly>
+									</td>
+									<td class="col-md-1 fs-xs-space">
+										<div class="btn-group  pull-right">
+											<button type="button" class="btn btn-info " id="btnDetalheItem" data-btn-open-modal-historicoItem onclick="openModalHistoricoItem(this)"
+													data-toggle="tooltip" data-placement="bottom" title="Últimas Compras">
+												<span class="fluigicon fluigicon-search-test fluigicon-sm" style="display: inline"></span>
+											</button>
+											<button type="button" class="btn btn-danger" id="btnRemoveItem" data-btn-remover-item-cotacao onclick="delItemCotacao(this)" data-toggle="tooltip"
+													data-placement="bottom" title="Excluir">
+												<span style="display: inline" class="fluigicon fluigicon-remove-circle fluigicon-sm fs-cursor-pointer"></span>
+											</button>
+										</div>
+									</td>
+									<td style="display:none;">
+										<input type="text" class="form-control" name="sol_unidade" id="sol_unidade" >
+										<input type="hidden" class="form-control" name="sol_unidade_nome" id="sol_unidade_nome" >
+										<input type="hidden" class="form-control" name="solicitacao_item_seq" id="solicitacao_item_seq" >
+										<input type="hidden" class="form-control" name="solicitacao_documentid" id="solicitacao_documentid" >
+										<input type="text" name="ccusto_codigo" id="ccusto_codigo">
+										<input type="text" name="ccusto_nome" id="ccusto_nome">
+										<input type="hidden" class="form-control" name="produto_itemfamily" id="produto_itemfamily" >
+										<input type="hidden" class="form-control" name="produto_itemcontrl" id="produto_itemcontrl" >
+										<input type="hidden" class="form-control" name="produto_tipo" id="produto_tipo" >
+										<input type="hidden" class="form-control" name="produto_codtb2fat" id="produto_codtb2fat" >
+										<input type="hidden" class="form-control" name="produto_codtborcamento" id="produto_codtborcamento" >
+										<input type="text" class="form-control" name="produto_idprd" id="produto_idprd" >
+										<input type="hidden" class="form-control" name="solicitacao_local_estoque" id="solicitacao_local_estoque" >
+										<input type="hidden" name="entrega_endereco" id="entrega_endereco">
+										<input type="hidden" name="entrega_cidade" id="entrega_cidade">
+										<input type="hidden" name="entrega_uf" id="entrega_uf">
+										<input type="hidden" name="entrega_filial" id="entrega_filial">
+										<input type="hidden" name="entrega_local_nome" id="entrega_local_nome">
+										<input type="hidden" name="produto_observacoes" id="produto_observacoes">
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="divFornecedoresCotacao" class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-md-12">
+
+						<div class="row">
+							<div class="col-md-5 ">
+								<h2><strong style="color: #7E3A7F">Fornecedores</strong></h2>
+								Seleção dos fornecedores que participarão da cotação.
+							</div>
+							<div id="divLocalizarFornecedor" class="row  col-md-7 pull-right fs-md-margin-top">
+									<div class="form-group col-md-12">
+										
+										<label>Fornecedor</label>
+										<div class="input-group col-md-12 " id="">
+											<span class="input-group-addon fs-xs-space">
+												<input type="text" id="forn_codigo_pesquisa" style="text-align:center" name="forn_codigo_pesquisa" size="20" class="fs-no-style-input" placeholder="" readonly>
+											</span>
+											<input type="text" class="form-control" name="forn_nome_pesquisa" id="forn_nome_pesquisa" placeholder="Digite para iniciar a pesquisa" />
+											<span class="input-group-addon fs-xs-space fs-cursor-pointer" data-btn-zoom-autocomplete="acFornecedor">
+												<span class="fluigicon fluigicon-xs fluigicon-pointer-down"></span>
+											</span>
+											<button class="btn btn-primary pull-right " onclick="addFornecedor();"><i class="fluigicon fluigicon-plus-sign icon-sm"></i> Incluir Fornecedor</button>
+										</div>
+								
+									</div>
+
+								</div>
+						</div>
+						
+						<div class="">
+						
+							<table tablename="tblFornecedor" id="tblFornecedor" class="table" nodeletebutton="true" noaddbutton="true">
+								<thead>
+									<tr>
+										<td style="display: none;"></td>
+										<td></td>
+										<td style="width: 10px"></td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td style="display: none;">
+											<h4>
+												<strong>
+													<input type="text" size="2" class="fs-no-style-input" name="forn_seq" id="forn_seq" readonly>
+												</strong>
+											</h4>
+										</td>
+										<td>
+											<div class="row col-md-12">
+												<div class="form-group col-md-4">
+													<label style="display: block">Fornecedor</label>
+													<span class="text-info" style="font-size: 20px; font-weight: bold;">
+														<input class="fs-no-style-input" style="width:100%;" type="text" name="forn_nome" data-forn-nome id="forn_nome" readonly>
+													</span>
+													<span style="font-size: 15px;">
+														<input class="fs-no-style-input" style="width:100%;" type="text" name="forn_razaosocial" data-forn-nome id="forn_razaosocial" readonly>
+													</span>
+													<span><input class="fs-no-style-input" size="18" name="forn_cnpj" id="forn_cnpj" readonly></span>
+												</div>
+												<div class="form-group col-md-2 fs-no-padding-left">
+													<label style="display: block">Telefone</label>
+													<input class="form-control " style="width:100%;" name="forn_telefone" id="forn_telefone" readonly>
+												</div>
+												<div class="form-group col-md-2 fs-no-padding-left" style="min-width:250px">
+													<label style="display: block">E-mail</label>
+													<input class="form-control" style="width:100%;" name="forn_email" id="forn_email" readonly>
+												</div>
+												<div class="form-group col-md-2 fs-no-padding-left">
+													<label style="display: block">Contato</label>
+													<input class="form-control" style="width:100%;" name="forn_contato" id="forn_contato" readonly>
+												</div>
+
+												<div class="form-group col-md-2 fs-no-padding-left">
+												  <label for="cotacao_tipo_cotacao">Forma de Cotar</label>
+												<select data-tipo-cotacao class="form-control"  name="cotacao_tipo_cotacao" id="cotacao_tipo_cotacao"
+												data-validation-error-msg="Selecione a forma de cotar" data-validation="required" data-validation-error-msg-container="#">
+													<option disabled selected value>Selecione</option>
+													<option value="manual">Manual</option>
+													<option value="web">Web</option>
+												</select>
+												</div>
+												<!--<div class="form-group col-md-2 " style="width:200px;">
+
+
+													<label>Forma de Cotar
+														<span class="fluigicon fluigicon-info-sign fluigicon-xs"></span>
+													</label>
+													<div class="btn-group col-md-12" style="padding: 0;" data-toggle="buttons">
+														<label class="btn btn-default col-xs-6 active">
+															<input data-tipo-cotacao type="radio" name="cotacao_tipo_cotacao" id="cotacao_tipo_cotacao1" data-validation="required"
+																   data-validation-error-msg="#" data-validation-error-msg-container="#" value="manual">
+															<i class="fas fa-compress"></i>Manual
+														</label>
+														<label class="btn btn-default col-xs-6">
+															<input data-tipo-cotacao type="radio" name="cotacao_tipo_cotacao" id="cotacao_tipo_cotacao2" data-validation="required"
+																   data-validation-error-msg="#" data-validation-error-msg-container="#" value="web">
+															<i class="fas fa-file-signature"></i> Web
+														</label>
+													</div>-->
+												</div>
+											</div>
+											<div id="divCapaCotacaoFornecedor">
+												<!-- Nav tabs -->
+												<div id="NavTabsCotacao">
+													<ul class="nav nav-tabs" role="tablist">
+														<li class="active">
+															<a href="#tabAtual" id="tabMenuRegistroPreco" data-nav-tab-atual role="tab" data-toggle="tab"><span
+																	  class="fluigicon fluigicon-user-cost fluigicon-sm"></span>
+																Cotação</a>
+														</li>
+														<li>
+															<a href="#tabOriginal" id="tabMenuNegociacao" role="tab" data-nav-tab-inicial data-toggle="tab"><span
+																	  class="fluigicon fluigicon-user-transfer fluigicon-sm"></span> Negociação</a>
+														</li>
+													</ul>
+													<!-- Tab panes -->
+													<div class="tab-content">
+														<div class="tab-pane active" data-nav-pane-atual id="tabAtual">
+															<!--id="divCapaCotacaoFornecedor" data-cotacao-capa -->
+															<div data-cotacao-capa class="">
+																<h3 class="fs-no-margin-top"><strong data-cotacao-header></strong></h3>
+
+																<div id="locaisEntregaCotacaoFornecedor">
+
+
+
+
+
+
+
+
+																</div>
+
+
+
+																<div class="row" data-div-capa-cotacao-fornecedor>
+
+																</div>
+																<!--<div class="row">
+																			<div class="form-group col-md-2">
+																				<label>Data Entrega</label>
+																				<input type="text" data-previsao-entrega name="cotacao_previsao_entrega" id="cotacao_previsao_entrega"
+																					   class="form-control">
+																			</div>
+																			<div class="form-group col-md-2">
+																				<label>Valor Frete</label>
+																				<div class="input-group">
+																					<span class="input-group-addon">
+																						<input name="cotacao_tem_frete" id="cotacao_tem_frete" value="sim" type="checkbox">
+																					</span>
+																					<input type="text" data-mask-money name="cotacao_valor_frete" id="cotacao_valor_frete" class="form-control"
+																						   placeholder="R$ 0,00">
+																				</div>
+																			</div>
+																			<div class="form-group col-md-2">
+																				<label>Cond. Pagto</label>
+																				<input type="text" name="cotacao_cond_pgto" id="cotacao_cond_pgto" class="form-control">
+																			</div>
+																			<div class="form-group col-md-2" style="width:auto;">
+																				<label style="display:block">Total Itens</label>
+																				<strong class=""><input type="text" size="14" style="display:block; font-size: 20px" value="R$ 0,00"
+																						   placeholder="R$ 0,00" name="cotacao_total_itens" id="cotacao_total_itens" class="fs-no-style-input"
+																						   readonly></strong>
+																			</div>
+																			<div class="form-group col-md-2" style="width:auto;">
+																				<label style="display:block">Total Cotação</label>
+																				<strong><input type="text" size="14" style="display:block; font-size: 20px" value="R$ 0,00" placeholder="R$ 0,00"
+																						   name="cotacao_total_cotacao" id="cotacao_total_cotacao" class="fs-no-style-input" readonly></strong>
+																			</div>
+																			<div class="btn-group" style="margin-top:24px">
+																				<button type="button" class="btn btn-default" id="btn_forn_itens" name="btn_forn_itens" data-btn-cotacao-fornecedor
+																						onclick="openModalCotacaoFornecedor(this,'atual',null)">
+																					<span class="fluigicon fluigicon-money fluigicon-sm fs-cursor-pointer"></span> Preços Cotados
+																				</button>
+																				<button type="button" data-btn-anexar-cotacao class="btn btn-default" id="btn_forn_anexar" name="btn_forn_anexar">
+																					<span class="fluigicon fluigicon-file-upload fluigicon-sm fs-cursor-pointer"></span> Anexar
+																				</button>
+																			</div>
+																		</div>-->
+															</div>
+
+
+
+
+														</div>
+														<div class="tab-pane" data-nav-pane-inicial id="tabOriginal">
+															<div id="divCapaCotacaoFornecedor_historico" class="">
+																<h3 class="fs-no-margin-top"><strong></strong></h3>
+																<div class="row">
+																	<div class="form-group col-md-2">
+																		<label>Data Entrega</label>
+																		<input type="date" name="cotacao_prev_entrega_hist" id="cotacao_prev_entrega_hist" class="form-control" readonly>
+																	</div>
+																	<div class="form-group col-md-2">
+																		<label>Valor Frete</label>
+																		<div class="input-group">
+																			<span class="input-group-addon">
+																				<input name="cotacao_tem_frete_hist" id="cotacao_tem_frete_hist" type="checkbox" readonly>
+																			</span>
+																			<input type="text" data-mask-money name="cotacao_valor_frete_hist" id="cotacao_valor_frete_hist" class="form-control"
+																				   placeholder="R$ 0,00" readonly>
+																		</div>
+																	</div>
+																	<div class="form-group col-md-2">
+																		<label>Cond. Pagto</label>
+																		<input type="text" name="cotacao_cond_pgto_hist" id="cotacao_cond_pgto_hist" class="form-control" readonly>
+																	</div>
+																	<div class="form-group col-md-2" style="width:auto;">
+																		<label style="display:block">Total Itens</label>
+																		<strong class=""><input type="text" size="14" style="display:block; font-size: 20px" value="R$ 0,00" placeholder="R$ 0,00"
+																				   name="cotacao_total_itens_hist" id="cotacao_total_itens_hist" class="fs-no-style-input" readonly></strong>
+																	</div>
+																	<div class="form-group col-md-2" style="width:auto;">
+																		<label style="display:block">Total Cotação</label>
+																		<strong><input type="text" size="14" style="display:block; font-size: 20px" value="R$ 0,00" placeholder="R$ 0,00"
+																				   name="cotacao_total_hist" id="cotacao_total_hist" class="fs-no-style-input" readonly></strong>
+																	</div>
+																	<div class="btn-group" style="margin-top:24px">
+																		<button type="button" class="btn btn-default" id="btn_forn_itens_hist" name="btn_forn_itens_hist" data-btn-cotacao-fornecedor
+																				onclick="openModalCotacaoFornecedor(this,'inicial')">
+																			<span class="fluigicon fluigicon-money fluigicon-sm fs-cursor-pointer"></span> Preços Cotados
+																		</button>
+																		<button type="button" class="btn btn-default" id="btn_forn_anexar_hist" name="btn_forn_anexar_hist">
+																			<span class="fluigicon fluigicon-file-upload fluigicon-sm fs-cursor-pointer"></span> Anexar
+																		</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<input class="fs-no-style-input" style="width:100%;" type="text" name="forn_codcfo" id="forn_codcfo" readonly>
+											<input class="fs-no-style-input" style="width:100%;" type="text" name="forn_key" id="forn_key" readonly>
+											<input class="fs-no-style-input" style="width:100%;" type="hidden" name="forn_childId" id="forn_childId" readonly>
+											<input class="fs-no-style-input" style="width:100%;" type="hidden" name="forn_folderId" id="forn_folderId" readonly>
+										</td>
+										<td>
+											<div class="btn-group">
+												<button type="button" class="btn btn-default" id="btn_forn_remover" data-btn-remover-fornecedor onclick="delFornecedor(this)">
+													<span style="display: inline" class="fluigicon fluigicon-remove-circle fluigicon-sm fs-cursor-pointer"></span>
+												</button>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="alert alert-info" role="alert">
+								<strong>Aviso! </strong> A empresa determina que ao menos 3 fornecedores participem do processo de cotação.
+							</div>
+							<div></div>
+						</div>
+						<div id="divBtnQuadroVencedor" class="row col-md-12">
+							<div id="divBtnQuadroComparativo" class="fs-display-inline">
+								<button data-btn-open-quadro class="btn btn-primary btn-lg">
+									<span class="fluigicon fluigicon-box fluigicon-sm"></span> Visualizar Quadro Comparativo
+								</button>
+							</div>
+						</div>
+
+						<table style="display: none  ;" tablename="tblItensCotacaoFornecedor" id="tblItensCotacaoFornecedor" class="table" nodeletebutton="true" noaddbutton="true">
+							<thead>
+								<tr>
+									<td></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input type="hidden" name="cotacao_unidade" id="cotacao_unidade">
+										<input type="text" name="cotacao_unidade_nome" id="cotacao_unidade_nome">
+										<input type="hidden" name="cotacao_item_seq" id="cotacao_item_seq">
+										<input type="hidden" name="cotacao_status_item" id="cotacao_status_item" data-cotacao-status-item>
+										<input type="hidden" name="cotacao_solicitacao_numero" id="cotacao_solicitacao_numero">
+										<input type="text" name="cotacao_sol_documentid" id="cotacao_sol_documentid">
+										<input type="hidden" name="cotacao_codcfo" id="cotacao_codcfo">
+										<input type="hidden" name="cotacao_forn_nome" id="cotacao_forn_nome">
+										<input type="hidden" name="cotacao_key" id="cotacao_key">
+										<input type="hidden" name="cotacao_produto_codigo" id="cotacao_produto_codigo">
+										<input type="hidden" name="cotacao_produto_descricao" id="cotacao_produto_descricao">
+										<input type="hidden" data-mask-value name="cotacao_produto_quantidade" id="cotacao_produto_quantidade">
+										<input type="hidden" data-mask-value name="cotacao_produto_ipi" id="cotacao_produto_ipi">
+										<input type="hidden" data-mask-value name="cotacao_preco" id="cotacao_preco">
+										<input type="hidden" name="cotacao_solicitacao_item_seq" id="cotacao_solicitacao_item_seq">
+										<input type="hidden" name="cotacao_icmsst" id="cotacao_icmsst">
+										<input type="hidden" name="cotacao_desconto" id="cotacao_desconto">
+										<input type="hidden" name="cotacao_total_item" id="cotacao_total_item">
+										<input type="hidden" name="cotacao_ccusto_codigo" id="cotacao_ccusto_codigo">
+										<input type="hidden" name="cotacao_ccusto_nome" id="cotacao_ccusto_nome">
+										<input type="hidden" name="cotacao_childId" id="cotacao_childId">
+										<input type="text" name="cotacao_item_vencedor" id="cotacao_item_vencedor">
+										<input type="hidden" name="cotacao_produto_itemfamily" id="cotacao_produto_itemfamily">
+										<input type="hidden" name="cotacao_produto_itemcontrl" id="cotacao_produto_itemcontrl">
+										<input type="hidden" name="cotacao_produto_tipo" id="cotacao_produto_tipo">
+										<input type="hidden" name="cotacao_produto_codtb2fat" id="cotacao_produto_codtb2fat">
+										<input type="text" name="cotacao_produto_idprd" id="cotacao_produto_idprd">
+										<input type="hidden" name="cotacao_produto_codtborcamento" id="cotacao_produto_codtborcamento">
+										<input type="text" name="cotacao_sol_local_estoque" id="cotacao_sol_local_estoque">
+										<input type="hidden" name="cotacao_cnpj_filial_vivante" id="cotacao_cnpj_filial_vivante">
+										<input type="hidden" name="cotacao_entrega_endereco" id="entrega_endereco">
+										<input type="hidden" name="cotacao_entrega_cidade" id="entrega_cidade">
+										<input type="hidden" name="cotacao_entrega_uf" id="entrega_uf">
+										<input type="hidden" name="cotacao_entrega_filial" id="entrega_filial">
+										<input type="hidden" name="cotacao_entrega_local_nome" id="cotacao_entrega_local_nome">
+										<input type="hidden" name="cotacao_produto_observacoes" id="cotacao_produto_observacoes">
+
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+						<table style="display: none;" tablename="tblItensCotacaoFornecedorHistorico" id="tblItensCotacaoFornecedorHistorico" class="table" nodeletebutton="true" noaddbutton="true">
+							<thead>
+								<tr>
+									<td></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input type="hidden" name="hist_cotacao_unidade" id="hist_cotacao_unidade">
+										<input type="hidden" name="hist_cotacao_unidade_nome" id="hist_cotacao_unidade_nome">
+										<input type="text" name="hist_cotacao_item_seq" id="hist_cotacao_item_seq">
+										<input type="text" name="hist_cotacao_status_item" id="hist_cotacao_status_item">
+										<input type="text" name="hist_cotacao_solicit_numero" id="hist_cotacao_solicit_numero">
+										<input type="text" name="hist_cotacao_codcfo" id="hist_cotacao_codcfo">
+										<input type="text" name="hist_cotacao_key" id="hist_cotacao_key">
+										<input type="text" name="hist_cotacao_produto_codigo" id="hist_cotacao_produto_codigo">
+										<input type="text" name="hist_cotacao_produto_descricao" id="hist_cotacao_produto_descricao">
+										<input type="text" data-mask-value name="hist_cotacao_prod_quantidade" id="hist_cotacao_prod_quantidade">
+										<input type="text" data-mask-value name="hist_cotacao_produto_ipi" id="hist_cotacao_produto_ipi">
+										<input type="text" data-mask-value name="hist_cotacao_preco" id="hist_cotacao_preco">
+										<input type="text" name="hist_cotacao_solicit_item_seq" id="hist_cotacao_solicit_item_seq">
+										<input type="text" name="hist_cotacao_icmsst" id="hist_cotacao_icmsst">
+										<input type="text" name="hist_cotacao_desconto" id="hist_cotacao_desconto">
+										<input type="text" name="hist_cotacao_total_item" id="hist_cotacao_total_item">
+										<input type="text" name="hist_cotacao_ccusto_codigo" id="cotacao_ccusto_codigo">
+										<input type="text" name="hist_cotacao_ccusto_nome" id="cotacao_ccusto_nome">
+										<input type="text" name="hist_cotacao_childId" id="hist_cotacao_childId">
+										<input type="text" name="hist_cotacao_item_vencedor" id="hist_cotacao_item_vencedor">
+										<input type="text" name="hist_cotacao_prod_itemfamily" id="hist_cotacao_prod_itemfamily">
+										<input type="text" name="hist_cotacao_prod_itemcontrl" id="hist_cotacao_prod_itemcontrl">
+										<input type="text" name="hist_cotacao_produto_tipo" id="hist_cotacao_produto_tipo">
+										<input type="text" name="hist_cotacao_produto_codtb2fat" id="hist_cotacao_produto_codtb2fat">
+										<input type="text" name="hist_cotacao_produto_idprd" id="hist_cotacao_produto_idprd">
+										<input type="hidden" name="hist_cnpj_filial_vivante" id="hist_cnpj_filial_vivante">
+										<input type="text" name="hist_cotacao_entrega_endereco" id="entrega_endereco">
+										<input type="text" name="hist_cotacao_entrega_cidade" id="entrega_cidade">
+										<input type="text" name="hist_cotacao_entrega_uf" id="entrega_uf">
+										<input type="text" name="hist_cotacao_entrega_filial" id="entrega_filial">
+										<input type="text" name="hist_entrega_local_nome" id="hist_entrega_local_nome">
+										<input type="hidden" name="hist_cotacao_prod_observacoes" id="hist_cotacao_prod_observacoes">
+
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+						<table style="display: none;" tablename="tblLocalCotacaoFornecedor" id="tblLocalCotacaoFornecedor" class="table" nodeletebutton="true" noaddbutton="true">
+							<thead>
+								<tr>
+									<td></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<input type="text" name="local_childId" id="local_childId">
+										<input type="text" name="local_codigo" id="local_codigo">
+										<input type="text" name="local_forn_key" id="local_forn_key">
+										<input type="text" name="local_nome" id="local_nome">
+										<input type="text" name="local_endereco" id="local_endereco">
+										<input type="text" name="local_estado" id="local_estado">
+										<input type="text" name="local_cidade" id="local_cidade">
+										<input type="text" name="local_cep" id="local_cep">
+										<input type="text" name="local_tem_frete" id="local_tem_frete">
+										<input type="text" name="local_valor_frete" id="local_valor_frete">
+										<input type="text" name="local_condpgto" id="local_condpgto">
+										<input type="text" name="local_dataentrega" id="local_dataentrega">
+
+									</td>
+								</tr>
+							</tbody>
+
+						</table>
+
+					</div>
+				</div>
+			</div>
+			<div id="divEscolhaFornecedores" class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-md-12">
+						<div id="aprovacaoEscolhaFornecedor_quadro"></div>
+					</div>
+				</div>
+			</div>
+			
+		</form>
+	</div>
+
+
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/autoComplete.js"></script>
+	<script type="text/javascript" src="js/inicializadores.js"></script>
+	<script type="text/javascript" src="js/quadro_comparativo.js"></script>
+	<script type="text/javascript" src="js/beforeSendValidate.js"></script>
+	<script src="js/plugins/jquery.form-validator.min.js"></script>
+	<script src="js/plugins/jquery.maskMoney.min.js"></script>
+
+
+	<!--Bootstrap table-->
+
+<!--
+	<script src="/devLib/resources/js/plugins/datatables/jquery.dataTables.css"></script>
+	<script src="/devLib/resources/js/plugins/datatables/jquery.dataTables.js"></script>
+	<script src="/devLib/resources/js/plugins/datatables/dataTables.buttons.min.js"></script>
+	<script src="/devLib/resources/js/plugins/datatables/dataTables.select.min.js"></script>
+	<script src="/devLib/resources/js/plugins/datatables/dataTables.editor.min.js"></script>
+
+-->
+
+	<link type="text/css" rel="stylesheet" href="/devLib/resources/js/plugins/datatables/datatables.css" />
+	<script type="text/javascript" src="/devLib/resources/js/plugins/datatables/datatables.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/devLib/resources/js/plugins/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/devLib/resources/js/plugins/datatables/jquery.dataTables.js" charset="utf-8"></script>	
+	<script type="text/javascript" src="/devLib/resources/js/plugins/datatables/dataTables.editor.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/devLib/resources/js/plugins/datatables/Buttons-1.5.6/js/buttons.flash.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/devLib/resources/js/plugins/datatables/Buttons-1.5.6/js/buttons.html5.min.js" charset="utf-8"></script>
+
+
+
+
+</body>
+
+</html>

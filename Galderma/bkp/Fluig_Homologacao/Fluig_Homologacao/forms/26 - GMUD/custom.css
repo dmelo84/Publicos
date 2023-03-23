@@ -1,0 +1,82 @@
+label {
+	margin-top: 10px;
+}
+
+h4 {
+	font-weight: bold !important;
+}
+
+.disabledButtons {
+    pointer-events: none;
+    opacity: 0.4;
+}
+.atencaoVermelho {
+	color: red;
+	font-weight: bold;
+}
+.required:after {
+	content: " *" !important;
+	color: red  !important;
+}
+
+.bold {
+	font-weight: bold !important;
+}
+
+.duvida {
+	color: red;
+}
+
+.lixeiraCustomizada {
+	background: transparent;
+	background-image: url("lixeira.png");
+	background-repeat: no-repeat;
+	background-position: center top;
+	border: 0px;
+	cursor: pointer;
+	/*width:52px;
+	height:52px;*/
+	padding-top: 35px;
+	width: 28px;
+	color: darkgrey;
+}
+.CheckCustomizado {
+	background: transparent;
+	background-image: url("check.png");
+	background-repeat: no-repeat;
+	background-position: center top;
+	border: 0px;
+	cursor: pointer;
+	/*width:52px;
+	height:52px;*/
+	padding-top: 35px;
+	width: 28px;
+	color: darkgrey;
+}
+
+#mapa_novo {
+  padding: 5%;
+  height: 210px;
+}
+
+.solucaoTable {
+	width: 10px;
+}
+
+.tabData {
+	width: 100px !important;
+}
+
+.tabUsuarioChave {
+	width: 150px !important;
+}}
+
+.workflow-view-form-hidden {
+	opacity: 150 !important; 
+}
+
+
+@media (min-width: 101px ) and (max-width: 1920px) {                  
+
+ }
+ 

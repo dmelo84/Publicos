@@ -1,0 +1,187 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+</head>
+<body onload="init()">
+<div class="fluig-style-guide">
+<form name="form" role="form">
+<div class = 'row'>
+	<div class="col-md-2">
+		<div class="form-group">
+			<label for="empresaId" class="required">Empresa<font color="#FF0000">*</font></label>
+				<select class="form-control" name="empresaId" id="empresaId" onChange="setFiltro()"/>
+				    <option value="01" selected="selected">01-Galderma</option>
+				    <option value="02">02-Galderma Distribuidora</option>
+				 </select>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<div class="form-group">
+			<label for="depto" class="required">Departamento<font color="#FF0000">*</font></label>
+				<select class="form-control" name="depto" id="depto" onChange="setFiltro()"/>
+				    <option value="SE2" selected="selected">Contas a Pagar</option>
+				    <option value="SE1">Contas a Receber</option>
+				 </select>
+		</div>
+	</div>
+	<div class="col-md-2" id="divN1">
+		<div class="form-group">
+			<label for="aprovaN1" class="required">Aprovado?<font color="#FF0000">*</font></label>
+				<select class="form-control" name="aprovaN1" id="aprovaN1" />
+				    <option value="N" selected="selected">Não</option>
+				    <option value="S">Sim</option>
+				 </select>
+		</div>
+	</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+	<div class="form-field table-responsive" data-type="tabledetail"
+		data-show-properties="" data-field-name="tabledetail">
+		<table id='minhaTabela' class="table" cellspacing="0" tablename="ingre" customFnDelete="fnCustomDelete(this)" noaddbutton=true>
+			<thead>
+				<tr class="tableHeadRow">
+					<th class="tableColumn">Empresa</th>
+					<th class="tableColumn">Filial</th>
+					<th class="tableColumn">Nome</th>
+					<th class="tableColumn">Prefixo</th>
+					<th class="tableColumn">Numero</th>
+				    <th class="tableColumn">Parcela</th>  
+				    <th class="tableColumn">Tipo</th> 
+				    <th class="tableColumn">Valor</th> 
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				<td class="col-md-2 col-sm-2">
+					<div class="form-group">
+						<div class="form-group">
+							<input type="text" name="empresa" id="empresa" class="form-control"/>
+						</div>
+						</div>
+	    		</td>
+	    		<td class="col-md-1 col-sm-1">
+					<div class="form-group">
+						<div class="form-group">
+							<input type="text" name="filial" id="filial" class="form-control"/>
+						</div>
+						</div>
+	    		</td>
+			<!-- -->
+					</td>
+					<td class="col-md-2 col-sm-2">
+						<div class="form-group">
+						<div class="form-group">
+							<input type="text" name="nome" id="nome" class="form-control"/>
+						</div>
+						</div>
+					</td>
+					<td class="col-md-1 col-sm-2">
+						<div class="form-group">
+							<input type="text" name="prefixo" id="prefixo" class="form-control"/>
+						</div>
+					</td>
+					<td class="col-md-3 col-sm-2">
+						<div class="form-group">
+							<input
+						    type="zoom"
+						    id = "titulo"
+						    name="titulo"
+						    data-zoom="{
+						        'displayKey':'Numero',
+						        'datasetId':'dsConsultaContasPagar',
+						        'maximumSelectionLength':'1',
+						        'placeholder':'Escolha o Titulo',
+						        'filterValues':'',
+						        'fields':[
+						            {
+						               'field':'Prefixo',
+						               'label':'Prefixo'
+						            },{
+						              'field':'Numero',
+						              'label':'Numero',
+						              'standard':'true'
+						            },{
+						              'field':'Tipo',
+						              'label':'Tipo'
+						            },{
+						              'field':'Valor',
+						              'label':'Valor'
+						            },{
+						              'field':'Vencimento',
+						              'label':'Vencimento'
+						            },{
+						              'field':'Nome',
+						              'label':'Nome'
+						            },{
+						              'field':'Parcela',
+						              'label':'Parcela'
+						            }
+						        ]
+						     }"
+						 />
+						</div>
+					</td>
+					<td class="col-md-1 col-sm-2">
+						<div class="form-group">
+							<div class="form-group">
+							<input type="text" name="parcela" id="parcela" class="form-control"/>
+						</div>
+						</div>
+					</td>
+					<td class="col-md-1 col-sm-2">
+						<div class="form-group">
+							<input type="text" name="tipo" id="tipo" class="form-control"/>
+						</div>
+					</td>
+					<td class="col-md-2 col-sm-4">
+						<div class="form-group">
+							<input type="text" name="valor" id="valor" class="form-control" mask="#00.000.000.000.000,00" onblur="somaItens()"/>
+							<!--  Camo que controla a atividade. -->
+							<input type="hidden" name="hdi_etapa" id="hdi_etapa"/>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="form-group">
+	<!--  	<button type="button" class="btn btn-primary" name="inputAdicionar"	id="inputAdicionar" onclick="wdkAddChild('ingre')">Adicionar</button> -->
+	<!--    <button id="modal" name="modal" class="btn btn-primary btn-lg" data-your-modal>Requisição</button>  -->
+	<p align=center>
+		<button type="button" class="btn btn-info" name="addActivityButtons" id="addActivityButtons" data-toggle="button" data-btn-add-item>Adicionar</button>
+	</p>
+	</div>
+</div>
+</div>
+	<div class="row">
+		<div class="form-group col-md-2">
+			<label for="total">Valor Total</font></label>
+			<input type="text" name="total" id="total" class="form-control" mask="#00.000.000.000.000,00" readonly/>
+			<!--  Camo que controla o valor da atividade automática. -->
+			<input type="hidden" name="hdi_total" id="hdi_total"/>
+		</div>
+	<!--	<div class="form-group col-md-2"> -->
+			<!--  	<label for="total">Qtd Itens</font></label> -->
+				<input type="hidden" name="linhas" id="linhas" class="form-control" readonly>
+	<!--	</div> -->
+	</div>
+	<div class="row">
+		<div class="form-group col-md-6">
+			<label for="motivo" class="required">Motivo da Baixa</font></label>
+			<textarea id="motivo" name="motivo" class="form-control"></textarea>
+		</div>
+		<div class="form-group col-md-6">
+			<label for="motivoRep" class="required">Motivo da Reprovação</font></label>
+			<textarea id="motivoRep" name="motivoRep" class="form-control"></textarea>
+		</div>
+	</div>
+</form>
+<script type="text/javascript" src="customizado.js"</script>
+</div>
+</body>
+</html>
